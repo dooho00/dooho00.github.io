@@ -1,8 +1,2 @@
-node_modules
-dist
-.env
-.env.*
 .DS_Store
-npm-debug.log*
 /CV - Dooho Lee.docx
-/profile.jpeg

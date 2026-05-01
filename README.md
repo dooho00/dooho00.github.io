@@ -15,5 +15,3 @@ Recommended setting:
 ```text
 Settings -> Pages -> Deploy from a branch -> main -> /root
 ```
-
-The `docs/` folder contains the same static site if you prefer publishing from `main -> /docs`.
