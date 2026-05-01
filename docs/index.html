@@ -8,17 +8,280 @@
       content="Dooho Lee is a KAIST MS student researching foundation models for structured data across graphs, time series, and tabular data."
     />
     <meta property="og:title" content="Dooho Lee" />
-    <meta
-      property="og:description"
-      content="Researcher-builder working on foundation models for structured data."
-    />
+    <meta property="og:description" content="Researcher-builder working on foundation models for structured data." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/profile.jpeg" />
+    <meta property="og:image" content="profile.jpeg" />
     <title>Dooho Lee | Structured Data Foundation Models</title>
-    <script type="module" crossorigin src="/assets/index-4eb172de.js"></script>
-    <link rel="stylesheet" href="/assets/index-7df106da.css">
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="root"></div>
+    <div class="site-shell">
+      <header class="profile">
+        <img src="profile.jpeg" alt="Dooho Lee" />
+        <div>
+          <h1>Dooho Lee</h1>
+          <p class="role">M.S. Student, KAIST Electrical Engineering</p>
+          <p class="tagline">I build foundation models for structured data.</p>
+          <div class="links" aria-label="Profile links">
+            <a href="mailto:dooho@kaist.ac.kr">Email</a>
+            <a href="https://scholar.google.com/citations?user=Fv4CbSMAAAAJ&amp;hl=en&amp;oi=sra">Google Scholar</a>
+            <a href="https://www.linkedin.com/in/dooho-lee">LinkedIn</a>
+            <a href="Dooho-Lee-CV.docx" download>CV</a>
+          </div>
+        </div>
+      </header>
+
+      <nav class="anchor-nav" aria-label="Section navigation">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#honors">Honors</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#service">Service</a>
+      </nav>
+
+      <main>
+        <section id="about" class="section">
+          <h2>About</h2>
+          <p>
+            I am a second-year M.S. student in Electrical Engineering at KAIST, advised by Prof. Jaemin Yoo and Prof.
+            Kijung Shin. My research focuses on machine learning for structured data, including graphs, time series, and
+            tabular data, with a recent focus on foundation models.
+          </p>
+          <p>
+            Outside academia, I have co-founded and worked as a software engineer and designer in multiple startups,
+            building products around LLM-powered workflows, finance, and mobile applications.
+          </p>
+          <div class="chips">
+            <span>Graph Machine Learning</span>
+            <span>Foundation Models</span>
+            <span>Structured Data</span>
+            <span>Predictive AI</span>
+            <span>Time-Series Modeling</span>
+            <span>Tabular Learning</span>
+          </div>
+        </section>
+
+        <section id="news" class="section">
+          <h2>News</h2>
+          <ul class="simple-list">
+            <li><strong>2026</strong> - View Space accepted to ICML 2026.</li>
+            <li><strong>2025</strong> - Two papers accepted to ICML 2025.</li>
+            <li><strong>2025</strong> - Invited research talk at Korea Software Congress 2025.</li>
+          </ul>
+        </section>
+
+        <section id="publications" class="section">
+          <h2>Publications</h2>
+          <div class="publication-list">
+            <article class="publication">
+              <div class="pub-year">2026</div>
+              <div>
+                <h3>View Space: Learning Representation across Arbitrary Graphs</h3>
+                <p class="authors">Dooho Lee, Myeong Kong, Minho Jeong, and Jaemin Yoo</p>
+                <p class="venue">International Conference on Machine Learning (ICML), 2026</p>
+                <div class="chips compact">
+                  <span>Graph ML</span>
+                  <span>Foundation Models</span>
+                  <span>Representation Learning</span>
+                </div>
+              </div>
+            </article>
+            <article class="publication">
+              <div class="pub-year">2025</div>
+              <div>
+                <h3>Generalizing Multi-Scale Time-Series Modeling with a Single Operator</h3>
+                <p class="authors">Cheonwoo Lee, Dooho Lee, Doyun Choi, and Jaemin Yoo</p>
+                <p class="venue">International Conference on Machine Learning (ICML), 2025</p>
+                <div class="chips compact">
+                  <span>Time Series</span>
+                  <span>Generalization</span>
+                  <span>Predictive AI</span>
+                </div>
+              </div>
+            </article>
+            <article class="publication">
+              <div class="pub-year">2025</div>
+              <div>
+                <h3>Aggregation Buffer: Revisiting DropEdge with a New Parameter Block</h3>
+                <p class="authors">Dooho Lee, Myeong Kong, Sagad Hamid, Cheonwoo Lee, and Jaemin Yoo</p>
+                <p class="venue">International Conference on Machine Learning (ICML), 2025</p>
+                <div class="chips compact">
+                  <span>Graph ML</span>
+                  <span>GNNs</span>
+                  <span>Robust Training</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="projects" class="section">
+          <h2>Projects</h2>
+          <div class="card-grid">
+            <article class="mini-card">
+              <h3>Pensieve Extension</h3>
+              <p class="muted">LLM-powered Chrome highlight note-taking.</p>
+              <p>A Chrome extension that turns browser highlights into structured, real-time notes powered by LLM workflows.</p>
+              <p class="small"><strong>Role:</strong> Founding Engineer &amp; Designer at Pensieve Inc.</p>
+              <p class="small"><strong>Impact:</strong> Built as part of Pensieve's subscription software suite.</p>
+            </article>
+            <article class="mini-card">
+              <h3>Pensieve Notes</h3>
+              <p class="muted">Zoom transcription and automatic meeting notes.</p>
+              <p>A Zoom transcription product that generates meeting notes automatically from live conversations.</p>
+              <p class="small"><strong>Role:</strong> Founding Engineer &amp; Designer at Pensieve Inc.</p>
+              <p class="small"><strong>Impact:</strong> Served 3 organizations through early deployments.</p>
+            </article>
+            <article class="mini-card">
+              <h3>WARD</h3>
+              <p class="muted">ML-based stock information service.</p>
+              <p>A machine-learning stock information service with user research loops for fund managers and beta users.</p>
+              <p class="small"><strong>Role:</strong> Co-Founder, Software Engineer &amp; Designer.</p>
+              <p class="small"><strong>Impact:</strong> Launched private beta with 200+ users.</p>
+            </article>
+            <article class="mini-card">
+              <h3>LayUs</h3>
+              <p class="muted">Exhibition ticket-based F&amp;B coupon redemption.</p>
+              <p>A mobile app where users upload exhibition tickets and redeem food-and-beverage coupons.</p>
+              <p class="small"><strong>Role:</strong> Software Engineer.</p>
+              <p class="small"><strong>Impact:</strong> Awarded 2nd place in an Art Service growth support project.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="experience" class="section">
+          <h2>Experience</h2>
+          <div class="timeline">
+            <article class="timeline-row">
+              <div class="date">2025 - Present</div>
+              <div>
+                <h3>M.S. in Electrical Engineering, KAIST</h3>
+                <p class="muted">Advised by Prof. Jaemin Yoo and Prof. Kijung Shin. GPA: 3.88.</p>
+              </div>
+            </article>
+            <article class="timeline-row">
+              <div class="date">2019 - 2024</div>
+              <div>
+                <h3>B.S. in Electrical Engineering and Computer Science, KAIST</h3>
+                <p class="muted">Double major. Graduated cum laude with GPA 3.77.</p>
+              </div>
+            </article>
+            <article class="timeline-row">
+              <div class="date">2025 - 2026</div>
+              <div>
+                <h3>Research Project, National Cyber Security Research Institute</h3>
+                <p class="muted">Graph-based tracking of news propagation on social media using LLMs.</p>
+              </div>
+            </article>
+            <article class="timeline-row">
+              <div class="date">2024 - 2025</div>
+              <div>
+                <h3>Undergraduate Intern, DataAI Lab, KAIST</h3>
+                <p class="muted">Studied traditional and recent advances in graph machine learning.</p>
+              </div>
+            </article>
+            <article class="timeline-row">
+              <div class="date">2023</div>
+              <div>
+                <h3>Undergraduate Intern, MultiModalAI Lab, KAIST</h3>
+                <p class="muted">Studied foundational deep learning papers in computer vision and multimodality.</p>
+              </div>
+            </article>
+            <article class="timeline-row">
+              <div class="date">2022 - 2023</div>
+              <div>
+                <h3>Founding Engineer &amp; Designer, Pensieve Inc.</h3>
+                <p class="muted">Co-founded a US startup building LLM-powered software products.</p>
+              </div>
+            </article>
+            <article class="timeline-row">
+              <div class="date">2021 - 2023</div>
+              <div>
+                <h3>KATUSA, US Army</h3>
+                <p class="muted">Supported US-KR communication at USAG Humphreys.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="skills" class="section">
+          <h2>Skills</h2>
+          <div class="skill-list">
+            <p><strong>Research:</strong> Graph Machine Learning, Foundation Models, Time-Series Modeling, Tabular Learning, Predictive AI</p>
+            <p><strong>Machine Learning:</strong> PyTorch, PyTorch Geometric, DGL, Weights &amp; Biases</p>
+            <p><strong>Programming:</strong> Python, C, C++, Java, JavaScript, TypeScript</p>
+            <p><strong>Front-End &amp; UI:</strong> HTML, CSS, React, React Native, Flutter</p>
+            <p><strong>Back-End &amp; Data:</strong> MySQL, Neo4j, Chroma, Firebase, Google Cloud Platform</p>
+            <p><strong>Design &amp; Tools:</strong> Figma, Adobe XD, Adobe Illustrator, Git, Chrome Extensions, Zoom Apps</p>
+          </div>
+        </section>
+
+        <section id="honors" class="section">
+          <h2>Awards &amp; Honors</h2>
+          <div class="card-grid two">
+            <article class="mini-card">
+              <h3>Startup</h3>
+              <ul class="simple-list">
+                <li>2nd place, 2023 Korea SW Startup Ideathon <span class="date-inline">Oct 2023</span></li>
+                <li>1st place, Pre-Startup Package, Daejeon CCEI <span class="date-inline">Aug 2021</span></li>
+              </ul>
+            </article>
+            <article class="mini-card">
+              <h3>Design</h3>
+              <ul class="simple-list">
+                <li>1st place, 8th Army ROKA Support Group Insignia Competition <span class="date-inline">Apr 2023</span></li>
+                <li>2nd place, Art Service Follow-up Growth Support Project <span class="date-inline">Nov 2022</span></li>
+              </ul>
+            </article>
+            <article class="mini-card">
+              <h3>Other</h3>
+              <ul class="simple-list">
+                <li>2024 Team KAIST Global Challenge Program, $15,000 funding <span class="date-inline">Apr 2023</span></li>
+                <li>Bronze Medal, NH Investment Securities Big Data Competition <span class="date-inline">Aug 2021</span></li>
+                <li>1st place, Creative Space G A.I &amp; IoT Hackathon <span class="date-inline">Jul 2021</span></li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="teaching" class="section">
+          <h2>Teaching</h2>
+          <div class="timeline">
+            <article class="timeline-row">
+              <div class="date">2025 Spring, Fall</div>
+              <div>
+                <h3>TA, Programming Structures for Electrical Engineering</h3>
+                <p>EE209, KAIST</p>
+                <p class="muted">Developed a data structures programming assignment with auto-grading for 200+ EE majors each semester.</p>
+              </div>
+            </article>
+            <article class="timeline-row">
+              <div class="date">2025 Fall</div>
+              <div>
+                <h3>TA, Foundation of Big Data Analytics</h3>
+                <p>EE412, KAIST</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="service" class="section">
+          <h2>Professional Service</h2>
+          <ul class="simple-list">
+            <li>Reviewer, NeurIPS (2026)</li>
+            <li>
+              Invited Research Talk,
+              <a href="https://www.kiise.or.kr/conference/KSC/2025/">Korea Software Congress 2025</a> (Dec 2025)
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <footer>
+        <p>Dooho Lee - <a href="mailto:dooho@kaist.ac.kr">dooho@kaist.ac.kr</a></p>
+      </footer>
+    </div>
   </body>
 </html>
