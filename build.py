@@ -186,6 +186,38 @@ def render_timeline_section(item: dict[str, Any], links: list[dict[str, Any]]) -
     return section(item["id"], item["title"], timeline)
 
 
+def date_range(entry: dict[str, Any]) -> str:
+    if entry.get("dateEnd"):
+        return f'{e(entry["date"])} - {e(entry["dateEnd"])}'
+    return e(entry["date"])
+
+
+def render_work_experience(item: dict[str, Any], links: list[dict[str, Any]]) -> str:
+    rows = []
+    for entry in item["entries"]:
+        meta_items = []
+        if entry.get("organization"):
+            meta_items.append(rich_text(entry["organization"], links))
+        if entry.get("subtitle"):
+            meta_items.append(rich_text(entry["subtitle"], links))
+        meta_items.append(date_range(entry))
+        meta = "".join(f"<span>{item}</span>" for item in meta_items)
+        parts = [
+            f'              <h3 class="work-role">{rich_text(entry["role"], links)}</h3>',
+            f'              <p class="work-meta">{meta}</p>',
+        ]
+        if entry.get("bullets"):
+            parts.append(indent(simple_list(entry["bullets"], links), 14))
+        body = "\n".join(parts)
+        rows.append(
+            f"""            <article class="work-entry">
+{body}
+            </article>"""
+        )
+    body = f'          <div class="work-list">\n' + "\n".join(rows) + "\n          </div>"
+    return section(item["id"], item["title"], body)
+
+
 def render_publications(data: dict[str, Any]) -> str:
     item = data["publications"]
     rows = []
@@ -284,7 +316,7 @@ def render_html(data: dict[str, Any]) -> str:
             render_summary(data),
             render_timeline_section(data["education"], inline_links),
             render_publications(data),
-            render_timeline_section(data["workExperience"], inline_links),
+            render_work_experience(data["workExperience"], inline_links),
             render_timeline_section(data["industrialProject"], inline_links),
             render_awards(data),
             render_timeline_section(data["researchExperience"], inline_links),

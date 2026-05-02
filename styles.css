@@ -267,6 +267,46 @@ h3 {
   margin-top: 1px;
 }
 
+.work-list {
+  display: grid;
+  gap: 14px;
+}
+
+.work-entry {
+  padding-bottom: 13px;
+  border-bottom: 1px solid #eee;
+}
+
+.work-entry:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.work-role {
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.work-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 7px;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.work-meta span:not(:last-child)::after {
+  margin-left: 7px;
+  color: #aaa;
+  content: "·";
+}
+
+.work-entry .simple-list {
+  margin-top: 7px;
+}
+
 .authors,
 .venue,
 .muted,
