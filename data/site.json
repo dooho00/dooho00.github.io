@@ -31,7 +31,7 @@
     { "label": "Publications", "href": "#publications" },
     { "label": "Work", "href": "#work-experience" },
     { "label": "Awards", "href": "#awards" },
-    { "label": "Experience", "href": "#research-experience" }
+    { "label": "Experience", "href": "#teaching" }
   ],
   "inlineLinks": [
     { "label": "Prof. Jaemin Yoo", "href": "https://jaeminyoo.github.io/" },
@@ -157,24 +157,6 @@
         "bullets": [
           "Worked on graph-based tracking of news propagation on social media using LLMs."
         ]
-      }
-    ]
-  },
-  "researchExperience": {
-    "id": "research-experience",
-    "title": "Research Experience",
-    "entries": [
-      {
-        "date": "2024.01",
-        "dateEnd": "2025.02",
-        "title": "Undergraduate Intern, DataAI Lab, KAIST",
-        "subtitle": "Conducted in-depth studies of traditional and recent advances in graph machine learning."
-      },
-      {
-        "date": "2023.08",
-        "dateEnd": "2023.12",
-        "title": "Undergraduate Intern, MultiModalAI Lab, KAIST",
-        "subtitle": "Studied foundational deep learning papers focused on computer vision and multi-modality."
       }
     ]
   },

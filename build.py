@@ -333,7 +333,6 @@ def render_html(data: dict[str, Any]) -> str:
             render_work_experience(data["workExperience"], inline_links),
             render_timeline_section(data["industrialProject"], inline_links),
             render_awards(data),
-            render_timeline_section(data["researchExperience"], inline_links),
             render_timeline_section(data["teaching"], inline_links),
             render_linked_list(data["invitedTalk"], inline_links),
             render_linked_list(data["service"], inline_links),
