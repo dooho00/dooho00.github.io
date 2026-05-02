@@ -145,7 +145,9 @@ def render_summary(data: dict[str, Any]) -> str:
     summary = data["summary"]
     inline_links = data.get("inlineLinks", [])
     paragraphs = "\n".join(f"          {paragraph(text, links=inline_links)}" for text in summary["paragraphs"])
-    return section(summary["id"], summary["title"], f"{paragraphs}\n{chips(summary['chips'])}")
+    if summary.get("chips"):
+        paragraphs = f"{paragraphs}\n{chips(summary['chips'])}"
+    return section(summary["id"], summary["title"], paragraphs)
 
 
 def timeline_heading(entry: dict[str, Any], links: list[dict[str, Any]]) -> list[str]:
@@ -192,7 +194,7 @@ def date_range(entry: dict[str, Any]) -> str:
     return e(entry["date"])
 
 
-def render_expandable_entries(item: dict[str, Any], links: list[dict[str, Any]]) -> str:
+def render_expandable_entries_body(item: dict[str, Any], links: list[dict[str, Any]]) -> str:
     rows = []
     for entry in item["entries"]:
         meta_items = []
@@ -203,34 +205,40 @@ def render_expandable_entries(item: dict[str, Any], links: list[dict[str, Any]])
         meta_items.append(date_range(entry))
         meta = "".join(f"<span>{item}</span>" for item in meta_items)
         role = entry.get("role", entry.get("title", ""))
+        summary = ""
+        if entry.get("summary"):
+            summary = f'\n                  <span class="entry-impact">{rich_text(entry["summary"], links)}</span>'
         if entry.get("description"):
-            body = f"""              <details class="work-details">
+            body = f"""              <details class="expandable-details">
                 <summary>
-                  <span class="work-role">{rich_text(role, links)}</span>
-                  <span class="work-meta">{meta}</span>
+                  <span class="entry-role-title">{rich_text(role, links)}</span>
+                  <span class="entry-meta">{meta}</span>{summary}
                 </summary>
                 <p>{rich_text(entry["description"], links)}</p>
               </details>"""
         elif entry.get("bullets"):
-            body = f"""              <details class="work-details">
+            body = f"""              <details class="expandable-details">
                 <summary>
-                  <span class="work-role">{rich_text(role, links)}</span>
-                  <span class="work-meta">{meta}</span>
+                  <span class="entry-role-title">{rich_text(role, links)}</span>
+                  <span class="entry-meta">{meta}</span>{summary}
                 </summary>
 {indent(simple_list(entry["bullets"], links), 16)}
               </details>"""
         else:
-            body = f"""              <div class="work-header">
-                <span class="work-role">{rich_text(role, links)}</span>
-                <span class="work-meta">{meta}</span>
+            body = f"""              <div class="entry-header">
+                <span class="entry-role-title">{rich_text(role, links)}</span>
+                <span class="entry-meta">{meta}</span>{summary}
               </div>"""
         rows.append(
-            f"""            <article class="work-entry">
+            f"""            <article class="expandable-entry">
 {body}
             </article>"""
         )
-    body = f'          <div class="work-list">\n' + "\n".join(rows) + "\n          </div>"
-    return section(item["id"], item["title"], body)
+    return f'          <div class="entry-list">\n' + "\n".join(rows) + "\n          </div>"
+
+
+def render_expandable_entries(item: dict[str, Any], links: list[dict[str, Any]]) -> str:
+    return section(item["id"], item["title"], render_expandable_entries_body(item, links))
 
 
 def render_publications(data: dict[str, Any]) -> str:
@@ -289,7 +297,7 @@ def render_awards(data: dict[str, Any]) -> str:
     item = data["awards"]
     inline_links = data.get("inlineLinks", [])
     rows = []
-    for award in item["items"]:
+    for award in sorted(item["items"], key=lambda award: award.get("sortDate", award.get("date", "")), reverse=True):
         tags = "".join(f'<span class="award-tag">{e(tag)}</span>' for tag in award.get("tags", []))
         rows.append(
             f"""            <li class="award-row">
@@ -302,7 +310,7 @@ def render_awards(data: dict[str, Any]) -> str:
     return section(item["id"], item["title"], body)
 
 
-def render_linked_list(item: dict[str, Any], links: list[dict[str, Any]]) -> str:
+def render_linked_list_body(item: dict[str, Any], links: list[dict[str, Any]]) -> str:
     rows = []
     for entry in item["entries"]:
         if isinstance(entry, str):
@@ -315,8 +323,33 @@ def render_linked_list(item: dict[str, Any], links: list[dict[str, Any]]) -> str
         else:
             text = rich_text(entry["text"], links)
         rows.append(f"            <li>{text}</li>")
-    body = f'          <ul class="simple-list">\n' + "\n".join(rows) + "\n          </ul>"
-    return section(item["id"], item["title"], body)
+    return f'          <ul class="simple-list">\n' + "\n".join(rows) + "\n          </ul>"
+
+
+def render_linked_list(item: dict[str, Any], links: list[dict[str, Any]]) -> str:
+    return section(item["id"], item["title"], render_linked_list_body(item, links))
+
+
+def subsection(title: str, body: str) -> str:
+    nested_body = indent(body, 2)
+    return f"""          <div class="subsection">
+            <h3 class="subsection-title">{e(title)}</h3>
+{nested_body}
+          </div>"""
+
+
+def render_experience(data: dict[str, Any]) -> str:
+    inline_links = data.get("inlineLinks", [])
+    body = "\n".join(
+        [
+            subsection(data["industrialProject"]["title"], render_expandable_entries_body(data["industrialProject"], inline_links)),
+            subsection(data["workExperience"]["title"], render_expandable_entries_body(data["workExperience"], inline_links)),
+            subsection(data["teaching"]["title"], render_expandable_entries_body(data["teaching"], inline_links)),
+            subsection(data["invitedTalk"]["title"], render_linked_list_body(data["invitedTalk"], inline_links)),
+            subsection(data["service"]["title"], render_linked_list_body(data["service"], inline_links)),
+        ]
+    )
+    return section("experience", "Experience", body)
 
 
 def render_html(data: dict[str, Any]) -> str:
@@ -327,12 +360,8 @@ def render_html(data: dict[str, Any]) -> str:
             render_summary(data),
             render_timeline_section(data["education"], inline_links),
             render_publications(data),
-            render_expandable_entries(data["workExperience"], inline_links),
+            render_experience(data),
             render_awards(data),
-            render_expandable_entries(data["industrialProject"], inline_links),
-            render_expandable_entries(data["teaching"], inline_links),
-            render_linked_list(data["invitedTalk"], inline_links),
-            render_linked_list(data["service"], inline_links),
             render_skills(data),
         ]
     )

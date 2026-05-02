@@ -29,9 +29,9 @@
     { "label": "About", "href": "#about" },
     { "label": "Education", "href": "#education" },
     { "label": "Publications", "href": "#publications" },
-    { "label": "Work", "href": "#work-experience" },
+    { "label": "Experience", "href": "#experience" },
     { "label": "Awards", "href": "#awards" },
-    { "label": "Experience", "href": "#industrial-project" }
+    { "label": "Skills", "href": "#skills" }
   ],
   "inlineLinks": [
     { "label": "Prof. Jaemin Yoo", "href": "https://jaeminyoo.github.io/" },
@@ -47,14 +47,6 @@
     "paragraphs": [
       "I am a second-year M.S. student in Electrical Engineering at KAIST, advised by Prof. Jaemin Yoo and Prof. Kijung Shin. My research focuses on machine learning for structured data, including graphs, time series, and tabular data, with a recent focus on foundation models.",
       "Outside academia, I have co-founded and worked as a software engineer and designer in multiple startups, building products around LLM-powered workflows, finance, and mobile applications."
-    ],
-    "chips": [
-      "Graph Machine Learning",
-      "Foundation Models",
-      "Structured Data",
-      "Predictive AI",
-      "Time-Series Modeling",
-      "Tabular Learning"
     ]
   },
   "education": {
@@ -113,34 +105,38 @@
     "title": "Work Experience",
     "entries": [
       {
-        "date": "2022.11",
-        "dateEnd": "2023.08",
+        "date": "Nov 2022",
+        "dateEnd": "Aug 2023",
         "organization": "Pensieve Inc.",
         "role": "Founding Engineer & Designer",
         "subtitle": "Berkeley, CA",
+        "summary": "Built LLM workflow tools used by 3 organizations.",
         "description": "Co-founded a US-based startup with two UC Berkeley students and worked across engineering and product design for LLM-powered workflow tools. Built Pensieve Extension for real-time note taking from Chrome highlights and Pensieve Notes for Zoom transcription and automatic meeting notes, which was used by 3 organizations."
       },
       {
-        "date": "2021.11",
-        "dateEnd": "2023.05",
+        "date": "Nov 2021",
+        "dateEnd": "May 2023",
         "organization": "US Army",
         "role": "Korean Augmentation to the United States Army (KATUSA)",
         "subtitle": "USAG Humphreys, Republic of Korea",
+        "summary": "Served as a KATUSA supporting communication across US and Korean personnel.",
         "description": "Served as a KATUSA at Bravo Company, 602nd Aviation Support Battalion, 2nd Combat Aviation Brigade, 2nd Infantry Division. Supported communication and coordination between US and Korean personnel while serving as the only KATUSA in the largest company of the unit."
       },
       {
-        "date": "2022.03",
-        "dateEnd": "2022.07",
+        "date": "Mar 2022",
+        "dateEnd": "Jul 2022",
         "organization": "LayUs",
         "role": "Founding Engineer & Designer",
         "subtitle": "Seoul, Republic of Korea",
+        "summary": "Built a mobile ticket-to-coupon redemption product for exhibition visitors.",
         "description": "Built a mobile application for exhibition visitors to upload ticket information and redeem F&B coupons. Contributed to product implementation for a ticket-based redemption workflow connecting cultural events with local customer benefits."
       },
       {
-        "date": "2020.09",
-        "dateEnd": "2021.10",
+        "date": "Sep 2020",
+        "dateEnd": "Oct 2021",
         "organization": "WARD",
         "role": "Co-Founder, Software Engineer & Designer",
+        "summary": "Launched an ML-based stock information beta with 200+ users.",
         "description": "Co-founded and built a machine learning-based stock information service. The team was selected as one of the top 12 teams in 2021 E*5 KAIST under Blue Point Partners mentorship, launched a private beta with 200+ users, and gathered feedback through fund manager sessions, interviews, and surveys."
       }
     ]
@@ -154,6 +150,7 @@
         "role": "Graph-Based Tracking of News Propagation on Social Media Using LLMs",
         "organization": "National Cyber Security Research Institute",
         "subtitle": "Republic of Korea",
+        "summary": "Developed graph-based analysis for tracking social-media news propagation with LLMs.",
         "description": "Worked on an industrial research project for graph-based tracking of news propagation on social media using LLMs."
       }
     ]
@@ -174,13 +171,48 @@
     "id": "awards",
     "title": "Awards & Honors",
     "items": [
-      { "text": "2024 Team KAIST Global Challenge Program, $15,000 funding", "date": "Jun 2024", "tags": ["Program"] },
-      { "text": "2nd place, 2023 Korea SW Startup Ideathon", "date": "Oct 2023", "tags": ["Startup"] },
-      { "text": "1st place, 8th Army ROKA Support Group Insignia Competition", "date": "Apr 2023", "tags": ["Design"] },
-      { "text": "2nd place, Art Service Follow-up Growth Support Project", "date": "Nov 2022", "tags": ["Design"] },
-      { "text": "1st place, Pre-Startup Package, Daejeon CCEI", "date": "Aug 2021", "tags": ["Startup"] },
-      { "text": "Bronze Medal, NH Investment Securities Big Data Competition", "date": "Aug 2021", "tags": ["Competition"] },
-      { "text": "1st place, Creative Space G A.I & IoT Hackathon", "date": "Jul 2021", "tags": ["Hackathon"] }
+      {
+        "text": "2024 Team KAIST Global Challenge Program, $15,000 funding",
+        "date": "Jun 2024",
+        "sortDate": "2024-06",
+        "tags": ["Funding"]
+      },
+      {
+        "text": "2nd place, 2023 Korea SW Startup Ideathon",
+        "date": "Oct 2023",
+        "sortDate": "2023-10",
+        "tags": ["Startup"]
+      },
+      {
+        "text": "1st place, 8th Army ROKA Support Group Insignia Competition",
+        "date": "Apr 2023",
+        "sortDate": "2023-04",
+        "tags": ["Design"]
+      },
+      {
+        "text": "2nd place, Art Service Follow-up Growth Support Project",
+        "date": "Nov 2022",
+        "sortDate": "2022-11",
+        "tags": ["Design"]
+      },
+      {
+        "text": "1st place, Pre-Startup Package, Daejeon CCEI",
+        "date": "Aug 2021",
+        "sortDate": "2021-08",
+        "tags": ["Startup"]
+      },
+      {
+        "text": "Bronze Medal, NH Investment Securities Big Data Competition",
+        "date": "Aug 2021",
+        "sortDate": "2021-08",
+        "tags": ["Competition"]
+      },
+      {
+        "text": "1st place, Creative Space G A.I & IoT Hackathon",
+        "date": "Jul 2021",
+        "sortDate": "2021-07",
+        "tags": ["Hackathon"]
+      }
     ]
   },
   "teaching": {
@@ -188,15 +220,17 @@
     "title": "Teaching Experience",
     "entries": [
       {
-        "date": "2025 Spring/Fall",
+        "date": "Spring/Fall 2025",
         "role": "Teaching Assistant, Programming Structures for Electrical Engineering",
         "organization": "EE209, KAIST",
+        "summary": "Developed auto-graded programming assignments for 200+ EE majors each semester.",
         "description": "Developed a data structures programming assignment with auto-grading for 200+ Electrical Engineering majors each semester."
       },
       {
-        "date": "2025 Fall",
+        "date": "Fall 2025",
         "role": "Teaching Assistant, Foundation of Big Data Analytics",
         "organization": "EE412, KAIST",
+        "summary": "Supported course operation and instruction for big data analytics.",
         "description": "Supported course operations and instruction for Foundation of Big Data Analytics."
       }
     ]
