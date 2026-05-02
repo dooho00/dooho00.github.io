@@ -30,7 +30,6 @@
     { "label": "Education", "href": "#education" },
     { "label": "Publications", "href": "#publications" },
     { "label": "Work", "href": "#work-experience" },
-    { "label": "Industry", "href": "#industrial-project" },
     { "label": "Awards", "href": "#awards" },
     { "label": "Experience", "href": "#research-experience" }
   ],
