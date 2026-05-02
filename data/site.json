@@ -82,19 +82,22 @@
         "year": "2026",
         "title": "View Space: Learning Representation across Arbitrary Graphs",
         "authors": ["Dooho Lee", "Myeong Kong", "Minho Jeong", "Jaemin Yoo"],
-        "venue": "International Conference on Machine Learning (ICML), 2026"
+        "venue": "ICML 2026",
+        "venueHref": "https://icml.cc/Conferences/2026"
       },
       {
         "year": "2026",
         "title": "Generalizing Multi-Scale Time-Series Modeling with a Single Operator",
         "authors": ["Cheonwoo Lee", "Dooho Lee", "Doyun Choi", "Jaemin Yoo"],
-        "venue": "International Conference on Machine Learning (ICML), 2026"
+        "venue": "ICML 2026",
+        "venueHref": "https://icml.cc/Conferences/2026"
       },
       {
         "year": "2025",
         "title": "Aggregation Buffer: Revisiting DropEdge with a New Parameter Block",
         "authors": ["Dooho Lee", "Myeong Kong", "Sagad Hamid", "Cheonwoo Lee", "Jaemin Yoo"],
-        "venue": "International Conference on Machine Learning (ICML), 2025",
+        "venue": "ICML 2025",
+        "venueHref": "https://icml.cc/Conferences/2025",
         "links": [
           { "label": "Paper", "href": "https://proceedings.mlr.press/v267/lee25n.html" },
           { "label": "Code", "href": "https://github.com/dooho00/agg-buffer" },

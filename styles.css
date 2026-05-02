@@ -206,6 +206,10 @@ h1 {
   line-height: 1.45;
 }
 
+.pub-year a {
+  color: var(--link);
+}
+
 h3 {
   font-size: 0.98rem;
   font-weight: 700;
