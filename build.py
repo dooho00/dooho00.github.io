@@ -88,7 +88,7 @@ def icon_svg(name: str | None) -> str:
 
 def author_list(authors: list[str], highlight: str) -> str:
     rendered = [
-        f"<strong>{e(author)}</strong>" if author == highlight else e(author)
+        f'<span class="author-highlight">{e(author)}</span>' if author == highlight else e(author)
         for author in authors
     ]
     if len(rendered) <= 1:
