@@ -206,8 +206,20 @@ def render_work_experience(item: dict[str, Any], links: list[dict[str, Any]]) ->
             f'              <h3 class="work-role">{rich_text(entry["role"], links)}</h3>',
             f'              <p class="work-meta">{meta}</p>',
         ]
-        if entry.get("bullets"):
-            parts.append(indent(simple_list(entry["bullets"], links), 14))
+        if entry.get("description"):
+            parts.append(
+                f"""              <details class="work-details">
+                <summary>Details</summary>
+                <p>{rich_text(entry["description"], links)}</p>
+              </details>"""
+            )
+        elif entry.get("bullets"):
+            parts.append(
+                f"""              <details class="work-details">
+                <summary>Details</summary>
+{indent(simple_list(entry["bullets"], links), 16)}
+              </details>"""
+            )
         body = "\n".join(parts)
         rows.append(
             f"""            <article class="work-entry">

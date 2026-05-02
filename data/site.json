@@ -118,11 +118,7 @@
         "organization": "Pensieve Inc.",
         "role": "Founding Engineer & Designer",
         "subtitle": "Berkeley, CA",
-        "bullets": [
-          "Co-founded a US startup with two UC Berkeley students and built LLM-powered software products.",
-          "Built Pensieve Extension for real-time note taking from Chrome highlights.",
-          "Built Pensieve Notes for real-time Zoom transcription and automatic meeting notes; served 3 organizations."
-        ]
+        "description": "Co-founded a US-based startup with two UC Berkeley students and worked across engineering and product design for LLM-powered workflow tools. Built Pensieve Extension for real-time note taking from Chrome highlights and Pensieve Notes for Zoom transcription and automatic meeting notes, which was used by 3 organizations."
       },
       {
         "date": "2021.11",
@@ -130,10 +126,7 @@
         "organization": "US Army",
         "role": "KATUSA",
         "subtitle": "USAG Humphreys, Republic of Korea",
-        "bullets": [
-          "Supported US-KR communication at Bravo Company, 602nd ASB, 2nd CAB, 2nd ID.",
-          "Served as the only KATUSA in the largest company of the US Army unit."
-        ]
+        "description": "Served as a KATUSA at Bravo Company, 602nd Aviation Support Battalion, 2nd Combat Aviation Brigade, 2nd Infantry Division. Supported communication and coordination between US and Korean personnel while serving as the only KATUSA in the largest company of the unit."
       },
       {
         "date": "2022.03",
@@ -141,20 +134,14 @@
         "organization": "LayUs",
         "role": "Software Engineer",
         "subtitle": "Seoul, Republic of Korea",
-        "bullets": [
-          "Built a mobile application where users upload exhibition tickets to redeem F&B coupons."
-        ]
+        "description": "Built a mobile application for exhibition visitors to upload ticket information and redeem F&B coupons. Contributed to product implementation for a ticket-based redemption workflow connecting cultural events with local customer benefits."
       },
       {
         "date": "2020.09",
         "dateEnd": "2021.10",
         "organization": "WARD",
         "role": "Co-Founder, Software Engineer & Designer",
-        "bullets": [
-          "Founded a machine learning-based stock information service.",
-          "Selected as one of the top 12 teams in 2021 E*5 KAIST under Blue Point Partners mentorship.",
-          "Launched a private beta with 200+ users and gathered feedback through fund manager sessions, interviews, and surveys."
-        ]
+        "description": "Co-founded and built a machine learning-based stock information service. The team was selected as one of the top 12 teams in 2021 E*5 KAIST under Blue Point Partners mentorship, launched a private beta with 200+ users, and gathered feedback through fund manager sessions, interviews, and surveys."
       }
     ]
   },
