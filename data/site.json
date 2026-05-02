@@ -26,17 +26,13 @@
     ]
   },
   "nav": [
-    { "label": "Summary", "href": "#summary" },
+    { "label": "About", "href": "#about" },
     { "label": "Education", "href": "#education" },
     { "label": "Publications", "href": "#publications" },
     { "label": "Work", "href": "#work-experience" },
     { "label": "Industry", "href": "#industrial-project" },
-    { "label": "Research", "href": "#research-experience" },
     { "label": "Awards", "href": "#awards" },
-    { "label": "Teaching", "href": "#teaching" },
-    { "label": "Talk", "href": "#invited-talk" },
-    { "label": "Service", "href": "#service" },
-    { "label": "Skills", "href": "#skills" }
+    { "label": "Experience", "href": "#research-experience" }
   ],
   "inlineLinks": [
     { "label": "Prof. Jaemin Yoo", "href": "https://jaeminyoo.github.io/" },
@@ -47,8 +43,8 @@
     { "label": "MultiModalAI Lab", "href": "https://mm.kaist.ac.kr/" }
   ],
   "summary": {
-    "id": "summary",
-    "title": "Summary",
+    "id": "about",
+    "title": "About",
     "paragraphs": [
       "I am a second-year M.S. student in Electrical Engineering at KAIST, advised by Prof. Jaemin Yoo and Prof. Kijung Shin. My research focuses on machine learning for structured data, including graphs, time series, and tabular data, with a recent focus on foundation models.",
       "Outside academia, I have co-founded and worked as a software engineer and designer in multiple startups, building products around LLM-powered workflows, finance, and mobile applications."
