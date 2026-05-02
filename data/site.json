@@ -1,0 +1,247 @@
+{
+  "meta": {
+    "title": "Dooho Lee | Structured Data Foundation Models",
+    "description": "Dooho Lee is a KAIST MS student researching foundation models for structured data across graphs, time series, and tabular data.",
+    "ogTitle": "Dooho Lee",
+    "ogDescription": "Researcher-builder working on foundation models for structured data.",
+    "ogImage": "profile.jpeg"
+  },
+  "profile": {
+    "name": "Dooho Lee",
+    "role": "M.S. Student, KAIST Electrical Engineering",
+    "tagline": "I build foundation models for structured data.",
+    "photo": "profile.jpeg",
+    "photoAlt": "Dooho Lee",
+    "email": "dooho@kaist.ac.kr",
+    "cv": "Dooho-Lee-CV.docx",
+    "links": [
+      { "label": "Email", "href": "mailto:dooho@kaist.ac.kr" },
+      {
+        "label": "Google Scholar",
+        "href": "https://scholar.google.com/citations?user=Fv4CbSMAAAAJ&hl=en&oi=sra"
+      },
+      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/dooho-lee" },
+      { "label": "CV", "href": "Dooho-Lee-CV.docx", "download": true }
+    ]
+  },
+  "nav": [
+    { "label": "Summary", "href": "#summary" },
+    { "label": "Education", "href": "#education" },
+    { "label": "Publications", "href": "#publications" },
+    { "label": "Work", "href": "#work-experience" },
+    { "label": "Research", "href": "#research-experience" },
+    { "label": "Skills", "href": "#skills" },
+    { "label": "Awards", "href": "#awards" },
+    { "label": "Teaching", "href": "#teaching" },
+    { "label": "Talk", "href": "#invited-talk" },
+    { "label": "Service", "href": "#service" }
+  ],
+  "summary": {
+    "id": "summary",
+    "title": "Summary",
+    "paragraphs": [
+      "I am a second-year M.S. student in Electrical Engineering at KAIST, advised by Prof. Jaemin Yoo and Prof. Kijung Shin. My research focuses on machine learning for structured data, including graphs, time series, and tabular data, with a recent focus on foundation models.",
+      "Outside academia, I have co-founded and worked as a software engineer and designer in multiple startups, building products around LLM-powered workflows, finance, and mobile applications."
+    ],
+    "chips": [
+      "Graph Machine Learning",
+      "Foundation Models",
+      "Structured Data",
+      "Predictive AI",
+      "Time-Series Modeling",
+      "Tabular Learning"
+    ]
+  },
+  "education": {
+    "id": "education",
+    "title": "Education",
+    "entries": [
+      {
+        "date": "2025 - Present",
+        "title": "M.S. in Electrical Engineering, KAIST",
+        "lines": [
+          "Advisor: Prof. Jaemin Yoo and Prof. Kijung Shin",
+          "Daejeon, Republic of Korea. GPA: 3.88."
+        ]
+      },
+      {
+        "date": "2019 - 2024",
+        "title": "B.S. in Electrical Engineering and Computer Science, KAIST",
+        "lines": ["Double major. Daejeon, Republic of Korea. Cum laude, GPA: 3.77."]
+      }
+    ]
+  },
+  "publications": {
+    "id": "publications",
+    "title": "Publications",
+    "highlightAuthor": "Dooho Lee",
+    "entries": [
+      {
+        "year": "2026",
+        "title": "View Space: Learning Representation across Arbitrary Graphs",
+        "authors": ["Dooho Lee", "Myeong Kong", "Minho Jeong", "Jaemin Yoo"],
+        "venue": "International Conference on Machine Learning (ICML), 2026"
+      },
+      {
+        "year": "2026",
+        "title": "Generalizing Multi-Scale Time-Series Modeling with a Single Operator",
+        "authors": ["Cheonwoo Lee", "Dooho Lee", "Doyun Choi", "Jaemin Yoo"],
+        "venue": "International Conference on Machine Learning (ICML), 2026"
+      },
+      {
+        "year": "2025",
+        "title": "Aggregation Buffer: Revisiting DropEdge with a New Parameter Block",
+        "authors": ["Dooho Lee", "Myeong Kong", "Sagad Hamid", "Cheonwoo Lee", "Jaemin Yoo"],
+        "venue": "International Conference on Machine Learning (ICML), 2025"
+      }
+    ]
+  },
+  "workExperience": {
+    "id": "work-experience",
+    "title": "Work Experience",
+    "entries": [
+      {
+        "date": "Nov 2022 - Aug 2023",
+        "title": "Founding Engineer & Designer, Pensieve Inc.",
+        "subtitle": "Berkeley, CA",
+        "bullets": [
+          "Co-founded a US startup with two UC Berkeley students and built LLM-powered software products.",
+          "Built Pensieve Extension for real-time note taking from Chrome highlights.",
+          "Built Pensieve Notes for real-time Zoom transcription and automatic meeting notes; served 3 organizations."
+        ]
+      },
+      {
+        "date": "Nov 2021 - May 2023",
+        "title": "KATUSA, US Army",
+        "subtitle": "USAG Humphreys, Republic of Korea",
+        "bullets": [
+          "Supported US-KR communication at Bravo Company, 602nd ASB, 2nd CAB, 2nd ID.",
+          "Served as the only KATUSA in the largest company of the US Army unit."
+        ]
+      },
+      {
+        "date": "Mar 2022 - Jul 2022",
+        "title": "Software Engineer, LayUs",
+        "subtitle": "Seoul, Republic of Korea",
+        "bullets": [
+          "Built a mobile application where users upload exhibition tickets to redeem F&B coupons."
+        ]
+      },
+      {
+        "date": "Sep 2020 - Oct 2021",
+        "title": "Co-Founder, Software Engineer & Designer, WARD",
+        "bullets": [
+          "Founded a machine learning-based stock information service.",
+          "Selected as one of the top 12 teams in 2021 E*5 KAIST under Blue Point Partners mentorship.",
+          "Launched a private beta with 200+ users and gathered feedback through fund manager sessions, interviews, and surveys."
+        ]
+      }
+    ]
+  },
+  "researchExperience": {
+    "id": "research-experience",
+    "title": "Research Experience",
+    "entries": [
+      {
+        "date": "Jan 2025 - Feb 2026",
+        "title": "Graph-Based Tracking of News Propagation on Social Media Using LLMs",
+        "subtitle": "National Cyber Security Research Institute, Republic of Korea"
+      },
+      {
+        "date": "Jan 2024 - Feb 2025",
+        "title": "Undergraduate Intern, DataAI Lab, KAIST",
+        "subtitle": "Conducted in-depth studies of traditional and recent advances in graph machine learning."
+      },
+      {
+        "date": "Aug 2023 - Dec 2023",
+        "title": "Undergraduate Intern, MultiModalAI Lab, KAIST",
+        "subtitle": "Studied foundational deep learning papers focused on computer vision and multi-modality."
+      }
+    ]
+  },
+  "skills": {
+    "id": "skills",
+    "title": "Skills",
+    "groups": [
+      { "label": "Languages", "items": ["Korean", "English"] },
+      { "label": "Machine Learning", "items": ["PyTorch", "PyTorch Geometric", "DGL", "Weights & Biases"] },
+      { "label": "Programming", "items": ["Python", "C", "C++", "Java", "JavaScript", "TypeScript"] },
+      { "label": "Front-End & UI", "items": ["HTML", "CSS", "React", "React Native", "Flutter"] },
+      { "label": "Back-End & Data", "items": ["MySQL", "Neo4j", "Chroma", "Firebase", "Google Cloud Platform"] },
+      { "label": "Design & Tools", "items": ["Figma", "Adobe XD", "Adobe Illustrator", "Git", "Chrome Extensions", "Zoom Apps"] },
+      {
+        "label": "Research",
+        "items": [
+          "Graph Machine Learning",
+          "Foundation Models",
+          "Time-Series Modeling",
+          "Tabular Learning",
+          "Predictive AI"
+        ]
+      }
+    ]
+  },
+  "awards": {
+    "id": "awards",
+    "title": "Selected Awards & Honors",
+    "categories": [
+      {
+        "title": "Startup",
+        "items": [
+          { "text": "2nd place, 2023 Korea SW Startup Ideathon", "date": "Oct 2023" },
+          { "text": "1st place, Pre-Startup Package, Daejeon CCEI", "date": "Aug 2021" }
+        ]
+      },
+      {
+        "title": "Design",
+        "items": [
+          { "text": "1st place, 8th Army ROKA Support Group Insignia Competition", "date": "Apr 2023" },
+          { "text": "2nd place, Art Service Follow-up Growth Support Project", "date": "Nov 2022" }
+        ]
+      },
+      {
+        "title": "Other",
+        "items": [
+          { "text": "2024 Team KAIST Global Challenge Program, $15,000 funding", "date": "Apr 2023" },
+          { "text": "Bronze Medal, NH Investment Securities Big Data Competition", "date": "Aug 2021" },
+          { "text": "1st place, Creative Space G A.I & IoT Hackathon", "date": "Jul 2021" }
+        ]
+      }
+    ]
+  },
+  "teaching": {
+    "id": "teaching",
+    "title": "Teaching Experience",
+    "entries": [
+      {
+        "date": "2025 Spring, Fall",
+        "title": "TA, Programming Structures for Electrical Engineering",
+        "lines": [
+          "EE209, KAIST",
+          "Developed a data structures programming assignment with auto-grading for 200+ EE majors each semester."
+        ]
+      },
+      {
+        "date": "2025 Fall",
+        "title": "TA, Foundation of Big Data Analytics",
+        "lines": ["EE412, KAIST"]
+      }
+    ]
+  },
+  "invitedTalk": {
+    "id": "invited-talk",
+    "title": "Invited Talk",
+    "entries": [
+      {
+        "text": "Invited Research Talk, Korea Software Congress 2025, Yeosu, Republic of Korea, Dec 2025.",
+        "href": "https://www.kiise.or.kr/conference/KSC/2025/",
+        "linkText": "Korea Software Congress 2025"
+      }
+    ]
+  },
+  "service": {
+    "id": "service",
+    "title": "Professional Service",
+    "entries": ["Reviewer, NeurIPS (2026)"]
+  }
+}
