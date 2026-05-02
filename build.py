@@ -202,25 +202,27 @@ def render_work_experience(item: dict[str, Any], links: list[dict[str, Any]]) ->
             meta_items.append(rich_text(entry["subtitle"], links))
         meta_items.append(date_range(entry))
         meta = "".join(f"<span>{item}</span>" for item in meta_items)
-        parts = [
-            f'              <h3 class="work-role">{rich_text(entry["role"], links)}</h3>',
-            f'              <p class="work-meta">{meta}</p>',
-        ]
         if entry.get("description"):
-            parts.append(
-                f"""              <details class="work-details">
-                <summary>Details</summary>
+            body = f"""              <details class="work-details">
+                <summary>
+                  <span class="work-role">{rich_text(entry["role"], links)}</span>
+                  <span class="work-meta">{meta}</span>
+                </summary>
                 <p>{rich_text(entry["description"], links)}</p>
               </details>"""
-            )
         elif entry.get("bullets"):
-            parts.append(
-                f"""              <details class="work-details">
-                <summary>Details</summary>
+            body = f"""              <details class="work-details">
+                <summary>
+                  <span class="work-role">{rich_text(entry["role"], links)}</span>
+                  <span class="work-meta">{meta}</span>
+                </summary>
 {indent(simple_list(entry["bullets"], links), 16)}
               </details>"""
-            )
-        body = "\n".join(parts)
+        else:
+            body = f"""              <div class="work-header">
+                <span class="work-role">{rich_text(entry["role"], links)}</span>
+                <span class="work-meta">{meta}</span>
+              </div>"""
         rows.append(
             f"""            <article class="work-entry">
 {body}

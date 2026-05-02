@@ -269,21 +269,18 @@ h3 {
 
 .work-list {
   display: grid;
-  gap: 14px;
+  gap: 15px;
 }
 
 .work-entry {
-  padding-bottom: 13px;
-  border-bottom: 1px solid #eee;
-}
-
-.work-entry:last-child {
-  padding-bottom: 0;
-  border-bottom: 0;
+  padding: 0;
 }
 
 .work-role {
+  display: block;
+  color: var(--ink);
   font-size: 1rem;
+  font-weight: 600;
   line-height: 1.25;
 }
 
@@ -304,15 +301,13 @@ h3 {
 }
 
 .work-details {
-  margin-top: 7px;
+  margin: 0;
 }
 
 .work-details summary {
-  width: fit-content;
+  display: block;
   cursor: pointer;
-  color: var(--link);
-  font-size: 0.88rem;
-  line-height: 1.3;
+  list-style-position: outside;
 }
 
 .work-details summary::marker {
@@ -320,12 +315,18 @@ h3 {
 }
 
 .work-details summary:hover {
-  color: var(--link-hover);
+  color: var(--ink);
+}
+
+.work-details summary:hover .work-role {
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 .work-details p {
-  margin-top: 5px;
+  margin-top: 7px;
+  padding-left: 16px;
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.42;
@@ -333,6 +334,7 @@ h3 {
 
 .work-details .simple-list {
   margin-top: 5px;
+  padding-left: 32px;
 }
 
 .authors,
