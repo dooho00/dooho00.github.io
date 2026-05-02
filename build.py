@@ -192,7 +192,7 @@ def date_range(entry: dict[str, Any]) -> str:
     return e(entry["date"])
 
 
-def render_work_experience(item: dict[str, Any], links: list[dict[str, Any]]) -> str:
+def render_expandable_entries(item: dict[str, Any], links: list[dict[str, Any]]) -> str:
     rows = []
     for entry in item["entries"]:
         meta_items = []
@@ -202,10 +202,11 @@ def render_work_experience(item: dict[str, Any], links: list[dict[str, Any]]) ->
             meta_items.append(rich_text(entry["subtitle"], links))
         meta_items.append(date_range(entry))
         meta = "".join(f"<span>{item}</span>" for item in meta_items)
+        role = entry.get("role", entry.get("title", ""))
         if entry.get("description"):
             body = f"""              <details class="work-details">
                 <summary>
-                  <span class="work-role">{rich_text(entry["role"], links)}</span>
+                  <span class="work-role">{rich_text(role, links)}</span>
                   <span class="work-meta">{meta}</span>
                 </summary>
                 <p>{rich_text(entry["description"], links)}</p>
@@ -213,14 +214,14 @@ def render_work_experience(item: dict[str, Any], links: list[dict[str, Any]]) ->
         elif entry.get("bullets"):
             body = f"""              <details class="work-details">
                 <summary>
-                  <span class="work-role">{rich_text(entry["role"], links)}</span>
+                  <span class="work-role">{rich_text(role, links)}</span>
                   <span class="work-meta">{meta}</span>
                 </summary>
 {indent(simple_list(entry["bullets"], links), 16)}
               </details>"""
         else:
             body = f"""              <div class="work-header">
-                <span class="work-role">{rich_text(entry["role"], links)}</span>
+                <span class="work-role">{rich_text(role, links)}</span>
                 <span class="work-meta">{meta}</span>
               </div>"""
         rows.append(
@@ -326,10 +327,10 @@ def render_html(data: dict[str, Any]) -> str:
             render_summary(data),
             render_timeline_section(data["education"], inline_links),
             render_publications(data),
-            render_work_experience(data["workExperience"], inline_links),
+            render_expandable_entries(data["workExperience"], inline_links),
             render_awards(data),
-            render_timeline_section(data["industrialProject"], inline_links),
-            render_timeline_section(data["teaching"], inline_links),
+            render_expandable_entries(data["industrialProject"], inline_links),
+            render_expandable_entries(data["teaching"], inline_links),
             render_linked_list(data["invitedTalk"], inline_links),
             render_linked_list(data["service"], inline_links),
             render_skills(data),

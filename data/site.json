@@ -151,11 +151,10 @@
     "entries": [
       {
         "date": "2025",
-        "title": "Graph-Based Tracking of News Propagation on Social Media Using LLMs",
-        "subtitle": "National Cyber Security Research Institute, Republic of Korea",
-        "bullets": [
-          "Worked on graph-based tracking of news propagation on social media using LLMs."
-        ]
+        "role": "Graph-Based Tracking of News Propagation on Social Media Using LLMs",
+        "organization": "National Cyber Security Research Institute",
+        "subtitle": "Republic of Korea",
+        "description": "Worked on an industrial research project for graph-based tracking of news propagation on social media using LLMs."
       }
     ]
   },
@@ -190,16 +189,15 @@
     "entries": [
       {
         "date": "2025 Spring/Fall",
-        "title": "TA, Programming Structures for Electrical Engineering",
-        "lines": [
-          "EE209, KAIST",
-          "Developed a data structures programming assignment with auto-grading for 200+ EE majors each semester."
-        ]
+        "role": "Teaching Assistant, Programming Structures for Electrical Engineering",
+        "organization": "EE209, KAIST",
+        "description": "Developed a data structures programming assignment with auto-grading for 200+ Electrical Engineering majors each semester."
       },
       {
         "date": "2025 Fall",
-        "title": "TA, Foundation of Big Data Analytics",
-        "lines": ["EE412, KAIST"]
+        "role": "Teaching Assistant, Foundation of Big Data Analytics",
+        "organization": "EE412, KAIST",
+        "description": "Supported course operations and instruction for Foundation of Big Data Analytics."
       }
     ]
   },
