@@ -287,21 +287,17 @@ def render_skills(data: dict[str, Any]) -> str:
 def render_awards(data: dict[str, Any]) -> str:
     item = data["awards"]
     inline_links = data.get("inlineLinks", [])
-    cards = []
-    for category in item["categories"]:
-        awards = "\n".join(
-            f'                <li>{rich_text(award["text"], inline_links)} <span class="date-inline">{e(award["date"])}</span></li>'
-            for award in category["items"]
+    rows = []
+    for award in item["items"]:
+        tags = "".join(f'<span class="award-tag">{e(tag)}</span>' for tag in award.get("tags", []))
+        rows.append(
+            f"""            <li class="award-row">
+              <span class="award-date">{e(award['date'])}</span>
+              <span class="award-text">{rich_text(award['text'], inline_links)}</span>
+              <span class="award-tags">{tags}</span>
+            </li>"""
         )
-        cards.append(
-            f"""            <article class="mini-card">
-              <h3>{e(category['title'])}</h3>
-              <ul class="simple-list">
-{awards}
-              </ul>
-            </article>"""
-        )
-    body = f'          <div class="card-grid two">\n' + "\n".join(cards) + "\n          </div>"
+    body = f'          <ul class="award-list">\n' + "\n".join(rows) + "\n          </ul>"
     return section(item["id"], item["title"], body)
 
 

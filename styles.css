@@ -403,23 +403,6 @@ h3 {
   font-size: 0.9rem;
 }
 
-.card-grid,
-.card-grid.two {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-
-.mini-card {
-  padding: 0;
-  border: 0;
-  background: transparent;
-}
-
-.mini-card p {
-  margin-top: 5px;
-}
-
 .skill-language {
   margin-bottom: 9px;
 }
@@ -448,9 +431,46 @@ h3 {
   color: var(--muted);
 }
 
-.date-inline {
+.award-list {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.award-row {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr) auto;
+  gap: 9px;
+  align-items: baseline;
+}
+
+.award-date {
   color: var(--subtle);
+  font-size: 0.86rem;
   white-space: nowrap;
+}
+
+.award-text {
+  line-height: 1.35;
+}
+
+.award-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.award-tag {
+  border: 1px solid #d8d8d8;
+  border-radius: 999px;
+  padding: 0 7px 1px;
+  background: #fafafa;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.45;
 }
 
 footer {
@@ -516,6 +536,15 @@ footer {
   .timeline-row {
     grid-template-columns: 1fr;
     gap: 2px;
+  }
+
+  .award-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .award-tags {
+    justify-content: flex-start;
   }
 
   .skill-card-grid {
