@@ -13,7 +13,7 @@
   color: var(--ink);
   background: #fff;
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 18px;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -341,7 +341,7 @@ footer {
 
 @media (max-width: 640px) {
   :root {
-    font-size: 15.5px;
+    font-size: 17px;
   }
 
   .site-shell {
