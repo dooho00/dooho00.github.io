@@ -86,9 +86,9 @@ def icon_svg(name: str | None) -> str:
     return icons.get(name or "", "")
 
 
-def author_list(authors: list[str], highlight: str, links: list[dict[str, Any]]) -> str:
+def author_list(authors: list[str], highlight: str) -> str:
     rendered = [
-        f"<strong>{e(author)}</strong>" if author == highlight else rich_text(author, links)
+        f"<strong>{e(author)}</strong>" if author == highlight else e(author)
         for author in authors
     ]
     if len(rendered) <= 1:
@@ -185,7 +185,6 @@ def render_timeline_section(item: dict[str, Any], links: list[dict[str, Any]]) -
 
 def render_publications(data: dict[str, Any]) -> str:
     item = data["publications"]
-    inline_links = data.get("inlineLinks", [])
     rows = []
     for entry in item["entries"]:
         venue_label = entry.get("venue", entry["year"])
@@ -195,7 +194,7 @@ def render_publications(data: dict[str, Any]) -> str:
             venue = e(venue_label)
         parts = [
             f"                <h3>{e(entry['title'])}</h3>",
-            f"                <p class=\"authors\">{author_list(entry['authors'], item['highlightAuthor'], inline_links)}</p>",
+            f"                <p class=\"authors\">{author_list(entry['authors'], item['highlightAuthor'])}</p>",
         ]
         if entry.get("links"):
             link_items = "\n".join(

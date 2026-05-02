@@ -39,8 +39,6 @@
     { "label": "Service", "href": "#service" }
   ],
   "inlineLinks": [
-    { "label": "KAIST Electrical Engineering", "href": "https://ee.kaist.ac.kr/en/" },
-    { "label": "KAIST", "href": "https://www.kaist.ac.kr/en/" },
     { "label": "Prof. Jaemin Yoo", "href": "https://jaeminyoo.github.io/" },
     { "label": "Jaemin Yoo", "href": "https://jaeminyoo.github.io/" },
     { "label": "Prof. Kijung Shin", "href": "https://kijungs.github.io/" },
