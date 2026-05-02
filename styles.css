@@ -13,7 +13,7 @@
   color: var(--ink);
   background: #fff;
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: 16px;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -90,7 +90,7 @@ h1 {
   margin-top: 10px;
   max-width: 560px;
   font-size: 0.98rem;
-  line-height: 1.55;
+  line-height: 1.46;
   color: var(--muted);
 }
 
@@ -153,7 +153,7 @@ h1 {
 
 .section p {
   font-size: 0.94rem;
-  line-height: 1.62;
+  line-height: 1.5;
   color: var(--ink);
 }
 
@@ -183,7 +183,7 @@ h1 {
   margin: 5px 0 0;
   padding-left: 19px;
   font-size: 0.94rem;
-  line-height: 1.55;
+  line-height: 1.45;
   color: var(--ink);
 }
 
@@ -204,7 +204,7 @@ h1 {
 .date {
   color: var(--subtle);
   font-size: 0.86rem;
-  line-height: 1.45;
+  line-height: 1.35;
 }
 
 .pub-year a {
@@ -214,7 +214,7 @@ h1 {
 h3 {
   font-size: 0.98rem;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.25;
   color: var(--ink);
 }
 
@@ -226,7 +226,7 @@ h3 {
   margin-top: 1px;
   font-size: 0.92rem;
   font-weight: 600;
-  line-height: 1.45;
+  line-height: 1.35;
   color: #333;
 }
 
@@ -245,7 +245,7 @@ h3 {
 .venue {
   margin-top: 3px;
   font-size: 0.92rem;
-  line-height: 1.5;
+  line-height: 1.38;
 }
 
 .pub-links {
@@ -323,7 +323,7 @@ h3 {
 
 .skill-card p {
   font-size: 0.88rem;
-  line-height: 1.48;
+  line-height: 1.36;
   color: var(--muted);
 }
 
@@ -341,7 +341,7 @@ footer {
 
 @media (max-width: 640px) {
   :root {
-    font-size: 14.5px;
+    font-size: 15.5px;
   }
 
   .site-shell {
