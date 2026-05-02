@@ -115,10 +115,21 @@ def render_summary(data: dict[str, Any]) -> str:
     return section(summary["id"], summary["title"], f"{paragraphs}\n{chips(summary['chips'])}")
 
 
+def timeline_heading(entry: dict[str, Any]) -> list[str]:
+    if entry.get("organization") or entry.get("role"):
+        parts = []
+        if entry.get("organization"):
+            parts.append(f'                <h3 class="entry-org">{e(entry["organization"])}</h3>')
+        if entry.get("role"):
+            parts.append(f'                <p class="entry-role">{e(entry["role"])}</p>')
+        return parts
+    return [f"                <h3>{e(entry['title'])}</h3>"]
+
+
 def render_timeline_section(item: dict[str, Any]) -> str:
     rows = []
     for entry in item["entries"]:
-        parts = [f"                <h3>{e(entry['title'])}</h3>"]
+        parts = timeline_heading(entry)
         if entry.get("subtitle"):
             parts.append(f'                <p class="muted">{e(entry["subtitle"])}</p>')
         for index, line in enumerate(entry.get("lines", [])):

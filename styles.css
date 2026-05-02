@@ -217,6 +217,22 @@ h3 {
   color: var(--ink);
 }
 
+.entry-org {
+  font-size: 1rem;
+}
+
+.entry-role {
+  margin-top: 1px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #333;
+}
+
+.entry-role + .muted {
+  margin-top: 1px;
+}
+
 .authors,
 .venue,
 .muted,

@@ -112,7 +112,8 @@
     "entries": [
       {
         "date": "Nov 2022 - Aug 2023",
-        "title": "Founding Engineer & Designer, Pensieve Inc.",
+        "organization": "Pensieve Inc.",
+        "role": "Founding Engineer & Designer",
         "subtitle": "Berkeley, CA",
         "bullets": [
           "Co-founded a US startup with two UC Berkeley students and built LLM-powered software products.",
@@ -122,7 +123,8 @@
       },
       {
         "date": "Nov 2021 - May 2023",
-        "title": "KATUSA, US Army",
+        "organization": "US Army",
+        "role": "KATUSA",
         "subtitle": "USAG Humphreys, Republic of Korea",
         "bullets": [
           "Supported US-KR communication at Bravo Company, 602nd ASB, 2nd CAB, 2nd ID.",
@@ -131,7 +133,8 @@
       },
       {
         "date": "Mar 2022 - Jul 2022",
-        "title": "Software Engineer, LayUs",
+        "organization": "LayUs",
+        "role": "Software Engineer",
         "subtitle": "Seoul, Republic of Korea",
         "bullets": [
           "Built a mobile application where users upload exhibition tickets to redeem F&B coupons."
@@ -139,7 +142,8 @@
       },
       {
         "date": "Sep 2020 - Oct 2021",
-        "title": "Co-Founder, Software Engineer & Designer, WARD",
+        "organization": "WARD",
+        "role": "Co-Founder, Software Engineer & Designer",
         "bullets": [
           "Founded a machine learning-based stock information service.",
           "Selected as one of the top 12 teams in 2021 E*5 KAIST under Blue Point Partners mentorship.",
