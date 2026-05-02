@@ -143,13 +143,20 @@ def render_publications(data: dict[str, Any]) -> str:
     item = data["publications"]
     rows = []
     for entry in item["entries"]:
+        links = ""
+        if entry.get("links"):
+            link_items = "\n".join(
+                f'                  <a href="{e(link_item["href"])}">{e(link_item["label"])}</a>'
+                for link_item in entry["links"]
+            )
+            links = f'\n                <div class="pub-links">\n{link_items}\n                </div>'
         rows.append(
             f"""            <article class="publication">
               <div class="pub-year">{e(entry['year'])}</div>
               <div>
                 <h3>{e(entry['title'])}</h3>
                 <p class="authors">{author_list(entry['authors'], item['highlightAuthor'])}</p>
-                <p class="venue">{e(entry['venue'])}</p>
+                <p class="venue">{e(entry['venue'])}</p>{links}
               </div>
             </article>"""
         )

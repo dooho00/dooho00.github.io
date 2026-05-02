@@ -227,6 +227,28 @@ h3 {
   line-height: 1.5;
 }
 
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 7px;
+}
+
+.pub-links a {
+  border: 1px solid #d6d6d6;
+  border-radius: 2px;
+  padding: 2px 7px;
+  background: #fafafa;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.pub-links a:hover {
+  border-color: #aaa;
+  background: #f3f3f3;
+  text-decoration: none;
+}
+
 .authors strong {
   color: var(--ink);
   font-weight: 700;

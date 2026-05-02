@@ -94,7 +94,12 @@
         "year": "2025",
         "title": "Aggregation Buffer: Revisiting DropEdge with a New Parameter Block",
         "authors": ["Dooho Lee", "Myeong Kong", "Sagad Hamid", "Cheonwoo Lee", "Jaemin Yoo"],
-        "venue": "International Conference on Machine Learning (ICML), 2025"
+        "venue": "International Conference on Machine Learning (ICML), 2025",
+        "links": [
+          { "label": "Paper", "href": "https://proceedings.mlr.press/v267/lee25n.html" },
+          { "label": "Code", "href": "https://github.com/dooho00/agg-buffer" },
+          { "label": "BibTeX", "href": "bibtex/lee25n.bib" }
+        ]
       }
     ]
   },
