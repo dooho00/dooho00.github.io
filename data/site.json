@@ -32,11 +32,11 @@
     { "label": "Work", "href": "#work-experience" },
     { "label": "Industry", "href": "#industrial-project" },
     { "label": "Research", "href": "#research-experience" },
-    { "label": "Skills", "href": "#skills" },
     { "label": "Awards", "href": "#awards" },
     { "label": "Teaching", "href": "#teaching" },
     { "label": "Talk", "href": "#invited-talk" },
-    { "label": "Service", "href": "#service" }
+    { "label": "Service", "href": "#service" },
+    { "label": "Skills", "href": "#skills" }
   ],
   "inlineLinks": [
     { "label": "Prof. Jaemin Yoo", "href": "https://jaeminyoo.github.io/" },
@@ -193,23 +193,13 @@
   "skills": {
     "id": "skills",
     "title": "Skills",
+    "languages": ["Korean", "English"],
     "groups": [
-      { "label": "Languages", "items": ["Korean", "English"] },
       { "label": "Machine Learning", "items": ["PyTorch", "PyTorch Geometric", "DGL", "Weights & Biases"] },
       { "label": "Programming", "items": ["Python", "C", "C++", "Java", "JavaScript", "TypeScript"] },
       { "label": "Front-End & UI", "items": ["HTML", "CSS", "React", "React Native", "Flutter"] },
       { "label": "Back-End & Data", "items": ["MySQL", "Neo4j", "Chroma", "Firebase", "Google Cloud Platform"] },
-      { "label": "Design & Tools", "items": ["Figma", "Adobe XD", "Adobe Illustrator", "Git", "Chrome Extensions", "Zoom Apps"] },
-      {
-        "label": "Research",
-        "items": [
-          "Graph Machine Learning",
-          "Foundation Models",
-          "Time-Series Modeling",
-          "Tabular Learning",
-          "Predictive AI"
-        ]
-      }
+      { "label": "Design & Tools", "items": ["Figma", "Adobe XD", "Adobe Illustrator", "Git", "Chrome Extensions", "Zoom Apps"] }
     ]
   },
   "awards": {

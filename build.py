@@ -218,11 +218,20 @@ def render_publications(data: dict[str, Any]) -> str:
 def render_skills(data: dict[str, Any]) -> str:
     item = data["skills"]
     inline_links = data.get("inlineLinks", [])
-    rows = [
-        f"            <p><strong>{e(group['label'])}:</strong> {rich_text(', '.join(group['items']), inline_links)}</p>"
+    languages = ""
+    if item.get("languages"):
+        languages = (
+            f'          <p class="skill-language"><strong>Languages:</strong> '
+            f'{rich_text(", ".join(item["languages"]), inline_links)}</p>\n'
+        )
+    cards = [
+        f"""            <article class="skill-card">
+              <h3>{e(group['label'])}</h3>
+              <p>{rich_text(', '.join(group['items']), inline_links)}</p>
+            </article>"""
         for group in item["groups"]
     ]
-    body = f'          <div class="skill-list">\n' + "\n".join(rows) + "\n          </div>"
+    body = f'{languages}          <div class="skill-card-grid">\n' + "\n".join(cards) + "\n          </div>"
     return section(item["id"], item["title"], body)
 
 
@@ -275,11 +284,11 @@ def render_html(data: dict[str, Any]) -> str:
             render_timeline_section(data["workExperience"], inline_links),
             render_timeline_section(data["industrialProject"], inline_links),
             render_timeline_section(data["researchExperience"], inline_links),
-            render_skills(data),
             render_awards(data),
             render_timeline_section(data["teaching"], inline_links),
             render_linked_list(data["invitedTalk"], inline_links),
             render_linked_list(data["service"], inline_links),
+            render_skills(data),
         ]
     )
     return f"""<!doctype html>

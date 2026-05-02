@@ -298,9 +298,32 @@ h3 {
   margin-top: 5px;
 }
 
-.skill-list {
+.skill-language {
+  margin-bottom: 9px;
+}
+
+.skill-card-grid {
   display: grid;
-  gap: 5px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.skill-card {
+  border: 1px solid #e2e2e2;
+  border-radius: 2px;
+  background: #fafafa;
+  padding: 9px 10px;
+}
+
+.skill-card h3 {
+  margin-bottom: 3px;
+  font-size: 0.92rem;
+}
+
+.skill-card p {
+  font-size: 0.88rem;
+  line-height: 1.48;
+  color: var(--muted);
 }
 
 .date-inline {
@@ -338,5 +361,9 @@ footer {
   .timeline-row {
     grid-template-columns: 1fr;
     gap: 2px;
+  }
+
+  .skill-card-grid {
+    grid-template-columns: 1fr;
   }
 }
