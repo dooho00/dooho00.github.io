@@ -210,8 +210,15 @@ main {
 .publication,
 .timeline-row {
   display: grid;
-  grid-template-columns: 98px 1fr;
   gap: 16px;
+}
+
+.publication {
+  grid-template-columns: 98px 1fr;
+}
+
+.timeline-row {
+  grid-template-columns: 138px 1fr;
 }
 
 .pub-year,
@@ -219,6 +226,10 @@ main {
   color: var(--subtle);
   font-size: 0.86rem;
   line-height: 1.35;
+}
+
+.date {
+  white-space: nowrap;
 }
 
 .pub-year a {
