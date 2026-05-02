@@ -196,6 +196,7 @@ def render_html(data: dict[str, Any]) -> str:
             render_timeline_section(data["education"]),
             render_publications(data),
             render_timeline_section(data["workExperience"]),
+            render_timeline_section(data["industrialProject"]),
             render_timeline_section(data["researchExperience"]),
             render_skills(data),
             render_awards(data),

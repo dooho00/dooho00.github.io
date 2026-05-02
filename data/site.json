@@ -29,6 +29,7 @@
     { "label": "Education", "href": "#education" },
     { "label": "Publications", "href": "#publications" },
     { "label": "Work", "href": "#work-experience" },
+    { "label": "Industry", "href": "#industrial-project" },
     { "label": "Research", "href": "#research-experience" },
     { "label": "Skills", "href": "#skills" },
     { "label": "Awards", "href": "#awards" },
@@ -101,14 +102,6 @@
     "title": "Work Experience",
     "entries": [
       {
-        "date": "Jan 2025 - Feb 2026",
-        "title": "Industrial Research Project, National Cyber Security Research Institute",
-        "subtitle": "Republic of Korea",
-        "bullets": [
-          "Worked on graph-based tracking of news propagation on social media using LLMs."
-        ]
-      },
-      {
         "date": "Nov 2022 - Aug 2023",
         "title": "Founding Engineer & Designer, Pensieve Inc.",
         "subtitle": "Berkeley, CA",
@@ -142,6 +135,20 @@
           "Founded a machine learning-based stock information service.",
           "Selected as one of the top 12 teams in 2021 E*5 KAIST under Blue Point Partners mentorship.",
           "Launched a private beta with 200+ users and gathered feedback through fund manager sessions, interviews, and surveys."
+        ]
+      }
+    ]
+  },
+  "industrialProject": {
+    "id": "industrial-project",
+    "title": "Industrial Project",
+    "entries": [
+      {
+        "date": "Jan 2025 - Feb 2026",
+        "title": "Graph-Based Tracking of News Propagation on Social Media Using LLMs",
+        "subtitle": "National Cyber Security Research Institute, Republic of Korea",
+        "bullets": [
+          "Worked on graph-based tracking of news propagation on social media using LLMs."
         ]
       }
     ]
