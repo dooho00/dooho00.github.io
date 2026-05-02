@@ -175,9 +175,9 @@
     "id": "awards",
     "title": "Awards & Honors",
     "items": [
+      { "text": "2024 Team KAIST Global Challenge Program, $15,000 funding", "date": "Jun 2024", "tags": ["Program"] },
       { "text": "2nd place, 2023 Korea SW Startup Ideathon", "date": "Oct 2023", "tags": ["Startup"] },
       { "text": "1st place, 8th Army ROKA Support Group Insignia Competition", "date": "Apr 2023", "tags": ["Design"] },
-      { "text": "2024 Team KAIST Global Challenge Program, $15,000 funding", "date": "Apr 2023", "tags": ["Program"] },
       { "text": "2nd place, Art Service Follow-up Growth Support Project", "date": "Nov 2022", "tags": ["Design"] },
       { "text": "1st place, Pre-Startup Package, Daejeon CCEI", "date": "Aug 2021", "tags": ["Startup"] },
       { "text": "Bronze Medal, NH Investment Securities Big Data Competition", "date": "Aug 2021", "tags": ["Competition"] },
