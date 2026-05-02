@@ -101,6 +101,14 @@
     "title": "Work Experience",
     "entries": [
       {
+        "date": "Jan 2025 - Feb 2026",
+        "title": "Industrial Research Project, National Cyber Security Research Institute",
+        "subtitle": "Republic of Korea",
+        "bullets": [
+          "Worked on graph-based tracking of news propagation on social media using LLMs."
+        ]
+      },
+      {
         "date": "Nov 2022 - Aug 2023",
         "title": "Founding Engineer & Designer, Pensieve Inc.",
         "subtitle": "Berkeley, CA",
@@ -142,11 +150,6 @@
     "id": "research-experience",
     "title": "Research Experience",
     "entries": [
-      {
-        "date": "Jan 2025 - Feb 2026",
-        "title": "Graph-Based Tracking of News Propagation on Social Media Using LLMs",
-        "subtitle": "National Cyber Security Research Institute, Republic of Korea"
-      },
       {
         "date": "Jan 2024 - Feb 2025",
         "title": "Undergraduate Intern, DataAI Lab, KAIST",
