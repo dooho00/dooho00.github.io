@@ -23,6 +23,34 @@ def e(value: Any) -> str:
     return escape(str(value), quote=True)
 
 
+def rich_text(value: Any, links: list[dict[str, Any]]) -> str:
+    text = e(value)
+    matches: list[tuple[int, int, dict[str, Any]]] = []
+    for item in sorted(links, key=lambda link_item: len(link_item["label"]), reverse=True):
+        label = e(item["label"])
+        start = 0
+        while True:
+            index = text.find(label, start)
+            if index == -1:
+                break
+            end = index + len(label)
+            overlaps = any(not (end <= match_start or index >= match_end) for match_start, match_end, _ in matches)
+            if not overlaps:
+                matches.append((index, end, item))
+            start = end
+    if not matches:
+        return text
+
+    output = []
+    cursor = 0
+    for start, end, item in sorted(matches, key=lambda match: match[0]):
+        output.append(text[cursor:start])
+        output.append(f'<a href="{e(item["href"])}">{text[start:end]}</a>')
+        cursor = end
+    output.append(text[cursor:])
+    return "".join(output)
+
+
 def indent(text: str, spaces: int) -> str:
     pad = " " * spaces
     return "\n".join(f"{pad}{line}" if line else "" for line in text.splitlines())
@@ -58,19 +86,22 @@ def icon_svg(name: str | None) -> str:
     return icons.get(name or "", "")
 
 
-def author_list(authors: list[str], highlight: str) -> str:
-    rendered = [f"<strong>{e(author)}</strong>" if author == highlight else e(author) for author in authors]
+def author_list(authors: list[str], highlight: str, links: list[dict[str, Any]]) -> str:
+    rendered = [
+        f"<strong>{e(author)}</strong>" if author == highlight else rich_text(author, links)
+        for author in authors
+    ]
     if len(rendered) <= 1:
         return "".join(rendered)
     return f"{', '.join(rendered[:-1])}, and {rendered[-1]}"
 
 
-def paragraph(text: str, class_name: str | None = None) -> str:
-    return f"<p{attrs(class_=class_name)}>{e(text)}</p>"
+def paragraph(text: str, class_name: str | None = None, links: list[dict[str, Any]] | None = None) -> str:
+    return f"<p{attrs(class_=class_name)}>{rich_text(text, links or [])}</p>"
 
 
-def simple_list(items: list[str]) -> str:
-    lines = "\n".join(f"<li>{e(item)}</li>" for item in items)
+def simple_list(items: list[str], links: list[dict[str, Any]] | None = None) -> str:
+    lines = "\n".join(f"<li>{rich_text(item, links or [])}</li>" for item in items)
     return f'<ul class="simple-list">\n{lines}\n</ul>'
 
 
@@ -88,13 +119,14 @@ def section(section_id: str, title: str, body: str) -> str:
 
 def render_profile(data: dict[str, Any]) -> str:
     profile = data["profile"]
+    inline_links = data.get("inlineLinks", [])
     links = "\n".join(f"            {link(item)}" for item in profile["links"])
     return f"""      <header class="profile">
         <img src="{e(profile['photo'])}" alt="{e(profile['photoAlt'])}" />
         <div>
           <h1>{e(profile['name'])}</h1>
-          <p class="role">{e(profile['role'])}</p>
-          <p class="tagline">{e(profile['tagline'])}</p>
+          <p class="role">{rich_text(profile['role'], inline_links)}</p>
+          <p class="tagline">{rich_text(profile['tagline'], inline_links)}</p>
           <div class="links" aria-label="Profile links">
 {links}
           </div>
@@ -111,32 +143,33 @@ def render_nav(data: dict[str, Any]) -> str:
 
 def render_summary(data: dict[str, Any]) -> str:
     summary = data["summary"]
-    paragraphs = "\n".join(f"          {paragraph(text)}" for text in summary["paragraphs"])
+    inline_links = data.get("inlineLinks", [])
+    paragraphs = "\n".join(f"          {paragraph(text, links=inline_links)}" for text in summary["paragraphs"])
     return section(summary["id"], summary["title"], f"{paragraphs}\n{chips(summary['chips'])}")
 
 
-def timeline_heading(entry: dict[str, Any]) -> list[str]:
+def timeline_heading(entry: dict[str, Any], links: list[dict[str, Any]]) -> list[str]:
     if entry.get("organization") or entry.get("role"):
         parts = []
         if entry.get("organization"):
-            parts.append(f'                <h3 class="entry-org">{e(entry["organization"])}</h3>')
+            parts.append(f'                <h3 class="entry-org">{rich_text(entry["organization"], links)}</h3>')
         if entry.get("role"):
-            parts.append(f'                <p class="entry-role">{e(entry["role"])}</p>')
+            parts.append(f'                <p class="entry-role">{rich_text(entry["role"], links)}</p>')
         return parts
-    return [f"                <h3>{e(entry['title'])}</h3>"]
+    return [f"                <h3>{rich_text(entry['title'], links)}</h3>"]
 
 
-def render_timeline_section(item: dict[str, Any]) -> str:
+def render_timeline_section(item: dict[str, Any], links: list[dict[str, Any]]) -> str:
     rows = []
     for entry in item["entries"]:
-        parts = timeline_heading(entry)
+        parts = timeline_heading(entry, links)
         if entry.get("subtitle"):
-            parts.append(f'                <p class="muted">{e(entry["subtitle"])}</p>')
+            parts.append(f'                <p class="muted">{rich_text(entry["subtitle"], links)}</p>')
         for index, line in enumerate(entry.get("lines", [])):
             class_name = "muted" if index > 0 or len(entry.get("lines", [])) == 1 else None
-            parts.append(f"                {paragraph(line, class_name)}")
+            parts.append(f"                {paragraph(line, class_name, links)}")
         if entry.get("bullets"):
-            parts.append(indent(simple_list(entry["bullets"]), 16))
+            parts.append(indent(simple_list(entry["bullets"], links), 16))
         body = "\n".join(parts)
         rows.append(
             f"""            <article class="timeline-row">
@@ -152,6 +185,7 @@ def render_timeline_section(item: dict[str, Any]) -> str:
 
 def render_publications(data: dict[str, Any]) -> str:
     item = data["publications"]
+    inline_links = data.get("inlineLinks", [])
     rows = []
     for entry in item["entries"]:
         venue_label = entry.get("venue", entry["year"])
@@ -161,7 +195,7 @@ def render_publications(data: dict[str, Any]) -> str:
             venue = e(venue_label)
         parts = [
             f"                <h3>{e(entry['title'])}</h3>",
-            f"                <p class=\"authors\">{author_list(entry['authors'], item['highlightAuthor'])}</p>",
+            f"                <p class=\"authors\">{author_list(entry['authors'], item['highlightAuthor'], inline_links)}</p>",
         ]
         if entry.get("links"):
             link_items = "\n".join(
@@ -184,8 +218,9 @@ def render_publications(data: dict[str, Any]) -> str:
 
 def render_skills(data: dict[str, Any]) -> str:
     item = data["skills"]
+    inline_links = data.get("inlineLinks", [])
     rows = [
-        f"            <p><strong>{e(group['label'])}:</strong> {e(', '.join(group['items']))}</p>"
+        f"            <p><strong>{e(group['label'])}:</strong> {rich_text(', '.join(group['items']), inline_links)}</p>"
         for group in item["groups"]
     ]
     body = f'          <div class="skill-list">\n' + "\n".join(rows) + "\n          </div>"
@@ -194,10 +229,11 @@ def render_skills(data: dict[str, Any]) -> str:
 
 def render_awards(data: dict[str, Any]) -> str:
     item = data["awards"]
+    inline_links = data.get("inlineLinks", [])
     cards = []
     for category in item["categories"]:
         awards = "\n".join(
-            f'                <li>{e(award["text"])} <span class="date-inline">{e(award["date"])}</span></li>'
+            f'                <li>{rich_text(award["text"], inline_links)} <span class="date-inline">{e(award["date"])}</span></li>'
             for award in category["items"]
         )
         cards.append(
@@ -212,16 +248,18 @@ def render_awards(data: dict[str, Any]) -> str:
     return section(item["id"], item["title"], body)
 
 
-def render_linked_list(item: dict[str, Any]) -> str:
+def render_linked_list(item: dict[str, Any], links: list[dict[str, Any]]) -> str:
     rows = []
     for entry in item["entries"]:
         if isinstance(entry, str):
-            rows.append(f"            <li>{e(entry)}</li>")
+            rows.append(f"            <li>{rich_text(entry, links)}</li>")
             continue
         text = e(entry["text"])
         if entry.get("href") and entry.get("linkText"):
             linked = f'<a href="{e(entry["href"])}">{e(entry["linkText"])}</a>'
             text = text.replace(e(entry["linkText"]), linked, 1)
+        else:
+            text = rich_text(entry["text"], links)
         rows.append(f"            <li>{text}</li>")
     body = f'          <ul class="simple-list">\n' + "\n".join(rows) + "\n          </ul>"
     return section(item["id"], item["title"], body)
@@ -229,19 +267,20 @@ def render_linked_list(item: dict[str, Any]) -> str:
 
 def render_html(data: dict[str, Any]) -> str:
     meta = data["meta"]
+    inline_links = data.get("inlineLinks", [])
     sections = "\n\n".join(
         [
             render_summary(data),
-            render_timeline_section(data["education"]),
+            render_timeline_section(data["education"], inline_links),
             render_publications(data),
-            render_timeline_section(data["workExperience"]),
-            render_timeline_section(data["industrialProject"]),
-            render_timeline_section(data["researchExperience"]),
+            render_timeline_section(data["workExperience"], inline_links),
+            render_timeline_section(data["industrialProject"], inline_links),
+            render_timeline_section(data["researchExperience"], inline_links),
             render_skills(data),
             render_awards(data),
-            render_timeline_section(data["teaching"]),
-            render_linked_list(data["invitedTalk"]),
-            render_linked_list(data["service"]),
+            render_timeline_section(data["teaching"], inline_links),
+            render_linked_list(data["invitedTalk"], inline_links),
+            render_linked_list(data["service"], inline_links),
         ]
     )
     return f"""<!doctype html>

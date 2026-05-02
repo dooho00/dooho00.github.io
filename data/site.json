@@ -38,6 +38,16 @@
     { "label": "Talk", "href": "#invited-talk" },
     { "label": "Service", "href": "#service" }
   ],
+  "inlineLinks": [
+    { "label": "KAIST Electrical Engineering", "href": "https://ee.kaist.ac.kr/en/" },
+    { "label": "KAIST", "href": "https://www.kaist.ac.kr/en/" },
+    { "label": "Prof. Jaemin Yoo", "href": "https://jaeminyoo.github.io/" },
+    { "label": "Jaemin Yoo", "href": "https://jaeminyoo.github.io/" },
+    { "label": "Prof. Kijung Shin", "href": "https://kijungs.github.io/" },
+    { "label": "Kijung Shin", "href": "https://kijungs.github.io/" },
+    { "label": "DataAI Lab", "href": "https://dai.kaist.ac.kr/" },
+    { "label": "MultiModalAI Lab", "href": "https://mm.kaist.ac.kr/" }
+  ],
   "summary": {
     "id": "summary",
     "title": "Summary",
@@ -265,6 +275,12 @@
   "service": {
     "id": "service",
     "title": "Professional Service",
-    "entries": ["Reviewer, NeurIPS (2026)"]
+    "entries": [
+      {
+        "text": "Reviewer, NeurIPS (2026)",
+        "href": "https://neurips.cc/Conferences/2026",
+        "linkText": "NeurIPS (2026)"
+      }
+    ]
   }
 }
