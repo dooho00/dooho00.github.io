@@ -15,13 +15,14 @@
     "email": "dooho@kaist.ac.kr",
     "cv": "Dooho-Lee-CV.docx",
     "links": [
-      { "label": "Email", "href": "mailto:dooho@kaist.ac.kr" },
+      { "label": "Email", "href": "mailto:dooho@kaist.ac.kr", "icon": "email" },
       {
         "label": "Google Scholar",
-        "href": "https://scholar.google.com/citations?user=Fv4CbSMAAAAJ&hl=en&oi=sra"
+        "href": "https://scholar.google.com/citations?user=Fv4CbSMAAAAJ&hl=en&oi=sra",
+        "icon": "scholar"
       },
-      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/dooho-lee" },
-      { "label": "CV", "href": "Dooho-Lee-CV.docx", "download": true }
+      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/dooho-lee", "icon": "linkedin" },
+      { "label": "CV", "href": "Dooho-Lee-CV.docx", "download": true, "icon": "cv" }
     ]
   },
   "nav": [

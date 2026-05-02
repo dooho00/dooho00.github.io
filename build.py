@@ -41,7 +41,21 @@ def attrs(**kwargs: Any) -> str:
 
 
 def link(item: dict[str, Any]) -> str:
-    return f"<a{attrs(href=item['href'], download=item.get('download'))}>{e(item['label'])}</a>"
+    icon = icon_svg(item.get("icon"))
+    return (
+        f"<a class=\"icon-link\"{attrs(href=item['href'], download=item.get('download'))}>"
+        f"{icon}<span>{e(item['label'])}</span></a>"
+    )
+
+
+def icon_svg(name: str | None) -> str:
+    icons = {
+        "email": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4V6Z"/><path d="m4 7 8 6 8-6"/></svg>',
+        "scholar": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 9 5-9 5-9-5 9-5Z"/><path d="M6 12v4c2 2 10 2 12 0v-4"/><path d="M21 9v6"/></svg>',
+        "linkedin": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 10v8"/><path d="M6.5 6v.1"/><path d="M11 18v-8"/><path d="M11 13.5c0-2 1.2-3.5 3.2-3.5 2.1 0 3.3 1.4 3.3 3.8V18"/></svg>',
+        "cv": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7V3Z"/><path d="M14 3v5h4"/><path d="M10 13h5"/><path d="M10 17h5"/></svg>',
+    }
+    return icons.get(name or "", "")
 
 
 def author_list(authors: list[str], highlight: str) -> str:
