@@ -162,6 +162,9 @@ def timeline_heading(entry: dict[str, Any], links: list[dict[str, Any]]) -> list
 def render_timeline_section(item: dict[str, Any], links: list[dict[str, Any]]) -> str:
     rows = []
     for entry in item["entries"]:
+        date = e(entry["date"])
+        if entry.get("dateEnd"):
+            date = f'{date}<span class="date-end">- {e(entry["dateEnd"])}</span>'
         parts = timeline_heading(entry, links)
         if entry.get("subtitle"):
             parts.append(f'                <p class="muted">{rich_text(entry["subtitle"], links)}</p>')
@@ -173,7 +176,7 @@ def render_timeline_section(item: dict[str, Any], links: list[dict[str, Any]]) -
         body = "\n".join(parts)
         rows.append(
             f"""            <article class="timeline-row">
-              <div class="date">{e(entry['date'])}</div>
+              <div class="date">{date}</div>
               <div>
 {body}
               </div>

@@ -113,7 +113,8 @@
     "title": "Work Experience",
     "entries": [
       {
-        "date": "2022.11-2023.08",
+        "date": "2022.11",
+        "dateEnd": "2023.08",
         "organization": "Pensieve Inc.",
         "role": "Founding Engineer & Designer",
         "subtitle": "Berkeley, CA",
@@ -124,7 +125,8 @@
         ]
       },
       {
-        "date": "2021.11-2023.05",
+        "date": "2021.11",
+        "dateEnd": "2023.05",
         "organization": "US Army",
         "role": "KATUSA",
         "subtitle": "USAG Humphreys, Republic of Korea",
@@ -134,7 +136,8 @@
         ]
       },
       {
-        "date": "2022.03-2022.07",
+        "date": "2022.03",
+        "dateEnd": "2022.07",
         "organization": "LayUs",
         "role": "Software Engineer",
         "subtitle": "Seoul, Republic of Korea",
@@ -143,7 +146,8 @@
         ]
       },
       {
-        "date": "2020.09-2021.10",
+        "date": "2020.09",
+        "dateEnd": "2021.10",
         "organization": "WARD",
         "role": "Co-Founder, Software Engineer & Designer",
         "bullets": [
@@ -159,7 +163,8 @@
     "title": "Industrial Project",
     "entries": [
       {
-        "date": "2025.01-2026.02",
+        "date": "2025.01",
+        "dateEnd": "2026.02",
         "title": "Graph-Based Tracking of News Propagation on Social Media Using LLMs",
         "subtitle": "National Cyber Security Research Institute, Republic of Korea",
         "bullets": [
@@ -173,12 +178,14 @@
     "title": "Research Experience",
     "entries": [
       {
-        "date": "2024.01-2025.02",
+        "date": "2024.01",
+        "dateEnd": "2025.02",
         "title": "Undergraduate Intern, DataAI Lab, KAIST",
         "subtitle": "Conducted in-depth studies of traditional and recent advances in graph machine learning."
       },
       {
-        "date": "2023.08-2023.12",
+        "date": "2023.08",
+        "dateEnd": "2023.12",
         "title": "Undergraduate Intern, MultiModalAI Lab, KAIST",
         "subtitle": "Studied foundational deep learning papers focused on computer vision and multi-modality."
       }

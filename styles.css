@@ -218,7 +218,7 @@ main {
 }
 
 .timeline-row {
-  grid-template-columns: 116px 1fr;
+  grid-template-columns: 98px 1fr;
 }
 
 .pub-year,
@@ -229,7 +229,15 @@ main {
 }
 
 .date {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
   white-space: nowrap;
+}
+
+.date-end {
+  color: #aaa;
+  line-height: 1;
 }
 
 .pub-year a {
