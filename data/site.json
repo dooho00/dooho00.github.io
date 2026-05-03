@@ -8,7 +8,7 @@
   },
   "profile": {
     "name": "Dooho Lee",
-    "role": "M.S. Student, KAIST Electrical Engineering",
+    "role": "M.S. Student @ KAIST",
     "tagline": "I build foundation models for structured data.",
     "photo": "profile.jpeg",
     "photoAlt": "Dooho Lee",
@@ -174,44 +174,37 @@
       {
         "text": "2024 Team KAIST Global Challenge Program, $15,000 funding",
         "date": "Jun 2024",
-        "sortDate": "2024-06",
-        "tags": ["Funding"]
+        "sortDate": "2024-06"
       },
       {
         "text": "2nd place, 2023 Korea SW Startup Ideathon",
         "date": "Oct 2023",
-        "sortDate": "2023-10",
-        "tags": ["Startup"]
+        "sortDate": "2023-10"
       },
       {
         "text": "1st place, 8th Army ROKA Support Group Insignia Competition",
         "date": "Apr 2023",
-        "sortDate": "2023-04",
-        "tags": ["Design"]
+        "sortDate": "2023-04"
       },
       {
         "text": "2nd place, Art Service Follow-up Growth Support Project",
         "date": "Nov 2022",
-        "sortDate": "2022-11",
-        "tags": ["Design"]
+        "sortDate": "2022-11"
       },
       {
         "text": "1st place, Pre-Startup Package, Daejeon CCEI",
         "date": "Aug 2021",
-        "sortDate": "2021-08",
-        "tags": ["Startup"]
+        "sortDate": "2021-08"
       },
       {
         "text": "Bronze Medal, NH Investment Securities Big Data Competition",
         "date": "Aug 2021",
-        "sortDate": "2021-08",
-        "tags": ["Competition"]
+        "sortDate": "2021-08"
       },
       {
         "text": "1st place, Creative Space G A.I & IoT Hackathon",
         "date": "Jul 2021",
-        "sortDate": "2021-07",
-        "tags": ["Hackathon"]
+        "sortDate": "2021-07"
       }
     ]
   },

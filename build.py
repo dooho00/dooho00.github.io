@@ -298,12 +298,10 @@ def render_awards(data: dict[str, Any]) -> str:
     inline_links = data.get("inlineLinks", [])
     rows = []
     for award in sorted(item["items"], key=lambda award: award.get("sortDate", award.get("date", "")), reverse=True):
-        tags = "".join(f'<span class="award-tag">{e(tag)}</span>' for tag in award.get("tags", []))
         rows.append(
             f"""            <li class="award-row">
               <span class="award-date">{e(award['date'])}</span>
               <span class="award-text">{rich_text(award['text'], inline_links)}</span>
-              <span class="award-tags">{tags}</span>
             </li>"""
         )
     body = f'          <ul class="award-list">\n' + "\n".join(rows) + "\n          </ul>"
@@ -342,8 +340,8 @@ def render_experience(data: dict[str, Any]) -> str:
     inline_links = data.get("inlineLinks", [])
     body = "\n".join(
         [
-            subsection(data["industrialProject"]["title"], render_expandable_entries_body(data["industrialProject"], inline_links)),
             subsection(data["workExperience"]["title"], render_expandable_entries_body(data["workExperience"], inline_links)),
+            subsection(data["industrialProject"]["title"], render_expandable_entries_body(data["industrialProject"], inline_links)),
             subsection(data["teaching"]["title"], render_expandable_entries_body(data["teaching"], inline_links)),
             subsection(data["invitedTalk"]["title"], render_linked_list_body(data["invitedTalk"], inline_links)),
             subsection(data["service"]["title"], render_linked_list_body(data["service"], inline_links)),
