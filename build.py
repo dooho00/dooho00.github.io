@@ -248,7 +248,6 @@ def render_publications(data: dict[str, Any]) -> str:
     item = data["publications"]
     rows = []
     for entry in item["entries"]:
-        is_first_author = entry["authors"][0] == item["highlightAuthor"]
         venue_label = entry.get("venue", entry["year"])
         if entry.get("venueHref"):
             venue = f'<a href="{e(entry["venueHref"])}">{e(venue_label)}</a>'
@@ -266,25 +265,14 @@ def render_publications(data: dict[str, Any]) -> str:
             parts.append(f'                <div class="pub-links">\n{link_items}\n                </div>')
         details = "\n".join(parts)
         rows.append(
-            f"""            <article class="publication" data-first-author="{str(is_first_author).lower()}">
+            f"""            <article class="publication">
               <div class="pub-year">{venue}</div>
               <div>
 {details}
               </div>
             </article>"""
         )
-    body = (
-        """          <div class="publication-filter" aria-label="Publication filter">
-            <input class="publication-filter-input" type="radio" id="pub-filter-all" name="publication-filter" checked />
-            <label for="pub-filter-all">All</label>
-            <input class="publication-filter-input" type="radio" id="pub-filter-first" name="publication-filter" />
-            <label for="pub-filter-first">First author</label>
-          </div>
-"""
-        + f'          <div class="publication-list">\n'
-        + "\n".join(rows)
-        + "\n          </div>"
-    )
+    body = f'          <div class="publication-list">\n' + "\n".join(rows) + "\n          </div>"
     return section(item["id"], item["title"], body)
 
 
