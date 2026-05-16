@@ -22,6 +22,7 @@
         "icon": "scholar"
       },
       { "label": "LinkedIn", "href": "https://www.linkedin.com/in/dooho-lee", "icon": "linkedin" },
+      { "label": "GitHub", "href": "https://github.com/dooho00", "icon": "github" },
       { "label": "CV", "href": "Dooho-Lee-CV.docx", "download": true, "icon": "cv" }
     ]
   },
@@ -73,6 +74,12 @@
     "title": "Publications",
     "highlightAuthor": "Dooho Lee",
     "entries": [
+      {
+        "year": "2026",
+        "title": "Node4All: Learning Node Representation Beyond Datasets",
+        "authors": ["Dooho Lee", "Jaemin Yoo"],
+        "venue": "KDD 2026"
+      },
       {
         "year": "2026",
         "title": "View Space: Learning Representation across Arbitrary Graphs",

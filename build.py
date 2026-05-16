@@ -81,6 +81,7 @@ def icon_svg(name: str | None) -> str:
         "email": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4V6Z"/><path d="m4 7 8 6 8-6"/></svg>',
         "scholar": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 9 5-9 5-9-5 9-5Z"/><path d="M6 12v4c2 2 10 2 12 0v-4"/><path d="M21 9v6"/></svg>',
         "linkedin": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 10v8"/><path d="M6.5 6v.1"/><path d="M11 18v-8"/><path d="M11 13.5c0-2 1.2-3.5 3.2-3.5 2.1 0 3.3 1.4 3.3 3.8V18"/></svg>',
+        "github": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3"/><path d="M15 22v-3.5c0-1 .3-1.7.9-2.3 3-.3 6.1-1.5 6.1-6.8 0-1.5-.5-2.8-1.4-3.8.1-.3.6-1.8-.2-3.7 0 0-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.8 1.5 5.6 1.9 5.6 1.9c-.8 1.9-.3 3.4-.2 3.7A5.3 5.3 0 0 0 4 9.4c0 5.3 3.1 6.5 6.1 6.8.6.6.9 1.3.9 2.3V22"/></svg>',
         "cv": '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7V3Z"/><path d="M14 3v5h4"/><path d="M10 13h5"/><path d="M10 17h5"/></svg>',
     }
     return icons.get(name or "", "")
@@ -93,6 +94,8 @@ def author_list(authors: list[str], highlight: str) -> str:
     ]
     if len(rendered) <= 1:
         return "".join(rendered)
+    if len(rendered) == 2:
+        return f"{rendered[0]} and {rendered[1]}"
     return f"{', '.join(rendered[:-1])}, and {rendered[-1]}"
 
 
@@ -245,6 +248,7 @@ def render_publications(data: dict[str, Any]) -> str:
     item = data["publications"]
     rows = []
     for entry in item["entries"]:
+        is_first_author = entry["authors"][0] == item["highlightAuthor"]
         venue_label = entry.get("venue", entry["year"])
         if entry.get("venueHref"):
             venue = f'<a href="{e(entry["venueHref"])}">{e(venue_label)}</a>'
@@ -262,14 +266,25 @@ def render_publications(data: dict[str, Any]) -> str:
             parts.append(f'                <div class="pub-links">\n{link_items}\n                </div>')
         details = "\n".join(parts)
         rows.append(
-            f"""            <article class="publication">
+            f"""            <article class="publication" data-first-author="{str(is_first_author).lower()}">
               <div class="pub-year">{venue}</div>
               <div>
 {details}
               </div>
             </article>"""
         )
-    body = f'          <div class="publication-list">\n' + "\n".join(rows) + "\n          </div>"
+    body = (
+        """          <div class="publication-filter" aria-label="Publication filter">
+            <input class="publication-filter-input" type="radio" id="pub-filter-all" name="publication-filter" checked />
+            <label for="pub-filter-all">All</label>
+            <input class="publication-filter-input" type="radio" id="pub-filter-first" name="publication-filter" />
+            <label for="pub-filter-first">First author</label>
+          </div>
+"""
+        + f'          <div class="publication-list">\n'
+        + "\n".join(rows)
+        + "\n          </div>"
+    )
     return section(item["id"], item["title"], body)
 
 
