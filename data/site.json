@@ -78,7 +78,8 @@
         "year": "2026",
         "title": "Node4All: Learning Node Representation Beyond Datasets",
         "authors": ["Dooho Lee", "Jaemin Yoo"],
-        "venue": "KDD 2026"
+        "venue": "KDD 2026",
+        "venueHref": "https://kdd2026.kdd.org/"
       },
       {
         "year": "2026",
