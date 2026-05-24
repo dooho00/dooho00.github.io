@@ -253,7 +253,7 @@ main {
 }
 
 .publication {
-  grid-template-columns: 98px 1fr;
+  grid-template-columns: 132px 1fr;
 }
 
 .timeline-row {
@@ -281,10 +281,6 @@ main {
 
 .pub-year a {
   color: var(--link);
-}
-
-.pub-year-stacked {
-  line-height: 1.55;
 }
 
 h3 {
