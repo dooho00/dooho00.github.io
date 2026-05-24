@@ -248,11 +248,19 @@ def render_publications(data: dict[str, Any]) -> str:
     item = data["publications"]
     rows = []
     for entry in item["entries"]:
-        venue_label = entry.get("venue", entry["year"])
-        if entry.get("venueHref"):
-            venue = f'<a href="{e(entry["venueHref"])}">{e(venue_label)}</a>'
+        if entry.get("venues"):
+            venue = "\n                ".join(
+                f'<span class="venue-item"><a href="{e(venue_item["href"])}">{e(venue_item["label"])}</a></span>'
+                if venue_item.get("href")
+                else f'<span class="venue-item">{e(venue_item["label"])}</span>'
+                for venue_item in entry["venues"]
+            )
         else:
-            venue = e(venue_label)
+            venue_label = entry.get("venue", entry["year"])
+            if entry.get("venueHref"):
+                venue = f'<a href="{e(entry["venueHref"])}">{e(venue_label)}</a>'
+            else:
+                venue = e(venue_label)
         parts = [
             f"                <h3>{e(entry['title'])}</h3>",
             f"                <p class=\"authors\">{author_list(entry['authors'], item['highlightAuthor'])}</p>",

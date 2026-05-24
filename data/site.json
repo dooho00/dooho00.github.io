@@ -78,8 +78,10 @@
         "year": "2026",
         "title": "Node4All: Learning Node Representation Beyond Datasets",
         "authors": ["Dooho Lee", "Jaemin Yoo"],
-        "venue": "KDD 2026",
-        "venueHref": "https://kdd2026.kdd.org/"
+        "venues": [
+          { "label": "KDD 2026", "href": "https://kdd2026.kdd.org/" },
+          { "label": "GFM @ ICML 2026", "href": "https://sites.google.com/view/gfmicml-2026" }
+        ]
       },
       {
         "year": "2026",
@@ -251,6 +253,11 @@
     "id": "service",
     "title": "Professional Service",
     "entries": [
+      {
+        "text": "Reviewer, GFM @ ICML 2026",
+        "href": "https://sites.google.com/view/gfmicml-2026",
+        "linkText": "GFM @ ICML 2026"
+      },
       {
         "text": "Reviewer, NeurIPS (2026)",
         "href": "https://neurips.cc/Conferences/2026",

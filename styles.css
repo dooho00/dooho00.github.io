@@ -283,6 +283,10 @@ main {
   color: var(--link);
 }
 
+.venue-item {
+  display: block;
+}
+
 h3 {
   font-size: 0.98rem;
   font-weight: 600;
