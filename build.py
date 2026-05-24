@@ -251,10 +251,10 @@ def render_publications(data: dict[str, Any]) -> str:
         venue_class = "pub-year"
         if entry.get("venues"):
             venue_class = "pub-year pub-year-stacked"
-            venue = "\n                ".join(
-                f'<span class="venue-item"><a href="{e(venue_item["href"])}">{e(venue_item["label"])}</a></span>'
+            venue = "<br />\n                ".join(
+                f'<a href="{e(venue_item["href"])}">{e(venue_item["label"])}</a>'
                 if venue_item.get("href")
-                else f'<span class="venue-item">{e(venue_item["label"])}</span>'
+                else e(venue_item["label"])
                 for venue_item in entry["venues"]
             )
         else:
