@@ -283,6 +283,11 @@ main {
   color: var(--link);
 }
 
+.pub-year-stacked {
+  display: grid;
+  gap: 1px;
+}
+
 .venue-item {
   display: block;
 }

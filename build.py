@@ -248,7 +248,9 @@ def render_publications(data: dict[str, Any]) -> str:
     item = data["publications"]
     rows = []
     for entry in item["entries"]:
+        venue_class = "pub-year"
         if entry.get("venues"):
+            venue_class = "pub-year pub-year-stacked"
             venue = "\n                ".join(
                 f'<span class="venue-item"><a href="{e(venue_item["href"])}">{e(venue_item["label"])}</a></span>'
                 if venue_item.get("href")
@@ -274,7 +276,7 @@ def render_publications(data: dict[str, Any]) -> str:
         details = "\n".join(parts)
         rows.append(
             f"""            <article class="publication">
-              <div class="pub-year">{venue}</div>
+              <div class="{venue_class}">{venue}</div>
               <div>
 {details}
               </div>
