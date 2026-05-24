@@ -283,6 +283,10 @@ main {
   color: var(--link);
 }
 
+.pub-year-stacked {
+  line-height: 1.55;
+}
+
 h3 {
   font-size: 0.98rem;
   font-weight: 600;
