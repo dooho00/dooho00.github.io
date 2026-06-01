@@ -88,7 +88,11 @@
         "title": "View Space: Learning Representation across Arbitrary Graphs",
         "authors": ["Dooho Lee", "Myeong Kong", "Minho Jeong", "Jaemin Yoo"],
         "venue": "ICML 2026",
-        "venueHref": "https://icml.cc/Conferences/2026"
+        "venueHref": "https://icml.cc/Conferences/2026",
+        "links": [
+          { "label": "Paper", "href": "https://arxiv.org/pdf/2512.11561" },
+          { "label": "Code", "href": "https://github.com/dooho00/graph-view-space" }
+        ]
       },
       {
         "year": "2026",
