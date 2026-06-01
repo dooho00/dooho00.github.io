@@ -13,7 +13,7 @@
     "photo": "profile.jpeg",
     "photoAlt": "Dooho Lee",
     "email": "dooho@kaist.ac.kr",
-    "cv": "Dooho-Lee-CV.docx",
+    "cv": "CV_DoohoLee.pdf",
     "links": [
       { "label": "Email", "href": "mailto:dooho@kaist.ac.kr", "icon": "email" },
       {
@@ -23,7 +23,7 @@
       },
       { "label": "LinkedIn", "href": "https://www.linkedin.com/in/dooho-lee", "icon": "linkedin" },
       { "label": "GitHub", "href": "https://github.com/dooho00", "icon": "github" },
-      { "label": "CV", "href": "Dooho-Lee-CV.docx", "download": true, "icon": "cv" }
+      { "label": "CV", "href": "CV_DoohoLee.pdf", "download": true, "icon": "cv" }
     ]
   },
   "nav": [
