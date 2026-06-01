@@ -99,7 +99,11 @@
         "title": "Generalizing Multi-Scale Time-Series Modeling with a Single Operator",
         "authors": ["Cheonwoo Lee", "Dooho Lee", "Doyun Choi", "Jaemin Yoo"],
         "venue": "ICML 2026",
-        "venueHref": "https://icml.cc/Conferences/2026"
+        "venueHref": "https://icml.cc/Conferences/2026",
+        "links": [
+          { "label": "Paper", "href": "https://arxiv.org/pdf/2605.31129" },
+          { "label": "Code", "href": "https://github.com/cheonwoolee/SiGMA" }
+        ]
       },
       {
         "year": "2026",
