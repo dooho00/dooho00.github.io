@@ -81,6 +81,10 @@
         "venues": [
           { "label": "KDD 2026", "href": "https://kdd2026.kdd.org/" },
           { "label": "GFM @ ICML 2026", "href": "https://sites.google.com/view/gfmicml-2026" }
+        ],
+        "links": [
+          { "label": "Paper", "href": "http://arxiv.org/abs/2607.17272" },
+          { "label": "Code", "href": "https://github.com/dooho00/node4all" }
         ]
       },
       {
