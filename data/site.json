@@ -1,14 +1,14 @@
 {
   "meta": {
     "title": "Dooho Lee",
-    "description": "Dooho Lee is Co-Founder and CTO of Nums AI and a KAIST MS student researching foundation models for structured data across graphs, time series, and tabular data.",
+    "description": "Dooho Lee is Co-Founder at Nums AI and a KAIST MS student researching foundation models for structured data across graphs, time series, and tabular data.",
     "ogTitle": "Dooho Lee",
-    "ogDescription": "Co-Founder and CTO of Nums AI; researcher-builder working on foundation models for structured data.",
+    "ogDescription": "Co-Founder at Nums AI; KAIST MS student working on foundation models for structured data.",
     "ogImage": "profile.jpeg"
   },
   "profile": {
     "name": "Dooho Lee",
-    "role": "Co-Founder and CTO @ Nums AI",
+    "role": "Co-Founder @ Nums AI",
     "tagline": "I build foundation models for structured data.",
     "photo": "profile.jpeg",
     "photoAlt": "Dooho Lee",
@@ -47,7 +47,7 @@
     "id": "about",
     "title": "About",
     "paragraphs": [
-      "I am Co-Founder and CTO of Nums AI and a second-year M.S. student in Electrical Engineering at KAIST, advised by Prof. Jaemin Yoo and Prof. Kijung Shin. My research focuses on machine learning for structured data, including graphs, time series, and tabular data, with a recent focus on foundation models.",
+      "I am Co-Founder at Nums AI and a second-year M.S. student in Electrical Engineering at KAIST, conducting research at the DataAI Lab under the supervision of Prof. Jaemin Yoo and Prof. Kijung Shin. My research focuses on machine learning for structured data, including graphs, time series, and tabular data, with a recent focus on foundation models.",
       "Outside academia, I have co-founded and worked as a software engineer and designer in multiple startups, building products around foundation models, LLM-powered workflows, finance, and mobile applications."
     ]
   },
