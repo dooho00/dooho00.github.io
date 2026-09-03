@@ -118,7 +118,6 @@
         "venueHref": "https://www.auai.org/uai2026/",
         "links": [
           { "label": "Paper", "href": "https://proceedings.mlr.press/v337/hamid26a.html" },
-          { "label": "OpenReview", "href": "https://openreview.net/forum?id=XTLgNz58aB" },
           { "label": "Code", "href": "https://github.com/hagad1/graphpu-cpu" }
         ]
       },
