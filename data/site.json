@@ -28,11 +28,9 @@
   },
   "nav": [
     { "label": "About", "href": "#about" },
-    { "label": "Education", "href": "#education" },
     { "label": "Publications", "href": "#publications" },
     { "label": "Experience", "href": "#experience" },
-    { "label": "Awards", "href": "#awards" },
-    { "label": "Skills", "href": "#skills" }
+    { "label": "Education", "href": "#education" }
   ],
   "inlineLinks": [
     { "label": "Prof. Jaemin Yoo", "href": "https://jaeminyoo.github.io/" },
@@ -47,8 +45,7 @@
     "id": "about",
     "title": "About",
     "paragraphs": [
-      "I am Co-Founder at Nums AI and a second-year M.S. student in Electrical Engineering at KAIST, conducting research at the DataAI Lab under the supervision of Prof. Jaemin Yoo and Prof. Kijung Shin. My research focuses on machine learning for structured data, including graphs, time series, and tabular data, with a recent focus on foundation models.",
-      "Outside academia, I have co-founded and worked as a software engineer and designer in multiple startups, building products around foundation models, LLM-powered workflows, finance, and mobile applications."
+      "At Nums AI, I build foundation models for structured data: graphs, time series, and tables. I am also an M.S. student at KAIST's DataAI Lab, advised by Prof. Jaemin Yoo and Prof. Kijung Shin."
     ]
   },
   "education": {

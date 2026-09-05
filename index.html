@@ -12,62 +12,42 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#about">Skip to content</a>
     <div class="site-shell">
       <header class="profile">
-        <img src="profile.jpeg" alt="Dooho Lee" />
-        <div>
+        <img src="profile.jpeg" alt="Dooho Lee" width="160" height="160" />
+        <div class="profile-copy">
           <h1>Dooho Lee</h1>
           <p class="role">Co-Founder @ <a href="https://nums.world">Nums AI</a></p>
-          <p class="tagline">I build foundation models for structured data.</p>
-          <div class="links" aria-label="Profile links">
+        </div>
+        <p class="tagline">I build foundation models for structured data.</p>
+        <div class="links" aria-label="Profile links">
             <a class="icon-link" href="mailto:dooho@kaist.ac.kr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4V6Z"/><path d="m4 7 8 6 8-6"/></svg><span>Email</span></a>
             <a class="icon-link" href="https://scholar.google.com/citations?user=Fv4CbSMAAAAJ&amp;hl=en&amp;oi=sra"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 9 5-9 5-9-5 9-5Z"/><path d="M6 12v4c2 2 10 2 12 0v-4"/><path d="M21 9v6"/></svg><span>Google Scholar</span></a>
             <a class="icon-link" href="https://www.linkedin.com/in/dooho-lee"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 10v8"/><path d="M6.5 6v.1"/><path d="M11 18v-8"/><path d="M11 13.5c0-2 1.2-3.5 3.2-3.5 2.1 0 3.3 1.4 3.3 3.8V18"/></svg><span>LinkedIn</span></a>
             <a class="icon-link" href="https://github.com/dooho00"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3"/><path d="M15 22v-3.5c0-1 .3-1.7.9-2.3 3-.3 6.1-1.5 6.1-6.8 0-1.5-.5-2.8-1.4-3.8.1-.3.6-1.8-.2-3.7 0 0-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.8 1.5 5.6 1.9 5.6 1.9c-.8 1.9-.3 3.4-.2 3.7A5.3 5.3 0 0 0 4 9.4c0 5.3 3.1 6.5 6.1 6.8.6.6.9 1.3.9 2.3V22"/></svg><span>GitHub</span></a>
             <a class="icon-link" href="CV_DoohoLee.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7V3Z"/><path d="M14 3v5h4"/><path d="M10 13h5"/><path d="M10 17h5"/></svg><span>CV</span></a>
-          </div>
         </div>
       </header>
 
       <nav class="anchor-nav" aria-label="Section navigation">
         <a href="#about">About</a>
-        <a href="#education">Education</a>
         <a href="#publications">Publications</a>
         <a href="#experience">Experience</a>
-        <a href="#awards">Awards</a>
-        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
       </nav>
 
       <main>
         <section id="about" class="section">
           <h2>About</h2>
-          <p>I am Co-Founder at <a href="https://nums.world">Nums AI</a> and a second-year M.S. student in Electrical Engineering at KAIST, conducting research at the <a href="https://dai.kaist.ac.kr/">DataAI Lab</a> under the supervision of <a href="https://jaeminyoo.github.io/">Prof. Jaemin Yoo</a> and <a href="https://kijungs.github.io/">Prof. Kijung Shin</a>. My research focuses on machine learning for structured data, including graphs, time series, and tabular data, with a recent focus on foundation models.</p>
-          <p>Outside academia, I have co-founded and worked as a software engineer and designer in multiple startups, building products around foundation models, LLM-powered workflows, finance, and mobile applications.</p>
-        </section>
-
-        <section id="education" class="section">
-          <h2>Education</h2>
-          <div class="timeline">
-            <article class="timeline-row">
-              <div class="date">2025 - Present</div>
-              <div>
-                <h3>M.S. in Electrical Engineering, KAIST</h3>
-                <p>Advisor: <a href="https://jaeminyoo.github.io/">Prof. Jaemin Yoo</a> and <a href="https://kijungs.github.io/">Prof. Kijung Shin</a></p>
-                <p class="muted">Daejeon, Republic of Korea. GPA: 3.88.</p>
-              </div>
-            </article>
-            <article class="timeline-row">
-              <div class="date">2019 - 2024</div>
-              <div>
-                <h3>B.S. in Electrical Engineering and Computer Science, KAIST</h3>
-                <p class="muted">Double major. Daejeon, Republic of Korea. Cum laude, GPA: 3.77.</p>
-              </div>
-            </article>
+          <div class="section-body">
+          <p>At <a href="https://nums.world">Nums AI</a>, I build foundation models for structured data: graphs, time series, and tables. I am also an M.S. student at KAIST&#x27;s <a href="https://dai.kaist.ac.kr/">DataAI Lab</a>, advised by <a href="https://jaeminyoo.github.io/">Prof. Jaemin Yoo</a> and <a href="https://kijungs.github.io/">Prof. Kijung Shin</a>.</p>
           </div>
         </section>
 
         <section id="publications" class="section">
           <h2>Publications</h2>
+          <div class="section-body">
           <div class="publication-list">
             <article class="publication">
               <div class="pub-year pub-year-stacked"><a href="https://kdd2026.kdd.org/">KDD 2026</a><br />
@@ -76,8 +56,8 @@
                 <h3>Node4All: Learning Node Representation Beyond Datasets</h3>
                 <p class="authors"><span class="author-highlight">Dooho Lee</span> and Jaemin Yoo</p>
                 <div class="pub-links">
-                  <a href="http://arxiv.org/abs/2607.17272">Paper</a>
-                  <a href="https://github.com/dooho00/node4all">Code</a>
+                  <a href="http://arxiv.org/abs/2607.17272"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7V3Z"/><path d="M14 3v5h4"/><path d="M10 13h5"/><path d="M10 17h5"/></svg><span>Paper</span></a>
+                  <a href="https://github.com/dooho00/node4all"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3"/><path d="M15 22v-3.5c0-1 .3-1.7.9-2.3 3-.3 6.1-1.5 6.1-6.8 0-1.5-.5-2.8-1.4-3.8.1-.3.6-1.8-.2-3.7 0 0-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.8 1.5 5.6 1.9 5.6 1.9c-.8 1.9-.3 3.4-.2 3.7A5.3 5.3 0 0 0 4 9.4c0 5.3 3.1 6.5 6.1 6.8.6.6.9 1.3.9 2.3V22"/></svg><span>Code</span></a>
                 </div>
               </div>
             </article>
@@ -87,8 +67,8 @@
                 <h3>View Space: Learning Representation across Arbitrary Graphs</h3>
                 <p class="authors"><span class="author-highlight">Dooho Lee</span>, Myeong Kong, Minho Jeong, and Jaemin Yoo</p>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/pdf/2512.11561">Paper</a>
-                  <a href="https://github.com/dooho00/graph-view-space">Code</a>
+                  <a href="https://arxiv.org/pdf/2512.11561"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7V3Z"/><path d="M14 3v5h4"/><path d="M10 13h5"/><path d="M10 17h5"/></svg><span>Paper</span></a>
+                  <a href="https://github.com/dooho00/graph-view-space"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3"/><path d="M15 22v-3.5c0-1 .3-1.7.9-2.3 3-.3 6.1-1.5 6.1-6.8 0-1.5-.5-2.8-1.4-3.8.1-.3.6-1.8-.2-3.7 0 0-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.8 1.5 5.6 1.9 5.6 1.9c-.8 1.9-.3 3.4-.2 3.7A5.3 5.3 0 0 0 4 9.4c0 5.3 3.1 6.5 6.1 6.8.6.6.9 1.3.9 2.3V22"/></svg><span>Code</span></a>
                 </div>
               </div>
             </article>
@@ -98,8 +78,8 @@
                 <h3>Generalizing Multi-Scale Time-Series Modeling with a Single Operator</h3>
                 <p class="authors">Cheonwoo Lee, <span class="author-highlight">Dooho Lee</span>, Doyun Choi, and Jaemin Yoo</p>
                 <div class="pub-links">
-                  <a href="https://arxiv.org/pdf/2605.31129">Paper</a>
-                  <a href="https://github.com/cheonwoolee/SiGMA">Code</a>
+                  <a href="https://arxiv.org/pdf/2605.31129"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7V3Z"/><path d="M14 3v5h4"/><path d="M10 13h5"/><path d="M10 17h5"/></svg><span>Paper</span></a>
+                  <a href="https://github.com/cheonwoolee/SiGMA"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3"/><path d="M15 22v-3.5c0-1 .3-1.7.9-2.3 3-.3 6.1-1.5 6.1-6.8 0-1.5-.5-2.8-1.4-3.8.1-.3.6-1.8-.2-3.7 0 0-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.8 1.5 5.6 1.9 5.6 1.9c-.8 1.9-.3 3.4-.2 3.7A5.3 5.3 0 0 0 4 9.4c0 5.3 3.1 6.5 6.1 6.8.6.6.9 1.3.9 2.3V22"/></svg><span>Code</span></a>
                 </div>
               </div>
             </article>
@@ -109,8 +89,8 @@
                 <h3>A Probabilistic Circuit Framework for Interpretable Graph PU Learning</h3>
                 <p class="authors">Sagad Hamid, <span class="author-highlight">Dooho Lee</span>, Myeong Kong, Tanya Braun, and Jaemin Yoo</p>
                 <div class="pub-links">
-                  <a href="https://proceedings.mlr.press/v337/hamid26a.html">Paper</a>
-                  <a href="https://github.com/hagad1/graphpu-cpu">Code</a>
+                  <a href="https://proceedings.mlr.press/v337/hamid26a.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7V3Z"/><path d="M14 3v5h4"/><path d="M10 13h5"/><path d="M10 17h5"/></svg><span>Paper</span></a>
+                  <a href="https://github.com/hagad1/graphpu-cpu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3"/><path d="M15 22v-3.5c0-1 .3-1.7.9-2.3 3-.3 6.1-1.5 6.1-6.8 0-1.5-.5-2.8-1.4-3.8.1-.3.6-1.8-.2-3.7 0 0-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.8 1.5 5.6 1.9 5.6 1.9c-.8 1.9-.3 3.4-.2 3.7A5.3 5.3 0 0 0 4 9.4c0 5.3 3.1 6.5 6.1 6.8.6.6.9 1.3.9 2.3V22"/></svg><span>Code</span></a>
                 </div>
               </div>
             </article>
@@ -120,16 +100,18 @@
                 <h3>Aggregation Buffer: Revisiting DropEdge with a New Parameter Block</h3>
                 <p class="authors"><span class="author-highlight">Dooho Lee</span>, Myeong Kong, Sagad Hamid, Cheonwoo Lee, and Jaemin Yoo</p>
                 <div class="pub-links">
-                  <a href="https://proceedings.mlr.press/v267/lee25n.html">Paper</a>
-                  <a href="https://github.com/dooho00/agg-buffer">Code</a>
+                  <a href="https://proceedings.mlr.press/v267/lee25n.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7V3Z"/><path d="M14 3v5h4"/><path d="M10 13h5"/><path d="M10 17h5"/></svg><span>Paper</span></a>
+                  <a href="https://github.com/dooho00/agg-buffer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3"/><path d="M15 22v-3.5c0-1 .3-1.7.9-2.3 3-.3 6.1-1.5 6.1-6.8 0-1.5-.5-2.8-1.4-3.8.1-.3.6-1.8-.2-3.7 0 0-1.2-.4-3.9 1.5a13.4 13.4 0 0 0-7 0C6.8 1.5 5.6 1.9 5.6 1.9c-.8 1.9-.3 3.4-.2 3.7A5.3 5.3 0 0 0 4 9.4c0 5.3 3.1 6.5 6.1 6.8.6.6.9 1.3.9 2.3V22"/></svg><span>Code</span></a>
                 </div>
               </div>
             </article>
+          </div>
           </div>
         </section>
 
         <section id="experience" class="section">
           <h2>Experience</h2>
+          <div class="section-body">
           <div class="subsection">
             <h3 class="subsection-title">Work Experience</h3>
             <div class="entry-list">
@@ -238,10 +220,35 @@
               <li>Reviewer, <a href="https://neurips.cc/Conferences/2026">NeurIPS (2026)</a></li>
             </ul>
           </div>
+          </div>
+        </section>
+
+        <section id="education" class="section">
+          <h2>Education</h2>
+          <div class="section-body">
+          <div class="timeline">
+            <article class="timeline-row">
+              <div class="date">2025 - Present</div>
+              <div>
+                <h3>M.S. in Electrical Engineering, KAIST</h3>
+                <p>Advisor: <a href="https://jaeminyoo.github.io/">Prof. Jaemin Yoo</a> and <a href="https://kijungs.github.io/">Prof. Kijung Shin</a></p>
+                <p class="muted">Daejeon, Republic of Korea. GPA: 3.88.</p>
+              </div>
+            </article>
+            <article class="timeline-row">
+              <div class="date">2019 - 2024</div>
+              <div>
+                <h3>B.S. in Electrical Engineering and Computer Science, KAIST</h3>
+                <p class="muted">Double major. Daejeon, Republic of Korea. Cum laude, GPA: 3.77.</p>
+              </div>
+            </article>
+          </div>
+          </div>
         </section>
 
         <section id="awards" class="section">
           <h2>Awards &amp; Honors</h2>
+          <div class="section-body">
           <ul class="award-list">
             <li class="award-row">
               <span class="award-date">2026</span>
@@ -276,10 +283,12 @@
               <span class="award-text">Bronze Medal, NH Investment Securities Big Data Competition</span>
             </li>
           </ul>
+          </div>
         </section>
 
         <section id="skills" class="section">
           <h2>Skills</h2>
+          <div class="section-body">
           <p class="skill-language"><strong>Languages:</strong> Korean, English</p>
           <div class="skill-card-grid">
             <article class="skill-card">
@@ -302,6 +311,7 @@
               <h3>Design &amp; Tools</h3>
               <p>Figma, Adobe XD, Adobe Illustrator, Git, Chrome Extensions, Zoom Apps</p>
             </article>
+          </div>
           </div>
         </section>
       </main>

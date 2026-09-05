@@ -116,7 +116,9 @@ def chips(items: list[str]) -> str:
 def section(section_id: str, title: str, body: str) -> str:
     return f"""        <section id="{e(section_id)}" class="section">
           <h2>{e(title)}</h2>
+          <div class="section-body">
 {body}
+          </div>
         </section>"""
 
 
@@ -125,14 +127,14 @@ def render_profile(data: dict[str, Any]) -> str:
     inline_links = data.get("inlineLinks", [])
     links = "\n".join(f"            {link(item)}" for item in profile["links"])
     return f"""      <header class="profile">
-        <img src="{e(profile['photo'])}" alt="{e(profile['photoAlt'])}" />
-        <div>
+        <img src="{e(profile['photo'])}" alt="{e(profile['photoAlt'])}" width="160" height="160" />
+        <div class="profile-copy">
           <h1>{e(profile['name'])}</h1>
           <p class="role">{rich_text(profile['role'], inline_links)}</p>
-          <p class="tagline">{rich_text(profile['tagline'], inline_links)}</p>
-          <div class="links" aria-label="Profile links">
+        </div>
+        <p class="tagline">{rich_text(profile['tagline'], inline_links)}</p>
+        <div class="links" aria-label="Profile links">
 {links}
-          </div>
         </div>
       </header>"""
 
@@ -269,7 +271,7 @@ def render_publications(data: dict[str, Any]) -> str:
         ]
         if entry.get("links"):
             link_items = "\n".join(
-                f'                  <a href="{e(link_item["href"])}">{e(link_item["label"])}</a>'
+                f'                  <a href="{e(link_item["href"])}">{icon_svg("github" if link_item["label"] == "Code" else "cv")}<span>{e(link_item["label"])}</span></a>'
                 for link_item in entry["links"]
             )
             parts.append(f'                <div class="pub-links">\n{link_items}\n                </div>')
@@ -369,9 +371,9 @@ def render_html(data: dict[str, Any]) -> str:
     sections = "\n\n".join(
         [
             render_summary(data),
-            render_timeline_section(data["education"], inline_links),
             render_publications(data),
             render_experience(data),
+            render_timeline_section(data["education"], inline_links),
             render_awards(data),
             render_skills(data),
         ]
@@ -390,6 +392,7 @@ def render_html(data: dict[str, Any]) -> str:
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#about">Skip to content</a>
     <div class="site-shell">
 {render_profile(data)}
 
