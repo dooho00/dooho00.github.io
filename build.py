@@ -328,7 +328,7 @@ def render_experience(data: dict[str, Any]) -> str:
             meta += " &middot; " + e(entry["subtitle"])
         rows.append(f'''<article class="work-row">
           <button type="button" class="work-open" data-dialog="{dialog_id}" aria-haspopup="dialog" aria-controls="{dialog_id}" aria-label="{e(entry['organization'])}: view experience details"><span aria-hidden="true">&#8599;</span></button>
-          <h3>{role} <span class="work-company">&middot; {organization}</span></h3>
+          <h3><span class="work-company">{organization}</span> &middot; {role}</h3>
           <p class="work-meta">{meta}</p>
         </article>''')
         body = paragraph(entry.get("description") or entry.get("summary", ""), links=links)
