@@ -314,26 +314,18 @@ def render_linked_list(item: dict[str, Any], links: list[dict[str, Any]]) -> str
     return section(item["id"], item["title"], render_linked_list_body(item, links))
 
 
-def subsection(title: str, body: str) -> str:
-    nested_body = indent(body, 2)
-    return f"""          <div class="subsection">
-            <h3 class="subsection-title">{e(title)}</h3>
-{nested_body}
-          </div>"""
-
-
 def render_experience(data: dict[str, Any]) -> str:
     inline_links = data.get("inlineLinks", [])
     body = "\n".join(
         [
-            subsection(data["workExperience"]["title"], render_expandable_entries_body(data["workExperience"], inline_links)),
-            subsection(data["industrialProject"]["title"], render_expandable_entries_body(data["industrialProject"], inline_links)),
-            subsection(data["teaching"]["title"], render_expandable_entries_body(data["teaching"], inline_links)),
-            subsection(data["invitedTalk"]["title"], render_linked_list_body(data["invitedTalk"], inline_links)),
-            subsection(data["service"]["title"], render_linked_list_body(data["service"], inline_links)),
+            render_expandable_entries(data["workExperience"], inline_links),
+            render_expandable_entries({**data["industrialProject"], "title": "Industrial Projects"}, inline_links),
+            render_expandable_entries(data["teaching"], inline_links),
+            render_linked_list({**data["invitedTalk"], "title": "Invited Talks"}, inline_links),
+            render_linked_list(data["service"], inline_links),
         ]
     )
-    return section("experience", "Experience", body)
+    return f'<div id="experience">\n{body}\n</div>'
 
 
 def render_html(data: dict[str, Any]) -> str:
