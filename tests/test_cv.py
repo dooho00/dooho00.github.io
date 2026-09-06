@@ -19,6 +19,8 @@ class CVTests(unittest.TestCase):
             output = Path(directory) / "cv.pdf"
             build_cv(data, output)
             reader = PdfReader(output)
+            self.assertLessEqual(len(reader.pages), 2)
+            self.assertEqual(len(reader.pages[0].images), 1)
             content = " ".join(" ".join(page.extract_text().split()) for page in reader.pages)
             links = {
                 str(annotation.get_object().get("/A", {}).get("/URI", ""))

@@ -10,7 +10,7 @@ from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
-    HRFlowable, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer,
+    HRFlowable, Image, KeepTogether, Paragraph, SimpleDocTemplate, Spacer, Table,
 )
 
 
@@ -40,10 +40,10 @@ def build_cv(data, output):
     pdfmetrics.registerFontFamily("CV", normal="CV", bold="CV-Bold")
     pdfmetrics.registerFontFamily("CV-Sans", normal="CV-Sans", bold="CV-SansBold")
     styles = {
-        "body": ParagraphStyle("body", fontName="CV", fontSize=9.5, leading=13, textColor=INK, spaceAfter=5),
-        "muted": ParagraphStyle("muted", fontName="CV-Sans", fontSize=8.5, leading=11.5, textColor=MUTED, spaceAfter=4),
-        "title": ParagraphStyle("title", fontName="CV-Bold", fontSize=10.5, leading=14, textColor=INK, spaceAfter=3),
-        "section": ParagraphStyle("section", fontName="CV-SansBold", fontSize=11, leading=15, textColor=ACCENT, spaceBefore=12, spaceAfter=8, keepWithNext=True),
+        "body": ParagraphStyle("body", fontName="CV", fontSize=9.5, leading=12, textColor=INK, spaceAfter=3),
+        "muted": ParagraphStyle("muted", fontName="CV-Sans", fontSize=8.5, leading=10.5, textColor=MUTED, spaceAfter=2),
+        "title": ParagraphStyle("title", fontName="CV-Bold", fontSize=10.5, leading=13, textColor=INK, spaceAfter=2),
+        "section": ParagraphStyle("section", fontName="CV-SansBold", fontSize=11, leading=14, textColor=ACCENT, spaceAfter=5, keepWithNext=True),
         "name": ParagraphStyle("name", fontName="CV", fontSize=28, leading=32, textColor=INK, spaceAfter=5),
         "role": ParagraphStyle("role", fontName="CV-Sans", fontSize=11, leading=16, textColor=ACCENT, spaceAfter=8),
     }
@@ -54,10 +54,11 @@ def build_cv(data, output):
         return Paragraph(value if markup else text(value), styles[style])
 
     def heading(value):
+        story.append(Spacer(1, 7))
         story.append(p(value, "section"))
 
     def entry(parts):
-        story.append(KeepTogether(parts + [Spacer(1, 7)]))
+        story.append(KeepTogether(parts + [Spacer(1, 4)]))
 
     def date(item):
         return item["date"] + (f" - {item['dateEnd']}" if item.get("dateEnd") else "")
@@ -74,17 +75,28 @@ def build_cv(data, output):
             parts.extend(p("- " + bullet) for bullet in item.get("bullets", []))
             entry(parts)
 
-    story.extend([p(profile["name"], "name"), p(profile["role"], "role")])
-    contacts = [anchor(item["label"], item["href"]) for item in profile["links"] if not item.get("download") and item["href"] != profile["cv"]]
-    story.append(p(anchor(profile["email"], "mailto:" + profile["email"]), "body", True))
-    story.append(p(" &nbsp; | &nbsp; ".join(contacts), "muted", True))
-    story.extend([Spacer(1, 8), HRFlowable(width="100%", thickness=.6, color=colors.HexColor("#cdd8d2")), Spacer(1, 12)])
+    contacts = [anchor(item["label"], item["href"]) for item in profile["links"]
+                if not item.get("download") and item["href"] != profile["cv"]
+                and not item["href"].startswith("mailto:")]
+    identity = [p(profile["name"], "name"), p(profile["role"], "role"),
+                p(anchor(profile["email"], "mailto:" + profile["email"]), "body", True),
+                p(" &nbsp; | &nbsp; ".join(contacts), "muted", True)]
+    photo = Image(str(ROOT / profile["photo"]), width=27 * mm, height=32 * mm, kind="proportional")
+    photo.hAlign = "RIGHT"
+    header = Table([[identity, photo]], colWidths=[A4[0] - 62 * mm - 12, 30 * mm], style=[
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+        ("TOPPADDING", (0, 0), (-1, -1), 0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+    ])
+    story.extend([header, Spacer(1, 7), HRFlowable(width="100%", thickness=.6, color=colors.HexColor("#cdd8d2")), Spacer(1, 7)])
     story.extend(p(paragraph) for paragraph in data["summary"]["paragraphs"])
 
     heading(data["education"]["title"])
     for item in data["education"]["entries"]:
-        parts = [p(item["title"], "title"), p(date(item), "muted")]
-        parts.extend(p(line) for line in item.get("lines", []))
+        parts = [p(item["title"], "title"),
+                 p(" | ".join([date(item)] + item.get("lines", [])), "muted")]
         entry(parts)
 
     publications = data["publications"]
@@ -93,15 +105,14 @@ def build_cv(data, output):
         venues = item.get("venues") or [{"label": item.get("venue", item["year"]), "href": item.get("venueHref")}]
         venue_text = " &nbsp; | &nbsp; ".join(anchor(v["label"], v["href"]) if v.get("href") else text(v["label"]) for v in venues)
         authors = ", ".join(f"<b>{text(a)}</b>" if a == publications["highlightAuthor"] else text(a) for a in item["authors"])
-        parts = [p(item["title"], "title"), p(authors, "body", True), p(venue_text, "muted", True)]
+        parts = [p(item["title"], "title"), p(authors, "body", True)]
         if item.get("links"):
-            parts.append(p(" &nbsp; | &nbsp; ".join(anchor(link["label"], link["href"]) for link in item["links"]), "muted", True))
+            venue_text += " &nbsp; | &nbsp; " + " &nbsp; | &nbsp; ".join(anchor(link["label"], link["href"]) for link in item["links"])
+        parts.append(p(venue_text, "muted", True))
         entry(parts)
 
-    story.append(PageBreak())
     experience(data["workExperience"])
     experience(data["industrialProject"])
-    story.append(PageBreak())
     experience(data["teaching"])
     for key in ("invitedTalk", "service"):
         section = data[key]
@@ -128,16 +139,16 @@ def build_cv(data, output):
         canvas.saveState()
         canvas.setFont("CV-Sans", 8)
         canvas.setFillColor(MUTED)
-        canvas.drawString(18 * mm, 12 * mm, profile["name"] + " | Curriculum Vitae")
-        canvas.drawRightString(A4[0] - 18 * mm, 12 * mm, str(doc.page))
+        canvas.drawString(16 * mm, 10 * mm, profile["name"] + " | Curriculum Vitae")
+        canvas.drawRightString(A4[0] - 16 * mm, 10 * mm, str(doc.page))
         canvas.restoreState()
 
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary = output.with_suffix(".tmp.pdf")
     try:
-        doc = SimpleDocTemplate(str(temporary), pagesize=A4, rightMargin=18 * mm, leftMargin=18 * mm,
-                                topMargin=16 * mm, bottomMargin=20 * mm, title=profile["name"] + " - CV",
+        doc = SimpleDocTemplate(str(temporary), pagesize=A4, rightMargin=16 * mm, leftMargin=16 * mm,
+                                topMargin=14 * mm, bottomMargin=17 * mm, title=profile["name"] + " - CV",
                                 author=profile["name"], invariant=1)
         doc.build(story, onFirstPage=footer, onLaterPages=footer)
         temporary.replace(output)
