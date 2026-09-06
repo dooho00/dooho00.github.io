@@ -210,7 +210,7 @@
   },
   "awards": {
     "id": "awards",
-    "title": "Awards & Honors",
+    "title": "Selected Awards & Honors",
     "items": [
       {
         "text": "Recipient, Outstanding Master’s Student Scholarship (₩2.5M per semester), Korea Student Aid Foundation (KOSAF)",
@@ -236,16 +236,6 @@
         "text": "2nd place, Art Service Follow-up Growth Support Project, ₩20M prize",
         "date": "Nov 2022",
         "sortDate": "2022-11"
-      },
-      {
-        "text": "1st place, Pre-Startup Package, Daejeon CCEI",
-        "date": "Aug 2021",
-        "sortDate": "2021-08"
-      },
-      {
-        "text": "Bronze Medal, NH Investment Securities Big Data Competition",
-        "date": "Aug 2021",
-        "sortDate": "2021-08"
       },
       {
         "text": "1st place, Creative Space G A.I & IoT Hackathon, ₩1M prize",
