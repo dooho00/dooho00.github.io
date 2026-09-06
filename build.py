@@ -316,7 +316,30 @@ def render_linked_list(item: dict[str, Any], links: list[dict[str, Any]]) -> str
 
 
 def render_experience(data: dict[str, Any]) -> str:
-    return '<div id="experience">' + render_expandable_entries(data["workExperience"], data.get("inlineLinks", [])) + '</div>'
+    item = data["workExperience"]
+    links = data.get("inlineLinks", [])
+    rows, dialogs = [], []
+    for index, entry in enumerate(item["entries"]):
+        dialog_id = f"work-detail-{index}"
+        role = rich_text(entry["role"], links)
+        organization = rich_text(entry["organization"], links)
+        meta = date_range(entry)
+        if entry.get("subtitle"):
+            meta += " &middot; " + e(entry["subtitle"])
+        rows.append(f'''<article class="work-row">
+          <button type="button" class="work-open" data-dialog="{dialog_id}" aria-haspopup="dialog" aria-controls="{dialog_id}" aria-label="{e(entry['organization'])}: view experience details"><span aria-hidden="true">&#8599;</span></button>
+          <h3>{role} <span class="work-company">&middot; {organization}</span></h3>
+          <p class="work-meta">{meta}</p>
+        </article>''')
+        body = paragraph(entry.get("description") or entry.get("summary", ""), links=links)
+        if entry.get("bullets"):
+            body += simple_list(entry["bullets"], links)
+        dialogs.append(f'''<dialog id="{dialog_id}" class="info-dialog" aria-labelledby="{dialog_id}-title">
+          <button type="button" class="dialog-close" aria-label="Close" title="Close">&times;</button>
+          <section class="section"><h2 id="{dialog_id}-title">{role}</h2>
+          <p class="work-meta">{organization} &middot; {meta}</p>{body}</section>
+        </dialog>''')
+    return '<div id="experience">' + section(item["id"], item["title"], '<div class="work-list">' + ''.join(rows) + '</div>') + ''.join(dialogs) + '</div>'
 
 
 def render_secondary(data: dict[str, Any]) -> str:

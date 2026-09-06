@@ -118,6 +118,17 @@ h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.5; overflow-wrap: any
 footer { grid-column: 2; display: flex; margin-top: 12px; padding-top: 12px; color: var(--muted); font-size: .875rem; line-height: 1.6; }
 footer a { color: var(--muted); }
 .secondary-links { display: grid; padding-top: 10px; }
+.work-list { display: grid; gap: 16px; }
+.work-row { position: relative; padding-right: 28px; }
+.work-row h3 { font-size: 1rem; line-height: 1.5; }
+.work-company { font-weight: 400; }
+.work-company a { position: relative; z-index: 1; }
+.work-meta { font-family: var(--font-sans); color: var(--muted); font-size: .8125rem; line-height: 1.6; }
+.section .work-meta { margin-top: 3px; }
+.work-open { position: absolute; inset: 0; width: 100%; border: 0; padding: 0; background: transparent; cursor: pointer; color: var(--muted); text-align: right; }
+.work-open span { position: absolute; right: 0; top: 3px; }
+.work-open:hover ~ h3 { color: var(--accent); }
+.work-open:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .secondary-links button { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 44px; padding: 8px 0; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--muted); font: .9375rem var(--font-sans); text-align: left; cursor: pointer; }
 .secondary-links button:hover { color: var(--accent); }
 .dialog-open { overflow: hidden; }
