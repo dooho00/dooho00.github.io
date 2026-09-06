@@ -129,11 +129,6 @@ def build_cv(data, output):
     heading(data["awards"]["title"])
     for item in sorted(data["awards"]["items"], key=lambda a: a.get("sortDate", a.get("date", "")), reverse=True):
         story.append(p(f'<b>{text(item["date"])}</b> &nbsp; {text(item["text"])}', markup=True))
-    heading(data["skills"]["title"])
-    if data["skills"].get("languages"):
-        story.append(p("<b>Languages:</b> " + text(", ".join(data["skills"]["languages"])), markup=True))
-    for group in data["skills"]["groups"]:
-        story.append(p(f'<b>{text(group["label"])}:</b> {text(", ".join(group["items"]))}', markup=True))
 
     def footer(canvas, doc):
         canvas.saveState()

@@ -116,15 +116,11 @@ h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.5; overflow-wrap: any
 .award-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
 .award-row { display: grid; grid-template-columns: 82px minmax(0, 1fr); gap: 16px; }
 .award-text { font-size: .9375rem; line-height: 1.65; }
-.skill-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 32px; }
-.skill-card h3 { font-size: .9375rem; margin-bottom: 6px; }
-.section .skill-card p { font-size: .875rem; line-height: 1.7; color: var(--muted); }
-.section .skill-language { font-size: .875rem; margin-bottom: 12px; }
 footer { grid-column: 2; display: flex; margin-top: 12px; padding-top: 12px; color: var(--muted); font-size: .875rem; line-height: 1.6; }
 footer a { color: var(--muted); }
 
 .role, .links, .anchor-nav, .pub-year, .pub-links,
-.date, .award-date, .entry-meta, .subsection-title, .skill-card h3, footer {
+.date, .award-date, .entry-meta, .subsection-title, footer {
   font-family: var(--font-sans);
 }
 
@@ -149,7 +145,6 @@ footer a { color: var(--muted); }
   .timeline-row { display: flex; flex-direction: column; gap: 4px; }
   .timeline-row > .date { text-align: left; padding: 0; }
   .award-row { grid-template-columns: 70px minmax(0, 1fr); gap: 8px; }
-  .skill-card-grid { grid-template-columns: 1fr; gap: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

@@ -196,18 +196,6 @@
       }
     ]
   },
-  "skills": {
-    "id": "skills",
-    "title": "Skills",
-    "languages": ["Korean", "English"],
-    "groups": [
-      { "label": "Machine Learning", "items": ["PyTorch", "PyTorch Geometric", "DGL", "Weights & Biases"] },
-      { "label": "Programming", "items": ["Python", "C", "C++", "Java", "JavaScript", "TypeScript"] },
-      { "label": "Front-End & UI", "items": ["HTML", "CSS", "React", "React Native", "Flutter"] },
-      { "label": "Back-End & Data", "items": ["MySQL", "Neo4j", "Chroma", "Firebase", "Google Cloud Platform"] },
-      { "label": "Design & Tools", "items": ["Figma", "Adobe XD", "Adobe Illustrator", "Git", "Chrome Extensions", "Zoom Apps"] }
-    ]
-  },
   "awards": {
     "id": "awards",
     "title": "Selected Awards & Honors",

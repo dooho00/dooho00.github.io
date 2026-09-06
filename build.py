@@ -279,26 +279,6 @@ def render_publications(data: dict[str, Any]) -> str:
     return section(item["id"], item["title"], body)
 
 
-def render_skills(data: dict[str, Any]) -> str:
-    item = data["skills"]
-    inline_links = data.get("inlineLinks", [])
-    languages = ""
-    if item.get("languages"):
-        languages = (
-            f'          <p class="skill-language"><strong>Languages:</strong> '
-            f'{rich_text(", ".join(item["languages"]), inline_links)}</p>\n'
-        )
-    cards = [
-        f"""            <article class="skill-card">
-              <h3>{e(group['label'])}</h3>
-              <p>{rich_text(', '.join(group['items']), inline_links)}</p>
-            </article>"""
-        for group in item["groups"]
-    ]
-    body = f'{languages}          <div class="skill-card-grid">\n' + "\n".join(cards) + "\n          </div>"
-    return section(item["id"], item["title"], body)
-
-
 def render_awards(data: dict[str, Any]) -> str:
     item = data["awards"]
     inline_links = data.get("inlineLinks", [])
@@ -366,7 +346,6 @@ def render_html(data: dict[str, Any]) -> str:
             render_experience(data),
             render_timeline_section(data["education"], inline_links),
             render_awards(data),
-            render_skills(data),
         ]
     )
     return f"""<!doctype html>
