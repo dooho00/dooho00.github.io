@@ -33,6 +33,7 @@
     { "label": "Education", "href": "#education" }
   ],
   "inlineLinks": [
+    { "label": "Pensive", "href": "https://www.pensive.com/schools/" },
     { "label": "Prof. Jaemin Yoo", "href": "https://jaeminyoo.github.io/" },
     { "label": "Jaemin Yoo", "href": "https://jaeminyoo.github.io/" },
     { "label": "Prof. Kijung Shin", "href": "https://kijungs.github.io/" },
@@ -148,7 +149,7 @@
       {
         "date": "Nov 2022",
         "dateEnd": "Aug 2023",
-        "organization": "Pensieve Inc.",
+        "organization": "Pensive",
         "role": "Founding Engineer & Designer",
         "subtitle": "Berkeley, CA",
         "summary": "Built LLM workflow tools used by 3 organizations.",

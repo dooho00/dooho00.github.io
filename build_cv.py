@@ -68,7 +68,12 @@ def build_cv(data, output):
         for item in section["entries"]:
             parts = [p(item.get("role", item.get("title", "")), "title")]
             meta = [item.get("organization"), item.get("subtitle"), date(item)]
-            parts.append(p(" | ".join(value for value in meta if value), "muted"))
+            meta_text = []
+            for value in meta:
+                if value:
+                    href = next((link["href"] for link in data.get("inlineLinks", []) if link["label"] == value), None)
+                    meta_text.append(anchor(value, href) if href else text(value))
+            parts.append(p(" | ".join(meta_text), "muted", True))
             description = item.get("description") or item.get("summary")
             if description:
                 parts.append(p(description))
