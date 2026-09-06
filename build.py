@@ -111,11 +111,6 @@ def simple_list(items: list[str], links: list[dict[str, Any]] | None = None) -> 
     return f'<ul class="simple-list">\n{lines}\n</ul>'
 
 
-def chips(items: list[str]) -> str:
-    body = "\n".join(f"            <span>{e(item)}</span>" for item in items)
-    return f'          <div class="chips">\n{body}\n          </div>'
-
-
 def section(section_id: str, title: str, body: str) -> str:
     return f"""        <section id="{e(section_id)}" class="section">
           <h2>{e(title)}</h2>
@@ -129,13 +124,16 @@ def render_profile(data: dict[str, Any]) -> str:
     profile = data["profile"]
     inline_links = data.get("inlineLinks", [])
     links = "\n".join(f"            {link(item)}" for item in profile["links"])
-    return f"""      <header class="profile">
+    introduction = "\n".join(paragraph(value, links=inline_links) for value in data["summary"]["paragraphs"])
+    return f"""      <header id="{e(data['summary']['id'])}" class="profile">
         <img src="{e(profile['photo'])}" alt="{e(profile['photoAlt'])}" width="160" height="160" />
         <div class="profile-copy">
           <h1>{e(profile['name'])}</h1>
           <p class="role">{rich_text(profile['role'], inline_links)}</p>
         </div>
-        <p class="tagline">{rich_text(profile['tagline'], inline_links)}</p>
+        <div class="introduction">
+{introduction}
+        </div>
         <div class="links" aria-label="Profile links">
 {links}
         </div>
@@ -145,17 +143,11 @@ def render_profile(data: dict[str, Any]) -> str:
 def render_nav(data: dict[str, Any]) -> str:
     items = "\n".join(f'        <a href="{e(item["href"])}">{e(item["label"])}</a>' for item in data["nav"])
     return f"""      <nav class="anchor-nav" aria-label="Section navigation">
+        <a class="nav-name" href="#about">{e(data['profile']['name'])}</a>
+        <div class="nav-sections">
 {items}
+        </div>
       </nav>"""
-
-
-def render_summary(data: dict[str, Any]) -> str:
-    summary = data["summary"]
-    inline_links = data.get("inlineLinks", [])
-    paragraphs = "\n".join(f"          {paragraph(text, links=inline_links)}" for text in summary["paragraphs"])
-    if summary.get("chips"):
-        paragraphs = f"{paragraphs}\n{chips(summary['chips'])}"
-    return section(summary["id"], summary["title"], paragraphs)
 
 
 def timeline_heading(entry: dict[str, Any], links: list[dict[str, Any]]) -> list[str]:
@@ -373,7 +365,6 @@ def render_html(data: dict[str, Any]) -> str:
     inline_links = data.get("inlineLinks", [])
     sections = "\n\n".join(
         [
-            render_summary(data),
             render_publications(data),
             render_experience(data),
             render_timeline_section(data["education"], inline_links),
@@ -397,11 +388,11 @@ def render_html(data: dict[str, Any]) -> str:
   <body>
     <a class="skip-link" href="#about">Skip to content</a>
     <div class="site-shell">
-{render_profile(data)}
-
 {render_nav(data)}
 
       <main>
+{render_profile(data)}
+
 {sections}
       </main>
 
