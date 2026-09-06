@@ -12,10 +12,10 @@
     "tagline": "I build foundation models for structured data.",
     "photo": "profile.jpeg",
     "photoAlt": "Dooho Lee",
-    "email": "dooho@kaist.ac.kr",
+    "email": "dooho@nums.world",
     "cv": "CV_DoohoLee.pdf",
     "links": [
-      { "label": "Email", "href": "mailto:dooho@kaist.ac.kr", "icon": "email" },
+      { "label": "Email", "href": "mailto:dooho@nums.world", "icon": "email" },
       {
         "label": "Google Scholar",
         "href": "https://scholar.google.com/citations?user=Fv4CbSMAAAAJ&hl=en&oi=sra",
