@@ -9,9 +9,12 @@ service.
 from __future__ import annotations
 
 import json
+import shutil
 from html import escape
 from pathlib import Path
 from typing import Any
+
+from build_cv import build_cv
 
 
 ROOT = Path(__file__).resolve().parent
@@ -413,8 +416,15 @@ def render_html(data: dict[str, Any]) -> str:
 
 def main() -> None:
     data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
+    build_cv(data, ROOT / data["profile"]["cv"])
     OUTPUT_PATH.write_text(render_html(data), encoding="utf-8")
-    print(f"Wrote {OUTPUT_PATH.relative_to(ROOT)} from {DATA_PATH.relative_to(ROOT)}")
+    dist = ROOT / "dist"
+    dist.mkdir(exist_ok=True)
+    for asset in ("index.html", "styles.css", data["profile"]["photo"], data["profile"]["cv"]):
+        destination = dist / asset
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT / asset, destination)
+    print("Built homepage and CV PDF from data/site.json; deployment files are in dist/")
 
 
 if __name__ == "__main__":
