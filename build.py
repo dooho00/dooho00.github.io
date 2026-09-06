@@ -316,17 +316,27 @@ def render_linked_list(item: dict[str, Any], links: list[dict[str, Any]]) -> str
 
 
 def render_experience(data: dict[str, Any]) -> str:
+    return '<div id="experience">' + render_expandable_entries(data["workExperience"], data.get("inlineLinks", [])) + '</div>'
+
+
+def render_secondary(data: dict[str, Any]) -> str:
     inline_links = data.get("inlineLinks", [])
-    body = "\n".join(
-        [
-            render_expandable_entries(data["workExperience"], inline_links),
+    bodies = [
             render_expandable_entries({**data["industrialProject"], "title": "Industrial Projects"}, inline_links),
             render_expandable_entries(data["teaching"], inline_links),
             render_linked_list({**data["invitedTalk"], "title": "Invited Talks"}, inline_links),
             render_linked_list(data["service"], inline_links),
+            render_awards(data),
         ]
-    )
-    return f'<div id="experience">\n{body}\n</div>'
+    titles = ["Industrial Projects", data["teaching"]["title"], "Invited Talks", data["service"]["title"], data["awards"]["title"]]
+    buttons, dialogs = [], []
+    for index, (title, body) in enumerate(zip(titles, bodies)):
+        dialog_id = f"additional-{index}"
+        buttons.append(f'<button type="button" data-dialog="{dialog_id}" aria-haspopup="dialog" aria-controls="{dialog_id}">{e(title)}<span aria-hidden="true">&#8599;</span></button>')
+        body = body.replace('<h2>', f'<h2 id="{dialog_id}-title">', 1)
+        body = body.replace('<details class="expandable-details">', '<details class="expandable-details" open>')
+        dialogs.append(f'<dialog id="{dialog_id}" class="info-dialog" aria-labelledby="{dialog_id}-title"><button type="button" class="dialog-close" aria-label="Close" title="Close">&times;</button>{body}</dialog>')
+    return '<div class="secondary-links">' + ''.join(buttons) + '</div>' + ''.join(dialogs)
 
 
 def render_html(data: dict[str, Any]) -> str:
@@ -338,7 +348,7 @@ def render_html(data: dict[str, Any]) -> str:
             render_publications(data),
             render_experience(data),
             render_timeline_section(data["education"], inline_links),
-            render_awards(data),
+            render_secondary(data),
         ]
     )
     return f"""<!doctype html>
@@ -369,6 +379,7 @@ def render_html(data: dict[str, Any]) -> str:
         <p>{e(data['profile']['name'])} - <a href="mailto:{e(data['profile']['email'])}">{e(data['profile']['email'])}</a></p>
       </footer>
     </div>
+    <script src="dialogs.js"></script>
   </body>
 </html>
 """
@@ -380,7 +391,7 @@ def main() -> None:
     OUTPUT_PATH.write_text(render_html(data), encoding="utf-8")
     dist = ROOT / "dist"
     dist.mkdir(exist_ok=True)
-    for asset in ("index.html", "styles.css", data["profile"]["photo"], data["profile"]["cv"]):
+    for asset in ("index.html", "styles.css", "dialogs.js", data["profile"]["photo"], data["profile"]["cv"]):
         destination = dist / asset
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / asset, destination)
