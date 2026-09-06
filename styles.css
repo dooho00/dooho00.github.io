@@ -88,9 +88,8 @@ h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.5; overflow-wrap: any
 .publication h3 { font-size: 1.0625rem; font-weight: 400; line-height: 1.4; }
 .section .authors { margin-top: 3px; color: var(--muted); font-size: .875rem; line-height: 1.65; }
 .author-highlight { font-weight: 600; color: var(--ink); }
-.pub-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 3px; }
-.pub-links a { display: inline-flex; align-items: center; gap: 6px; min-height: 28px; font-size: .875rem; color: var(--muted); }
-.pub-links svg { width: 15px; height: 15px; }
+.pub-links { display: inline; font-size: .8125rem; white-space: nowrap; }
+.pub-links a { display: inline-flex; align-items: baseline; gap: 3px; margin-inline: 4px; color: var(--accent); }
 
 .timeline, .entry-list { display: grid; gap: 16px; }
 .timeline-row { display: grid; grid-template-columns: minmax(0, 1fr) 136px; gap: 24px; }
@@ -141,7 +140,7 @@ footer a { color: var(--muted); }
   .section > h2 { margin-bottom: 10px; }
   .publication { display: flex; flex-direction: column; gap: 3px; }
   .pub-year { flex-direction: row; flex-wrap: wrap; gap: 3px 12px; padding: 0; }
-  .pub-links a { min-height: 40px; }
+  .pub-links a { padding-block: 5px; margin-inline: 5px; }
   .timeline-row { display: flex; flex-direction: column; gap: 4px; }
   .timeline-row > .date { text-align: left; padding: 0; }
   .award-row { grid-template-columns: 70px minmax(0, 1fr); gap: 8px; }

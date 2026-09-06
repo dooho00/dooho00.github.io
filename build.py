@@ -256,16 +256,17 @@ def render_publications(data: dict[str, Any]) -> str:
                 venue = f'<a href="{e(entry["venueHref"])}">{e(venue_label)}</a>'
             else:
                 venue = e(venue_label)
-        parts = [
-            f"                <h3>{e(entry['title'])}</h3>",
-            f"                <p class=\"authors\">{author_list(entry['authors'], item['highlightAuthor'])}</p>",
-        ]
+        publication_links = ""
         if entry.get("links"):
-            link_items = "\n".join(
-                f'                  <a href="{e(link_item["href"])}">{icon_svg("github" if link_item["label"] == "Code" else "cv")}<span>{e(link_item["label"])}</span></a>'
+            link_items = ' <span aria-hidden="true">&middot;</span> '.join(
+                f'<a href="{e(link_item["href"])}">{e(link_item["label"])}<span aria-hidden="true">&#8599;</span></a>'
                 for link_item in entry["links"]
             )
-            parts.append(f'                <div class="pub-links">\n{link_items}\n                </div>')
+            publication_links = f' <span class="pub-links"><span aria-hidden="true">&middot;</span> {link_items}</span>'
+        parts = [
+            f"                <h3>{e(entry['title'])}</h3>",
+            f"                <p class=\"authors\">{author_list(entry['authors'], item['highlightAuthor'])}{publication_links}</p>",
+        ]
         details = "\n".join(parts)
         rows.append(
             f"""            <article class="publication">
