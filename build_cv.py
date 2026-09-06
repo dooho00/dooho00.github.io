@@ -40,7 +40,7 @@ def build_cv(data, output):
     pdfmetrics.registerFontFamily("CV", normal="CV", bold="CV-Bold")
     pdfmetrics.registerFontFamily("CV-Sans", normal="CV-Sans", bold="CV-SansBold")
     styles = {
-        "body": ParagraphStyle("body", fontName="CV", fontSize=9.5, leading=12, textColor=INK, spaceAfter=3),
+        "body": ParagraphStyle("body", fontName="CV", fontSize=9.5, leading=12, textColor=INK, spaceAfter=2),
         "muted": ParagraphStyle("muted", fontName="CV-Sans", fontSize=8.5, leading=10.5, textColor=MUTED, spaceAfter=2),
         "title": ParagraphStyle("title", fontName="CV-Bold", fontSize=10.5, leading=13, textColor=INK, spaceAfter=2),
         "section": ParagraphStyle("section", fontName="CV-SansBold", fontSize=11, leading=14, textColor=ACCENT, spaceAfter=5, keepWithNext=True),
@@ -58,7 +58,7 @@ def build_cv(data, output):
         story.append(p(value, "section"))
 
     def entry(parts):
-        story.append(KeepTogether(parts + [Spacer(1, 4)]))
+        story.append(KeepTogether(parts + [Spacer(1, 3)]))
 
     def date(item):
         return item["date"] + (f" - {item['dateEnd']}" if item.get("dateEnd") else "")

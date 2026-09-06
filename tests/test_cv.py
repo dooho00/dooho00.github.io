@@ -27,6 +27,8 @@ class CVTests(unittest.TestCase):
                 for page in reader.pages for annotation in page.get("/Annots", [])
             }
             self.assertIn(data["profile"]["role"], content)
+            for paragraph in data["summary"]["paragraphs"]:
+                self.assertIn(paragraph, content)
             for publication in data["publications"]["entries"]:
                 self.assertIn(publication["title"], content)
                 for link in publication.get("links", []):
