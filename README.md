@@ -21,7 +21,9 @@ python3 build.py
 This builds `index.html` and `CV_DoohoLee.pdf` from the same data and copies the
 public files to `dist/`. The CV link downloads the generated PDF directly;
 there is no print dialog or separate web CV page. PDF generation failures stop
-the build. Noto Sans is embedded in the PDF; its license is in `assets/fonts/`.
+the build. Source Serif 4 and Source Sans 3 are embedded in the PDF and hosted
+locally for the website, with no external font request. Both use SIL OFL 1.1;
+the original copyright notices and licenses ship in `assets/fonts/`.
 
 ## Local Preview
 

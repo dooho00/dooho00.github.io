@@ -30,16 +30,22 @@ def anchor(label, href):
 
 def build_cv(data, output):
     """Generate a deterministic PDF; fail the site build if generation fails."""
-    for name, filename in [("CV", "NotoSans-Regular.ttf"), ("CV-Bold", "NotoSans-Bold.ttf")]:
+    for name, filename in [
+        ("CV", "SourceSerif4-Regular.ttf"),
+        ("CV-Bold", "SourceSerif4-Semibold.ttf"),
+        ("CV-Sans", "SourceSans3-Regular.ttf"),
+        ("CV-SansBold", "SourceSans3-Semibold.ttf"),
+    ]:
         pdfmetrics.registerFont(TTFont(name, str(ROOT / "assets" / "fonts" / filename)))
     pdfmetrics.registerFontFamily("CV", normal="CV", bold="CV-Bold")
+    pdfmetrics.registerFontFamily("CV-Sans", normal="CV-Sans", bold="CV-SansBold")
     styles = {
-        "body": ParagraphStyle("body", fontName="CV", fontSize=9, leading=13, textColor=INK, spaceAfter=5),
-        "muted": ParagraphStyle("muted", fontName="CV", fontSize=8, leading=11.5, textColor=MUTED, spaceAfter=4),
-        "title": ParagraphStyle("title", fontName="CV-Bold", fontSize=10, leading=14, textColor=INK, spaceAfter=3),
-        "section": ParagraphStyle("section", fontName="CV-Bold", fontSize=11, leading=15, textColor=ACCENT, spaceBefore=12, spaceAfter=8, keepWithNext=True),
-        "name": ParagraphStyle("name", fontName="CV-Bold", fontSize=26, leading=32, textColor=INK, spaceAfter=5),
-        "role": ParagraphStyle("role", fontName="CV", fontSize=11, leading=16, textColor=ACCENT, spaceAfter=8),
+        "body": ParagraphStyle("body", fontName="CV", fontSize=9.5, leading=13, textColor=INK, spaceAfter=5),
+        "muted": ParagraphStyle("muted", fontName="CV-Sans", fontSize=8.5, leading=11.5, textColor=MUTED, spaceAfter=4),
+        "title": ParagraphStyle("title", fontName="CV-Bold", fontSize=10.5, leading=14, textColor=INK, spaceAfter=3),
+        "section": ParagraphStyle("section", fontName="CV-SansBold", fontSize=11, leading=15, textColor=ACCENT, spaceBefore=12, spaceAfter=8, keepWithNext=True),
+        "name": ParagraphStyle("name", fontName="CV", fontSize=28, leading=32, textColor=INK, spaceAfter=5),
+        "role": ParagraphStyle("role", fontName="CV-Sans", fontSize=11, leading=16, textColor=ACCENT, spaceAfter=8),
     }
     profile = data["profile"]
     story = []
@@ -120,7 +126,7 @@ def build_cv(data, output):
 
     def footer(canvas, doc):
         canvas.saveState()
-        canvas.setFont("CV", 8)
+        canvas.setFont("CV-Sans", 8)
         canvas.setFillColor(MUTED)
         canvas.drawString(18 * mm, 12 * mm, profile["name"] + " | Curriculum Vitae")
         canvas.drawRightString(A4[0] - 18 * mm, 12 * mm, str(doc.page))

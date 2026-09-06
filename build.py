@@ -424,6 +424,11 @@ def main() -> None:
         destination = dist / asset
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / asset, destination)
+    fonts = dist / "assets" / "fonts"
+    fonts.mkdir(parents=True, exist_ok=True)
+    for asset in (ROOT / "assets" / "fonts").iterdir():
+        if asset.suffix in (".woff2", ".md"):
+            shutil.copy2(asset, fonts / asset.name)
     print("Built homepage and CV PDF from data/site.json; deployment files are in dist/")
 
 
