@@ -362,12 +362,21 @@ def render_secondary(data: dict[str, Any]) -> str:
     return '<div class="secondary-links">' + ''.join(buttons) + '</div>' + ''.join(dialogs)
 
 
+def render_models(data: dict[str, Any]) -> str:
+    rows = []
+    for model in data["models"]["entries"]:
+        links = " ".join(f'<a href="{e(link["href"])}">{e(link["label"])} <span aria-hidden="true">&#8599;</span></a>' for link in model["links"])
+        rows.append(f'<article class="model-row"><div class="model-heading"><h3>{e(model["name"])}</h3><span class="model-org">{e(model["organization"])}</span><div class="model-links">{links}</div></div>{paragraph(model["description"])}</article>')
+    return section(data["models"]["id"], data["models"]["title"], "".join(rows))
+
+
 def render_html(data: dict[str, Any]) -> str:
     meta = data["meta"]
     inline_links = data.get("inlineLinks", [])
     sections = "\n\n".join(
         [
             section(data["summary"]["id"], data["summary"]["title"], "\n".join(paragraph(value, links=inline_links) for value in data["summary"]["paragraphs"])),
+            render_models(data),
             render_publications(data),
             render_experience(data),
             render_timeline_section(data["education"], inline_links),

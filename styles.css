@@ -118,6 +118,13 @@ h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.5; overflow-wrap: any
 footer { grid-column: 2; display: flex; margin-top: 12px; padding-top: 12px; color: var(--muted); font-size: .875rem; line-height: 1.6; }
 footer a { color: var(--muted); }
 .secondary-links { display: grid; padding-top: 10px; }
+.model-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.model-heading h3 { font-size: 1.0625rem; }
+.model-org { color: var(--muted); font: .8125rem var(--font-sans); }
+.model-links { display: flex; gap: 14px; margin-left: auto; font: .8125rem var(--font-sans); }
+.model-links a { white-space: nowrap; padding-block: 5px; }
+.section .model-row p { margin-top: 3px; font-size: .9375rem; color: var(--muted); }
+.model-row + .model-row { margin-top: 16px; }
 .work-list { display: grid; gap: 16px; }
 .work-row { position: relative; padding-right: 28px; }
 .work-row h3 { font-size: 1rem; line-height: 1.5; }

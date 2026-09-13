@@ -69,6 +69,21 @@
       }
     ]
   },
+  "models": {
+    "id": "models",
+    "title": "Models",
+    "entries": [
+      {
+        "name": "Causilo",
+        "organization": "Nums AI",
+        "description": "A tabular foundation model for classification and regression.",
+        "links": [
+          { "label": "GitHub", "href": "https://github.com/nums-ai/causilo" },
+          { "label": "Hugging Face", "href": "https://huggingface.co/nums-ai/causilo" }
+        ]
+      }
+    ]
+  },
   "publications": {
     "id": "publications",
     "title": "Publications",
