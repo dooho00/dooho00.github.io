@@ -104,6 +104,14 @@ def build_cv(data, output):
                  p(" | ".join([date(item)] + item.get("lines", [])), "muted")]
         entry(parts)
 
+    heading(data["models"]["title"])
+    for model in data["models"]["entries"]:
+        entry([
+            p(model["name"] + " | " + model["organization"], "title"),
+            p(model["description"]),
+            p(" &nbsp; | &nbsp; ".join(anchor(link["label"], link["href"]) for link in model["links"]), "muted", True),
+        ])
+
     publications = data["publications"]
     heading(publications["title"])
     for item in publications["entries"]:
