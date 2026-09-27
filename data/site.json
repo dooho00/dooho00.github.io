@@ -77,6 +77,7 @@
         "organization": "Nums AI",
         "description": "A tabular foundation model for classification and regression.",
         "links": [
+          { "label": "arXiv", "href": "https://arxiv.org/abs/2609.22866" },
           { "label": "GitHub", "href": "https://github.com/nums-ai/causilo" },
           { "label": "Hugging Face", "href": "https://huggingface.co/nums-ai/causilo" }
         ]
@@ -91,58 +92,104 @@
       {
         "year": "2026",
         "title": "Node4All: Learning Node Representation Beyond Datasets",
+        "preview": {
+          "summary": "Node4All learns a reusable graph encoder through self-supervised pretraining on synthetic graphs. Its Channel Graph Transformer handles graphs with different feature dimensions and structures without dataset-specific encoder training or tuning. The same encoder also supports one-shot and in-context learning with an appropriate predictor.",
+          "image": "assets/papers/node4all.png",
+          "alt": "Different graph datasets pass through the same Node4All encoder to produce node representations for downstream predictors.",
+          "caption": "Figure 1. A shared encoder across graph datasets.",
+          "source": "https://arxiv.org/pdf/2607.17272#page=1",
+          "width": 945, "height": 342
+        },
         "authors": ["Dooho Lee", "Jaemin Yoo"],
         "venues": [
           { "label": "KDD 2026", "href": "https://kdd2026.kdd.org/" },
           { "label": "GFM @ ICML 2026", "href": "https://sites.google.com/view/gfmicml-2026" }
         ],
         "links": [
-          { "label": "Paper", "href": "http://arxiv.org/abs/2607.17272" },
-          { "label": "Code", "href": "https://github.com/dooho00/node4all" }
+          { "label": "ACM", "href": "https://doi.org/10.1145/3770855.3817828" },
+          { "label": "arXiv", "href": "http://arxiv.org/abs/2607.17272" },
+          { "label": "GitHub", "href": "https://github.com/dooho00/node4all" }
         ]
       },
       {
         "year": "2026",
         "title": "View Space: Learning Representation across Arbitrary Graphs",
+        "preview": {
+          "summary": "View Space introduces a structure-induced representation axis shared across graphs with different feature dimensions and meanings. Graph View Transformation applies a shared mapping along this axis, and Recurrent GVT uses it to learn transferable node representations. An encoder pretrained on OGBN-Arxiv is evaluated on 27 graph benchmarks without retraining the encoder.",
+          "image": "assets/papers/view-space.png",
+          "alt": "Graph View Transformation lifts a node-feature matrix into a node-feature-view tensor and applies a shared mapping along the view dimension.",
+          "caption": "Figure 2. Graph View Transformation.",
+          "source": "https://arxiv.org/pdf/2512.11561#page=4",
+          "width": 801, "height": 432
+        },
         "authors": ["Dooho Lee", "Myeong Kong", "Minho Jeong", "Jaemin Yoo"],
         "venue": "ICML 2026",
         "venueHref": "https://icml.cc/Conferences/2026",
         "links": [
-          { "label": "Paper", "href": "https://arxiv.org/pdf/2512.11561" },
-          { "label": "Code", "href": "https://github.com/dooho00/graph-view-space" }
+          { "label": "arXiv", "href": "https://arxiv.org/pdf/2512.11561" },
+          { "label": "GitHub", "href": "https://github.com/dooho00/graph-view-space" },
+          { "label": "OpenReview", "href": "https://openreview.net/forum?id=9klc62KROH" }
         ]
       },
       {
         "year": "2026",
         "title": "Generalizing Multi-Scale Time-Series Modeling with a Single Operator",
+        "preview": {
+          "summary": "SiGMA unifies multi-scale time-series modeling through a learnable scaling operator. Its discrete Gaussian kernel replaces fixed, discrete scales with continuous, distance-aware smoothing, allowing the model to adapt how it aggregates temporal information. The framework is evaluated on both long- and short-term forecasting tasks.",
+          "image": "assets/papers/sigma.png",
+          "alt": "A learnable discrete Gaussian kernel smooths a time series across continuous scales, aggregating information from nearby and distant time steps.",
+          "caption": "Figure 4. Continuous, distance-aware smoothing with the LDG kernel.",
+          "source": "https://arxiv.org/pdf/2605.31129#page=5",
+          "width": 645, "height": 309
+        },
         "authors": ["Cheonwoo Lee", "Dooho Lee", "Doyun Choi", "Jaemin Yoo"],
         "venue": "ICML 2026",
         "venueHref": "https://icml.cc/Conferences/2026",
         "links": [
-          { "label": "Paper", "href": "https://arxiv.org/pdf/2605.31129" },
-          { "label": "Code", "href": "https://github.com/cheonwoolee/SiGMA" }
+          { "label": "arXiv", "href": "https://arxiv.org/pdf/2605.31129" },
+          { "label": "GitHub", "href": "https://github.com/cheonwoolee/SiGMA" },
+          { "label": "OpenReview", "href": "https://openreview.net/forum?id=hxNN3xhuS9" }
         ]
       },
       {
         "year": "2026",
         "title": "A Probabilistic Circuit Framework for Interpretable Graph PU Learning",
+        "preview": {
+          "summary": "This framework separates node-feature modeling from edge-based refinement to make graph positive-unlabeled learning interpretable. Two probabilistic circuits model node features, and log-likelihood propagation then incorporates graph structure. This separation supports explanations at the graph, node, and feature levels while retaining strong predictive performance.",
+          "image": "assets/papers/graph-pu.png",
+          "alt": "Two probabilistic circuits produce feature-based log-likelihoods, which are refined through graph propagation to derive pseudo-labels.",
+          "caption": "Figure 2. Decoupled feature modeling and graph propagation.",
+          "source": "https://raw.githubusercontent.com/mlresearch/v337/main/assets/hamid26a/hamid26a.pdf#page=4",
+          "width": 1905, "height": 609
+        },
         "authors": ["Sagad Hamid", "Dooho Lee", "Myeong Kong", "Tanya Braun", "Jaemin Yoo"],
         "venue": "UAI 2026",
         "venueHref": "https://www.auai.org/uai2026/",
         "links": [
-          { "label": "Paper", "href": "https://proceedings.mlr.press/v337/hamid26a.html" },
-          { "label": "Code", "href": "https://github.com/hagad1/graphpu-cpu" }
+          { "label": "PMLR", "href": "https://proceedings.mlr.press/v337/hamid26a.html" },
+          { "label": "GitHub", "href": "https://github.com/hagad1/graphpu-cpu" },
+          { "label": "OpenReview", "href": "https://openreview.net/forum?id=XTLgNz58aB" }
         ]
       },
       {
         "year": "2025",
         "title": "Aggregation Buffer: Revisiting DropEdge with a New Parameter Block",
+        "preview": {
+          "summary": "Aggregation Buffer examines why DropEdge alone offers limited robustness improvements in many graph neural networks. It adds a dedicated parameter block that refines aggregation outputs and is trained with edge perturbations while the original model weights stay frozen. The approach improves robustness to structural changes and addresses degree bias and structural disparity.",
+          "image": "assets/papers/aggregation-buffer.png",
+          "alt": "An Aggregation Buffer is inserted into each trained GNN layer, then trained using DropEdge while the original GNN weights remain frozen.",
+          "caption": "Figure 3. Integrating and training Aggregation Buffer.",
+          "source": "https://arxiv.org/pdf/2505.20840#page=4",
+          "width": 915, "height": 435
+        },
         "authors": ["Dooho Lee", "Myeong Kong", "Sagad Hamid", "Cheonwoo Lee", "Jaemin Yoo"],
         "venue": "ICML 2025",
         "venueHref": "https://icml.cc/Conferences/2025",
         "links": [
-          { "label": "Paper", "href": "https://proceedings.mlr.press/v267/lee25n.html" },
-          { "label": "Code", "href": "https://github.com/dooho00/agg-buffer" }
+          { "label": "PMLR", "href": "https://proceedings.mlr.press/v267/lee25n.html" },
+          { "label": "arXiv", "href": "https://arxiv.org/abs/2505.20840" },
+          { "label": "GitHub", "href": "https://github.com/dooho00/agg-buffer" },
+          { "label": "OpenReview", "href": "https://openreview.net/forum?id=sUVOXjOglX" }
         ]
       }
     ]

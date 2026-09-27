@@ -240,7 +240,8 @@ def render_expandable_entries(item: dict[str, Any], links: list[dict[str, Any]])
 def render_publications(data: dict[str, Any]) -> str:
     item = data["publications"]
     rows = []
-    for entry in item["entries"]:
+    dialogs = []
+    for index, entry in enumerate(item["entries"]):
         venue_class = "pub-year"
         if entry.get("venues"):
             venue_class = "pub-year pub-year-stacked"
@@ -258,26 +259,43 @@ def render_publications(data: dict[str, Any]) -> str:
                 venue = e(venue_label)
         publication_links = ""
         if entry.get("links"):
-            link_items = ' <span aria-hidden="true">&middot;</span> '.join(
+            link_items = ' '.join(
                 f'<a href="{e(link_item["href"])}">{e(link_item["label"])}<span aria-hidden="true">&#8599;</span></a>'
                 for link_item in entry["links"]
             )
-            publication_links = f' <span class="pub-links"><span aria-hidden="true">&middot;</span> {link_items}</span>'
+            publication_links = f'<div class="pub-links">{link_items}</div>'
+        title = e(entry["title"])
+        preview = entry.get("preview")
+        if preview:
+            dialog_id = f"paper-{index}"
+            title = f'<button type="button" class="paper-open" data-dialog="{dialog_id}" aria-haspopup="dialog" aria-controls="{dialog_id}" title="View paper overview">{title}</button>'
+            figure = ""
+            if preview.get("image"):
+                figure = f'''<figure class="paper-figure">
+                  <a href="{e(preview['image'])}" target="_blank" rel="noopener" title="Open full-size figure"><img src="{e(preview['image'])}" alt="{e(preview['alt'])}" width="{e(preview['width'])}" height="{e(preview['height'])}" loading="lazy" /></a>
+                  <figcaption><a href="{e(preview['source'])}">{e(preview['caption'])} Source &#8599;</a></figcaption>
+                </figure>'''
+            dialogs.append(f'''<dialog id="{dialog_id}" class="info-dialog paper-dialog" aria-labelledby="{dialog_id}-title">
+                <button type="button" class="dialog-close" aria-label="Close" title="Close" autofocus>&times;</button>
+                <div class="pub-year">{venue}</div>
+                <h2 id="{dialog_id}-title">{e(entry['title'])}</h2>
+                <p class="paper-authors">{author_list(entry['authors'], item['highlightAuthor'])}</p>
+                <p class="paper-summary">{e(preview['summary'])}</p>
+                {figure}
+                {publication_links}
+              </dialog>''')
         parts = [
-            f"                <h3>{e(entry['title'])}</h3>",
-            f"                <p class=\"authors\">{author_list(entry['authors'], item['highlightAuthor'])}{publication_links}</p>",
+            f'<div class="publication-heading"><h3>{title}</h3><div class="{venue_class}">{venue}</div></div>',
+            f'<div class="publication-meta"><p class="authors">{author_list(entry["authors"], item["highlightAuthor"])}</p>{publication_links}</div>',
         ]
         details = "\n".join(parts)
         rows.append(
             f"""            <article class="publication">
-              <div class="{venue_class}">{venue}</div>
-              <div>
 {details}
-              </div>
             </article>"""
         )
     body = f'          <div class="publication-list">\n' + "\n".join(rows) + "\n          </div>"
-    return section(item["id"], item["title"], body)
+    return section(item["id"], item["title"], body) + "\n" + "\n".join(dialogs)
 
 
 def render_awards(data: dict[str, Any]) -> str:
@@ -327,7 +345,7 @@ def render_experience(data: dict[str, Any]) -> str:
         if entry.get("subtitle"):
             meta += " &middot; " + e(entry["subtitle"])
         rows.append(f'''<article class="work-row">
-          <button type="button" class="work-open" data-dialog="{dialog_id}" aria-haspopup="dialog" aria-controls="{dialog_id}" aria-label="{e(entry['organization'])}: view experience details"><span aria-hidden="true">&#8599;</span></button>
+          <button type="button" class="work-open" data-dialog="{dialog_id}" aria-haspopup="dialog" aria-controls="{dialog_id}" aria-label="{e(entry['organization'])}: view experience details"><span aria-hidden="true">&#8250;</span></button>
           <h3><span class="work-company">{organization}</span> &middot; {role}</h3>
           <p class="work-meta">{meta}</p>
         </article>''')
@@ -355,7 +373,7 @@ def render_secondary(data: dict[str, Any]) -> str:
     buttons, dialogs = [], []
     for index, (title, body) in enumerate(zip(titles, bodies)):
         dialog_id = f"additional-{index}"
-        buttons.append(f'<button type="button" data-dialog="{dialog_id}" aria-haspopup="dialog" aria-controls="{dialog_id}">{e(title)}<span aria-hidden="true">&#8599;</span></button>')
+        buttons.append(f'<button type="button" data-dialog="{dialog_id}" aria-haspopup="dialog" aria-controls="{dialog_id}">{e(title)}<span aria-hidden="true">&#8250;</span></button>')
         body = body.replace('<h2>', f'<h2 id="{dialog_id}-title">', 1)
         body = body.replace('<details class="expandable-details">', '<details class="expandable-details" open>')
         dialogs.append(f'<dialog id="{dialog_id}" class="info-dialog" aria-labelledby="{dialog_id}-title"><button type="button" class="dialog-close" aria-label="Close" title="Close">&times;</button>{body}</dialog>')
@@ -427,6 +445,12 @@ def main() -> None:
         destination = dist / asset
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / asset, destination)
+    for entry in data["publications"]["entries"]:
+        image = entry.get("preview", {}).get("image")
+        if image:
+            destination = dist / image
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT / image, destination)
     fonts = dist / "assets" / "fonts"
     fonts.mkdir(parents=True, exist_ok=True)
     for asset in (ROOT / "assets" / "fonts").iterdir():
