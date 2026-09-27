@@ -74,7 +74,7 @@ def attrs(**kwargs: Any) -> str:
 def link(item: dict[str, Any]) -> str:
     icon = icon_svg(item.get("icon"))
     return (
-        f"<a class=\"icon-link\"{attrs(href=item['href'], download=item.get('download'))}>"
+        f"<a class=\"icon-link\"{attrs(href=item['href'], download=item.get('download'), title=item['label'], aria_label=item['label'])}>"
         f"{icon}<span>{e(item['label'])}</span></a>"
     )
 
@@ -126,13 +126,15 @@ def render_profile(data: dict[str, Any]) -> str:
     links = "\n".join(f"            {link(item)}" for item in profile["links"])
     return f"""      <header class="profile">
         <img src="{e(profile['photo'])}" alt="{e(profile['photoAlt'])}" width="160" height="160" />
-        <div class="profile-copy">
-          <h1>{e(profile['name'])}</h1>
-          <p class="role">{rich_text(profile['role'], inline_links)}</p>
-        </div>
-        <p class="tagline">{e(profile['tagline'])}</p>
-        <div class="links" aria-label="Profile links">
+        <div class="profile-content">
+          <div class="profile-copy">
+            <h1>{e(profile['name'])}</h1>
+            <p class="role">{rich_text(profile['role'], inline_links)}</p>
+          </div>
+          <p class="tagline">{e(profile['tagline'])}</p>
+          <div class="links" aria-label="Profile links">
 {links}
+          </div>
         </div>
       </header>"""
 
@@ -163,7 +165,8 @@ def render_timeline_section(item: dict[str, Any], links: list[dict[str, Any]]) -
         date = e(entry["date"])
         if entry.get("dateEnd"):
             date = f'{date}<span class="date-end">- {e(entry["dateEnd"])}</span>'
-        parts = timeline_heading(entry, links)
+        heading = "\n".join(timeline_heading(entry, links))
+        parts = []
         if entry.get("subtitle"):
             parts.append(f'                <p class="muted">{rich_text(entry["subtitle"], links)}</p>')
         for index, line in enumerate(entry.get("lines", [])):
@@ -174,8 +177,11 @@ def render_timeline_section(item: dict[str, Any], links: list[dict[str, Any]]) -
         body = "\n".join(parts)
         rows.append(
             f"""            <article class="timeline-row">
+              <div class="timeline-heading">
+{heading}
+              </div>
               <div class="date">{date}</div>
-              <div>
+              <div class="timeline-details">
 {body}
               </div>
             </article>"""
@@ -384,7 +390,7 @@ def render_models(data: dict[str, Any]) -> str:
     rows = []
     for model in data["models"]["entries"]:
         links = " ".join(f'<a href="{e(link["href"])}">{e(link["label"])} <span aria-hidden="true">&#8599;</span></a>' for link in model["links"])
-        rows.append(f'<article class="model-row"><div class="model-heading"><h3>{e(model["name"])}</h3><span class="model-org">{e(model["organization"])}</span><div class="model-links">{links}</div></div>{paragraph(model["description"])}</article>')
+        rows.append(f'<article class="model-row"><div class="model-heading"><h3>{e(model["name"])}</h3><span class="model-org">{e(model["organization"])}</span></div>{paragraph(model["description"])}<div class="model-links">{links}</div></article>')
     return section(data["models"]["id"], data["models"]["title"], "".join(rows))
 
 
