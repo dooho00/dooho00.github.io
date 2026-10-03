@@ -92,7 +92,7 @@ h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.5; overflow-wrap: any
 .publication-meta .authors { grid-column: 1; grid-row: 2; }
 .publication-meta .pub-links { grid-column: 2; grid-row: 2; }
 .pub-year { display: flex; flex-shrink: 0; align-items: baseline; gap: 5px; font-size: .75rem; line-height: 1.5; }
-.pub-year a { display: inline-flex; white-space: nowrap; padding: 2px 7px; border-radius: 3px; background: #f0f2f1; color: #4b534e; }
+.pub-year a, .pub-year time { display: inline-flex; white-space: nowrap; padding: 2px 7px; border-radius: 3px; background: #f0f2f1; color: #4b534e; }
 .pub-year a:hover { background: #e6eae7; text-decoration: none; }
 .pub-year br { display: none; }
 .publication h3 { font-family: var(--font-serif); font-size: var(--text-title); font-weight: 400; line-height: 1.4; }

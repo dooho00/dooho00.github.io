@@ -29,6 +29,7 @@
   "nav": [
     { "label": "About", "href": "#about" },
     { "label": "Publications", "href": "#publications" },
+    { "label": "Preprints", "href": "#preprints" },
     { "label": "Experience", "href": "#experience" },
     { "label": "Education", "href": "#education" }
   ],
@@ -72,6 +73,16 @@
     "id": "models",
     "title": "Models",
     "entries": [
+      {
+        "name": "Ephris",
+        "organization": "Nums AI",
+        "description": "A graph foundation model for node classification through in-context learning.",
+        "links": [
+          { "label": "arXiv", "href": "https://arxiv.org/abs/2609.37057" },
+          { "label": "GitHub", "href": "https://github.com/nums-ai/ephris" },
+          { "label": "Hugging Face", "href": "https://huggingface.co/nums-ai/ephris" }
+        ]
+      },
       {
         "name": "Causilo",
         "organization": "Nums AI",
@@ -190,6 +201,77 @@
           { "label": "arXiv", "href": "https://arxiv.org/abs/2505.20840" },
           { "label": "GitHub", "href": "https://github.com/dooho00/agg-buffer" },
           { "label": "OpenReview", "href": "https://openreview.net/forum?id=sUVOXjOglX" }
+        ]
+      }
+    ]
+  },
+  "preprints": {
+    "id": "preprints",
+    "title": "Preprints",
+    "highlightAuthor": "Dooho Lee",
+    "entries": [
+      {
+        "year": "2026",
+        "date": "2026-10-01",
+        "venue": "1 Oct 2026",
+        "title": "Distillation of Tabular Foundation Models into Efficient Predictors",
+        "authors": ["Minho Jeong", "Dooho Lee", "Jinmo Lee", "Jaemin Yoo"],
+        "links": [
+          { "label": "arXiv", "href": "https://arxiv.org/abs/2610.01435" }
+        ]
+      },
+      {
+        "year": "2026",
+        "date": "2026-09-30",
+        "venue": "30 Sep 2026",
+        "title": "NodeGround: A Node Classification Benchmark in the Graph Foundation Model Era",
+        "authors": ["Jinmo Lee", "Dooho Lee", "Minho Jeong", "Jaemin Yoo"],
+        "links": [
+          { "label": "arXiv", "href": "https://arxiv.org/abs/2609.39673" }
+        ]
+      },
+      {
+        "year": "2026",
+        "date": "2026-09-30",
+        "venue": "30 Sep 2026",
+        "title": "Molecular Property Prediction under Structural Shift with Tabular Foundation Models",
+        "authors": ["Jinmo Lee", "Dooho Lee", "Minho Jeong", "Jaemin Yoo"],
+        "links": [
+          { "label": "arXiv", "href": "https://arxiv.org/abs/2609.38744" }
+        ]
+      },
+      {
+        "year": "2026",
+        "date": "2026-09-29",
+        "venue": "29 Sep 2026",
+        "title": "Message Passing Does More with Less for In-Context Learning on Graphs",
+        "authors": ["Dooho Lee", "Jinmo Lee", "Minho Jeong", "Kijung Shin", "Jaemin Yoo"],
+        "links": [
+          { "label": "arXiv", "href": "https://arxiv.org/abs/2609.37057" },
+          { "label": "GitHub", "href": "https://github.com/nums-ai/ephris" },
+          { "label": "Hugging Face", "href": "https://huggingface.co/nums-ai/ephris" }
+        ]
+      },
+      {
+        "year": "2026",
+        "date": "2026-09-29",
+        "venue": "29 Sep 2026",
+        "title": "TaskBridge: Bridging Unsupervised Tabular Anomaly Detection and In-Context Learning via Virtual Tasks",
+        "authors": ["Doyun Choi", "Dooho Lee", "Jaemin Yoo"],
+        "links": [
+          { "label": "arXiv", "href": "https://arxiv.org/abs/2609.36968" }
+        ]
+      },
+      {
+        "year": "2026",
+        "date": "2026-09-19",
+        "venue": "19 Sep 2026",
+        "title": "Causilo Technical Report",
+        "authors": ["Minyong Cho", "Minho Jeong", "Dooho Lee", "Jinmo Lee", "Jaemin Yoo"],
+        "links": [
+          { "label": "arXiv", "href": "https://arxiv.org/abs/2609.22866" },
+          { "label": "GitHub", "href": "https://github.com/nums-ai/causilo" },
+          { "label": "Hugging Face", "href": "https://huggingface.co/nums-ai/causilo" }
         ]
       }
     ]

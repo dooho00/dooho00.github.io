@@ -4,7 +4,7 @@ from html import escape
 from pathlib import Path
 from xml.etree import ElementTree
 
-from build import render_html, render_models, render_timeline_section
+from build import render_html, render_models, render_publications, render_timeline_section
 from PIL import Image
 
 
@@ -40,7 +40,7 @@ class HomepageTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         data = json.loads((root / "data/site.json").read_text())
         html = render_html(data)
-        entries = data["publications"]["entries"]
+        entries = data["publications"]["entries"] + data["preprints"]["entries"]
         self.assertEqual(html.count('class="publication-heading"'), len(entries))
         self.assertEqual(html.count('class="publication-meta"'), len(entries))
         for entry in entries:
@@ -49,6 +49,28 @@ class HomepageTests(unittest.TestCase):
                 self.assertIn(f'href="{escape(link["href"], quote=True)}"', html)
         self.assertIn('aria-label="Profile links"', html)
         self.assertIn('aria-label="Section navigation"', html)
+
+    def test_preprints_are_separate_and_preserve_metadata(self):
+        root = Path(__file__).resolve().parents[1]
+        data = json.loads((root / "data/site.json").read_text())
+        section = ElementTree.fromstring(render_publications(data, "preprints"))
+        self.assertEqual(section.get("id"), "preprints")
+        self.assertEqual(section.find("h2").text, "Preprints")
+        rows = section.findall(".//article")
+        entries = data["preprints"]["entries"]
+        self.assertEqual(len(rows), len(entries))
+        for row, entry in zip(rows, entries):
+            self.assertEqual(row.find(".//h3").text, entry["title"])
+            self.assertEqual(row.find(".//time").get("datetime"), entry["date"])
+            self.assertEqual(row.find(".//time").text, entry["venue"])
+            authors = "".join(row.find(".//p[@class='authors']").itertext())
+            for author in entry["authors"]:
+                self.assertIn(author, authors)
+            self.assertEqual([link.get("href") for link in row.findall(".//div[@class='pub-links']/a")],
+                             [link["href"] for link in entry["links"]])
+        self.assertEqual([entry["date"] for entry in entries],
+                         sorted((entry["date"] for entry in entries), reverse=True))
+        self.assertIn({"label": "Preprints", "href": "#preprints"}, data["nav"])
 
     def test_paper_previews_have_matching_dialogs_and_real_figures(self):
         root = Path(__file__).resolve().parents[1]

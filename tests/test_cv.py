@@ -19,7 +19,7 @@ class CVTests(unittest.TestCase):
             output = Path(directory) / "cv.pdf"
             build_cv(data, output)
             reader = PdfReader(output)
-            self.assertLessEqual(len(reader.pages), 2)
+            self.assertLessEqual(len(reader.pages), 3)
             self.assertEqual(len(reader.pages[0].images), 1)
             content = " ".join(" ".join(page.extract_text().split()) for page in reader.pages)
             links = {
@@ -34,7 +34,7 @@ class CVTests(unittest.TestCase):
                     self.assertIn(link["href"], links)
             for paragraph in data["summary"]["paragraphs"]:
                 self.assertIn(paragraph, content)
-            for publication in data["publications"]["entries"]:
+            for publication in data["publications"]["entries"] + data["preprints"]["entries"]:
                 self.assertIn(publication["title"], content)
                 for link in publication.get("links", []):
                     self.assertIn(link["href"], links)

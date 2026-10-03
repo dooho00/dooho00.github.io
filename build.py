@@ -243,8 +243,8 @@ def render_expandable_entries(item: dict[str, Any], links: list[dict[str, Any]])
     return section(item["id"], item["title"], render_expandable_entries_body(item, links))
 
 
-def render_publications(data: dict[str, Any]) -> str:
-    item = data["publications"]
+def render_publications(data: dict[str, Any], section_key: str = "publications") -> str:
+    item = data[section_key]
     rows = []
     dialogs = []
     for index, entry in enumerate(item["entries"]):
@@ -259,7 +259,9 @@ def render_publications(data: dict[str, Any]) -> str:
             )
         else:
             venue_label = entry.get("venue", entry["year"])
-            if entry.get("venueHref"):
+            if entry.get("date"):
+                venue = f'<time datetime="{e(entry["date"])}">{e(venue_label)}</time>'
+            elif entry.get("venueHref"):
                 venue = f'<a href="{e(entry["venueHref"])}">{e(venue_label)}</a>'
             else:
                 venue = e(venue_label)
@@ -273,7 +275,8 @@ def render_publications(data: dict[str, Any]) -> str:
         title = e(entry["title"])
         preview = entry.get("preview")
         if preview:
-            dialog_id = f"paper-{index}"
+            dialog_prefix = "paper" if section_key == "publications" else item["id"]
+            dialog_id = f"{dialog_prefix}-{index}"
             title = f'<button type="button" class="paper-open" data-dialog="{dialog_id}" aria-haspopup="dialog" aria-controls="{dialog_id}" title="View paper overview">{title}</button>'
             figure = ""
             if preview.get("image"):
@@ -402,6 +405,7 @@ def render_html(data: dict[str, Any]) -> str:
             section(data["summary"]["id"], data["summary"]["title"], "\n".join(paragraph(value, links=inline_links) for value in data["summary"]["paragraphs"])),
             render_models(data),
             render_publications(data),
+            render_publications(data, "preprints"),
             render_experience(data),
             render_timeline_section(data["education"], inline_links),
             render_secondary(data),

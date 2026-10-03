@@ -112,17 +112,18 @@ def build_cv(data, output):
             p(" &nbsp; | &nbsp; ".join(anchor(link["label"], link["href"]) for link in model["links"]), "muted", True),
         ])
 
-    publications = data["publications"]
-    heading(publications["title"])
-    for item in publications["entries"]:
-        venues = item.get("venues") or [{"label": item.get("venue", item["year"]), "href": item.get("venueHref")}]
-        venue_text = " &nbsp; | &nbsp; ".join(anchor(v["label"], v["href"]) if v.get("href") else text(v["label"]) for v in venues)
-        authors = ", ".join(f"<b>{text(a)}</b>" if a == publications["highlightAuthor"] else text(a) for a in item["authors"])
-        parts = [p(item["title"], "title"), p(authors, "body", True)]
-        if item.get("links"):
-            venue_text += " &nbsp; | &nbsp; " + " &nbsp; | &nbsp; ".join(anchor(link["label"], link["href"]) for link in item["links"])
-        parts.append(p(venue_text, "muted", True))
-        entry(parts)
+    for key in ("publications", "preprints"):
+        publications = data[key]
+        heading(publications["title"])
+        for item in publications["entries"]:
+            venues = item.get("venues") or [{"label": item.get("venue", item["year"]), "href": item.get("venueHref")}]
+            venue_text = " &nbsp; | &nbsp; ".join(anchor(v["label"], v["href"]) if v.get("href") else text(v["label"]) for v in venues)
+            authors = ", ".join(f"<b>{text(a)}</b>" if a == publications["highlightAuthor"] else text(a) for a in item["authors"])
+            parts = [p(item["title"], "title"), p(authors, "body", True)]
+            if item.get("links"):
+                venue_text += " &nbsp; | &nbsp; " + " &nbsp; | &nbsp; ".join(anchor(link["label"], link["href"]) for link in item["links"])
+            parts.append(p(venue_text, "muted", True))
+            entry(parts)
 
     experience(data["workExperience"])
     experience(data["industrialProject"])
