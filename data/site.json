@@ -75,8 +75,9 @@
     "entries": [
       {
         "name": "Ephris",
+        "domain": "Graph",
         "organization": "Nums AI",
-        "description": "A graph foundation model for node classification through in-context learning.",
+        "description": "A graph foundation model for node classification.",
         "links": [
           { "label": "arXiv", "href": "https://arxiv.org/abs/2609.37057" },
           { "label": "GitHub", "href": "https://github.com/nums-ai/ephris" },
@@ -85,6 +86,7 @@
       },
       {
         "name": "Causilo",
+        "domain": "Tabular",
         "organization": "Nums AI",
         "description": "A tabular foundation model for classification and regression.",
         "links": [
@@ -336,8 +338,7 @@
         "role": "Graph-Based Tracking of News Propagation on Social Media Using LLMs",
         "organization": "National Cyber Security Research Institute",
         "subtitle": "Republic of Korea",
-        "summary": "Developed graph-based analysis for tracking social-media news propagation with LLMs.",
-        "description": "Worked on an industrial research project for graph-based tracking of news propagation on social media using LLMs."
+        "summary": "Worked on an industrial research project for graph-based tracking of news propagation on social media using LLMs."
       }
     ]
   },
@@ -387,18 +388,28 @@
     "title": "Teaching Experience",
     "entries": [
       {
+        "date": "Spring 2026",
+        "role": "Teaching Assistant, Introduction to Electronics Design Lab",
+        "organization": "EE300, KAIST"
+      },
+      {
+        "date": "Fall 2026",
+        "role": "Teaching Assistant, Seminar<Colloquium>",
+        "organization": "EE931/932, KAIST"
+      },
+      {
         "date": "Spring/Fall 2025",
         "role": "Teaching Assistant, Programming Structures for Electrical Engineering",
         "organization": "EE209, KAIST",
-        "summary": "Developed auto-graded programming assignments for 200+ EE majors each semester.",
-        "description": "Developed a data structures programming assignment with auto-grading for 200+ Electrical Engineering majors each semester."
+        "summary": "Developed a data structures programming assignment with auto-grading for 200+ Electrical Engineering majors each semester; assignments/mmr_db.",
+        "links": [
+          { "label": "assignments/mmr_db", "href": "https://github.com/kaist-ee209/kaist-ee209.github.io" }
+        ]
       },
       {
         "date": "Fall 2025",
         "role": "Teaching Assistant, Foundation of Big Data Analytics",
-        "organization": "EE412, KAIST",
-        "summary": "Supported course operation and instruction for big data analytics.",
-        "description": "Supported course operations and instruction for Foundation of Big Data Analytics."
+        "organization": "EE412, KAIST"
       }
     ]
   },
@@ -417,6 +428,11 @@
     "id": "service",
     "title": "Professional Service",
     "entries": [
+      {
+        "text": "Reviewer, ICLR (2027)",
+        "href": "https://iclr.cc/Conferences/2027",
+        "linkText": "ICLR (2027)"
+      },
       {
         "text": "Reviewer, GFM @ ICML 2026",
         "href": "https://sites.google.com/view/gfmicml-2026",

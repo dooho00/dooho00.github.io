@@ -209,7 +209,7 @@ def render_expandable_entries_body(item: dict[str, Any], links: list[dict[str, A
         role = entry.get("role", entry.get("title", ""))
         summary = ""
         if entry.get("summary"):
-            summary = f'\n                  <span class="entry-impact">{rich_text(entry["summary"], links)}</span>'
+            summary = f'\n                  <span class="entry-impact">{rich_text(entry["summary"], links + entry.get("links", []))}</span>'
         if entry.get("description"):
             body = f"""              <details class="expandable-details">
                 <summary>
@@ -393,8 +393,8 @@ def render_models(data: dict[str, Any]) -> str:
     rows = []
     for model in data["models"]["entries"]:
         links = " ".join(f'<a href="{e(link["href"])}">{e(link["label"])} <span aria-hidden="true">&#8599;</span></a>' for link in model["links"])
-        rows.append(f'<article class="model-row"><div class="model-heading"><h3>{e(model["name"])}</h3><span class="model-org">{e(model["organization"])}</span></div>{paragraph(model["description"])}<div class="model-links">{links}</div></article>')
-    return section(data["models"]["id"], data["models"]["title"], "".join(rows))
+        rows.append(f'<article class="model-card"><div class="model-heading"><h3>{e(model["name"])}</h3><span class="model-domain">{e(model["domain"])}</span></div>{paragraph(model["description"])}<div class="model-links">{links}</div></article>')
+    return section(data["models"]["id"], data["models"]["title"], '<div class="model-grid">' + "".join(rows) + '</div>')
 
 
 def render_html(data: dict[str, Any]) -> str:

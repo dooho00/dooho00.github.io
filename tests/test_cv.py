@@ -40,7 +40,13 @@ class CVTests(unittest.TestCase):
                     self.assertIn(link["href"], links)
             for section in ("workExperience", "industrialProject", "teaching"):
                 for entry in data[section]["entries"]:
-                    self.assertIn(entry["description"], content)
+                    self.assertIn(entry["role"], content)
+                    if entry.get("description"):
+                        self.assertIn(entry["description"], content)
+                    elif entry.get("summary"):
+                        self.assertIn(entry["summary"], content)
+                    for link in entry.get("links", []):
+                        self.assertIn(link["href"], links)
             for award in data["awards"]["items"]:
                 self.assertIn(award["text"], content)
             for page in reader.pages:

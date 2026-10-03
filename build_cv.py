@@ -76,7 +76,10 @@ def build_cv(data, output):
             parts.append(p(" | ".join(meta_text), "muted", True))
             description = item.get("description") or item.get("summary")
             if description:
-                parts.append(p(description))
+                description_text = text(description)
+                for link in item.get("links", []):
+                    description_text = description_text.replace(text(link["label"]), anchor(link["label"], link["href"]), 1)
+                parts.append(p(description_text, markup=True))
             parts.extend(p("- " + bullet) for bullet in item.get("bullets", []))
             entry(parts)
 
