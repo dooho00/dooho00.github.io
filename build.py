@@ -440,6 +440,7 @@ def render_html(data: dict[str, Any]) -> str:
       </footer>
     </div>
     <script src="dialogs.js"></script>
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "5cff3b02801c4313a30e323efab74b1c"}}'></script>
   </body>
 </html>
 """

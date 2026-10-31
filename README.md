@@ -29,6 +29,18 @@ the original copyright notices and licenses ship in `assets/fonts/`.
 
 Open `index.html` directly in a browser.
 
+## Visitor Analytics
+
+Cloudflare Web Analytics is registered for `dooho00.github.io` in Dooho's
+Cloudflare account. The public beacon snippet is included by `build.py`; its
+site token is an embed identifier, not an account API credential. GitHub Pages
+hosting and DNS are unchanged. View statistics under Cloudflare's
+**Web Analytics -> dooho00.github.io**.
+
+This records aggregate visits, page views, referral sources, and performance,
+not custom link-click or CV-download events. Local previews are not registered
+analytics hosts.
+
 ## GitHub Pages
 
 The Pages workflow builds both outputs before deploying `dist/` on pushes to
