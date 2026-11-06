@@ -87,7 +87,10 @@ class HomepageTests(unittest.TestCase):
         data = json.loads((root / "data/site.json").read_text())
         html = render_html(data)
         for index, entry in enumerate(data["publications"]["entries"]):
-            preview = entry["preview"]
+            preview = entry.get("preview")
+            if not preview:
+                self.assertNotIn(f'data-dialog="paper-{index}"', html)
+                continue
             self.assertIn(f'data-dialog="paper-{index}"', html)
             self.assertIn(f'id="paper-{index}"', html)
             self.assertIn(f'aria-labelledby="paper-{index}-title"', html)

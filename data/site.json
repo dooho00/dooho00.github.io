@@ -103,6 +103,14 @@
     "highlightAuthor": "Dooho Lee",
     "entries": [
       {
+        "year": "2027",
+        "title": "Structural Domain Adaptation via Operator Alignment",
+        "authors": ["Biniyam Aschalew Tolera", "Akotet Yeshaw Tesema", "Cheonwoo Lee", "Dooho Lee", "Aikta Arya", "Jaemin Yoo"],
+        "venue": "WSDM 2027",
+        "venueHref": "https://www.wsdm-conference.org/2027/",
+        "links": []
+      },
+      {
         "year": "2026",
         "title": "Node4All: Learning Node Representation Beyond Datasets",
         "preview": {
