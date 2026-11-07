@@ -437,6 +437,11 @@
     "title": "Professional Service",
     "entries": [
       {
+        "text": "Reviewer, WWW (2027)",
+        "href": "https://www2027.thewebconf.org/",
+        "linkText": "WWW (2027)"
+      },
+      {
         "text": "Reviewer, ICLR (2027)",
         "href": "https://iclr.cc/Conferences/2027",
         "linkText": "ICLR (2027)"
